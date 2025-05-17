@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>王奥（Orville Wang） | TransportX</title>
+    <link>http://localhost:1313/author/%E7%8E%8B%E5%A5%A5orville-wang/</link>
+      <atom:link href="http://localhost:1313/author/%E7%8E%8B%E5%A5%A5orville-wang/index.xml" rel="self" type="application/rss+xml" />
+    <description>王奥（Orville Wang）</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
+    <image>
+      <url>http://localhost:1313/author/%E7%8E%8B%E5%A5%A5orville-wang/avatar_hu_4f5d2204ca9ee72e.jpg</url>
+      <title>王奥（Orville Wang）</title>
+      <link>http://localhost:1313/author/%E7%8E%8B%E5%A5%A5orville-wang/</link>
+    </image>
+    
+  </channel>
+</rss>

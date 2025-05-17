@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Liu Yanjun | TransportX</title>
+    <link>http://localhost:1313/author/liu-yanjun/</link>
+      <atom:link href="http://localhost:1313/author/liu-yanjun/index.xml" rel="self" type="application/rss+xml" />
+    <description>Liu Yanjun</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
+    <image>
+      <url>http://localhost:1313/author/liu-yanjun/avatar_hu_40ec80f09ecc8197.jpg</url>
+      <title>Liu Yanjun</title>
+      <link>http://localhost:1313/author/liu-yanjun/</link>
+    </image>
+    
+    <item>
+      <title>Liu Yanjun</title>
+      <link>http://localhost:1313/author/liu-yanjun/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/author/liu-yanjun/</guid>
+      <description>&lt;p&gt;吳恩達 is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.&lt;/p&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

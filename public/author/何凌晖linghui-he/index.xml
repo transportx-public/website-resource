@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>何凌晖（Linghui He） | TransportX</title>
+    <link>http://localhost:1313/author/%E4%BD%95%E5%87%8C%E6%99%96linghui-he/</link>
+      <atom:link href="http://localhost:1313/author/%E4%BD%95%E5%87%8C%E6%99%96linghui-he/index.xml" rel="self" type="application/rss+xml" />
+    <description>何凌晖（Linghui He）</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
+    <image>
+      <url>http://localhost:1313/author/%E4%BD%95%E5%87%8C%E6%99%96linghui-he/avatar_hu_1f539612c22a3adf.jpg</url>
+      <title>何凌晖（Linghui He）</title>
+      <link>http://localhost:1313/author/%E4%BD%95%E5%87%8C%E6%99%96linghui-he/</link>
+    </image>
+    
+  </channel>
+</rss>

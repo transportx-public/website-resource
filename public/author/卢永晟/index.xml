@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>卢永晟 | TransportX</title>
+    <link>http://localhost:1313/author/%E5%8D%A2%E6%B0%B8%E6%99%9F/</link>
+      <atom:link href="http://localhost:1313/author/%E5%8D%A2%E6%B0%B8%E6%99%9F/index.xml" rel="self" type="application/rss+xml" />
+    <description>卢永晟</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
+    <image>
+      <url>http://localhost:1313/author/%E5%8D%A2%E6%B0%B8%E6%99%9F/avatar_hu_14d8c3f406f4f0c7.jpg</url>
+      <title>卢永晟</title>
+      <link>http://localhost:1313/author/%E5%8D%A2%E6%B0%B8%E6%99%9F/</link>
+    </image>
+    
+  </channel>
+</rss>
