@@ -1,27 +1,27 @@
 ---
-title: "Wenbin Zha"
-first_name: "Wenbin"
-last_name: "Zha"
+title: "Yanjun Liu"
+first_name: "Yanjun"
+last_name: "Liu"
 authors:
-  - "Wenbin Zha"
+  - "Yanjun Liu"
 superuser: false
 role: "Ph.D Student"
 organizations: []
 bio: ""
 interests:
-  - "Travel Choice Modeling"
-enrollment_year: 2020
+  - "Human Mobility"
+enrollment_year: 2023
 academic_degree: "Ph.D"
 academic_status: "Student"
-name_chinese: "查文斌"
+name_chinese: "刘彦君"
 education:
   courses: []
-email: "wenbinzha@tongji.edu.cn"
+email: "liu666yanjun@163.con"
 social:
   - icon: "envelope"
     icon_pack: "fas"
-    link: "mailto:wenbinzha@tongji.edu.cn"
+    link: "mailto:liu666yanjun@163.con"
 highlight_name: false
 user_groups:
-  - "2020"
+  - "2023"
 ---

@@ -1,28 +1,30 @@
 ---
-title: "Yilin Hao"
-first_name: "Yilin"
-last_name: "Hao"
+title: "Ao Wang"
+first_name: "Ao"
+last_name: "Wang"
 authors:
-  - "Yilin Hao"
+  - "Ao Wang"
 superuser: false
 role: "Master Graduate"
 organizations: []
 bio: ""
 interests:
-  - "Travel behavior analysis"
-  - "data pattern mining and city visitor identification"
-  - "carbon neutrality"
+  - "Large Language Model"
+  - "Blockchain"
 enrollment_year: 2023
 academic_degree: "Master"
 academic_status: "Graduate"
-name_chinese: "郝一霖"
+name_chinese: "王奥"
 education:
   courses: []
-email: "yilinh517@gmail.com"
+email: "2331623@tongji.edu.cn"
 social:
   - icon: "envelope"
     icon_pack: "fas"
-    link: "mailto:yilinh517@gmail.com"
+    link: "mailto:2331623@tongji.edu.cn"
+  - icon: "globe"
+    icon_pack: "fas"
+    link: "https://www.orville.wang/"
 highlight_name: false
 user_groups:
   - "2023"

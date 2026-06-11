@@ -1,67 +1,29 @@
 ---
-# Display name
-title: Linghui He
-
-# Full name (for SEO)
-first_name: Linghui
-last_name: He
-
-# Username (this should match the folder name)
+title: "Linghui He"
+first_name: "Linghui"
+last_name: "He"
 authors:
-  - Linghui He
-
-# Is this the primary user of the site?
+  - "Linghui He"
 superuser: false
-
-# Role/position
-role: Eason_he@yeah.net
-
-# Organizations/Affiliations
+role: "Ph.D Graduate"
 organizations:
-  - name: Stanford University
+  - name: "上海东方枢纽投资建设发展集团有限公司"
     url: ''
-
-# Short bio (displayed in user profile at end of posts)
-bio: My research interests include distributed robotics, mobile computing and programmable matter.
-
+bio: ""
 interests:
-  - Urban Transportation Emergency Management and Data Analytics
-
+  - "Urban Transportation Emergency Management and Data Analytics"
 enrollment_year: 2019
-
+academic_degree: "Ph.D"
+academic_status: "Graduate"
+name_chinese: "何凌晖"
 education:
-  courses:
-    - course: PhD in Artificial Intelligence
-      institution: Stanford University
-      year: 2012
-    - course: MEng in Artificial Intelligence
-      institution: Massachusetts Institute of Technology
-      year: 2009
-    - course: BSc in Artificial Intelligence
-      institution: Massachusetts Institute of Technology
-      year: 2008
-
-# Social/Academic Networking
-# For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
-#   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
-#   form "mailto:your-email@example.com" or "#contact" for contact widget.
+  courses: []
+email: "Eason_he@yeah.net"
 social:
-
-# Link to a PDF of your resume/CV from the About widget.
-# To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
-# - icon: cv
-#   icon_pack: ai
-#   link: files/cv.pdf
-
-# Enter email to display Gravatar (if Gravatar enabled in Config)
-email: ''
-
-# Organizational groups that you belong to (for People widget)
-#   Set this to `[]` or comment out if you are not using People widget.
+  - icon: "envelope"
+    icon_pack: "fas"
+    link: "mailto:Eason_he@yeah.net"
+highlight_name: false
 user_groups:
-  - Alumni 
+  - "2019"
 ---
-
-吳恩達 is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
