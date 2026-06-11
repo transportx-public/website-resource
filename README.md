@@ -1,5 +1,23 @@
 # [Hugo Research Group Theme](https://github.com/wowchemy/starter-hugo-research-group)
 
+## TransportX content workflow
+
+Website content that should be maintained by non-code contributors lives in `data-input/`.
+
+- People: edit `data-input/people/people.xlsx` and put avatars in `data-input/people/avatars/`.
+- News: edit `data-input/posts/posts.xlsx`; optional pictures and Markdown notes go under `data-input/posts/`.
+- Events: edit `data-input/events/events.xlsx` and put event pictures in `data-input/events/pictures/`.
+- Publications: edit `data-input/publications/publications.xlsx`; optional pictures, Markdown notes, and PDFs go under `data-input/publications/`.
+
+After editing, run:
+
+```bash
+/Users/ran/WorkSpace/SoftWare/miniconda3/envs/research/bin/python3.10 scripts/sync_content_from_data_input.py
+hugo --minify --cleanDestinationDir
+```
+
+See `data-input/README.md` for field descriptions.
+
 [![Screenshot](preview.png)](https://hugoblox.com/hugo-themes/)
 
 The **Research Group Template** empowers your research group to easily create a beautiful website with a stunning homepage, news, academic publications, events, team profiles, and a contact form.

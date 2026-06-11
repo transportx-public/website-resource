@@ -15,9 +15,10 @@ from openpyxl import load_workbook
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_EXCEL = REPO_ROOT.parent / "附件下载_People清单" / "people.xlsx"
-DEFAULT_AVATARS = REPO_ROOT.parent / "附件下载_People清单" / "avatars"
 DEFAULT_AUTHORS = REPO_ROOT / "content" / "authors"
+DEFAULT_DATA_INPUT = REPO_ROOT / "data-input" / "people"
+DEFAULT_EXCEL = DEFAULT_DATA_INPUT / "people.xlsx"
+DEFAULT_AVATARS = DEFAULT_DATA_INPUT / "avatars"
 
 
 @dataclass(frozen=True)
