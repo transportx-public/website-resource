@@ -12,6 +12,8 @@ interests:
   - "Large Language Model"
   - "Blockchain"
 enrollment_year: 2023
+website: "https://www.orville.wang/"
+avatar_source: "ao_wang.jpg"
 academic_degree: "Master"
 academic_status: "Graduate"
 name_chinese: "王奥"

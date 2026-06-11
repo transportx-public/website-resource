@@ -11,6 +11,7 @@ bio: ""
 interests:
   - "Transportation Accessibility & ITS Model"
 enrollment_year: 2024
+avatar_source: "abdi.jpg"
 academic_degree: "Ph.D"
 academic_status: "Student"
 name_chinese: "Abdi"

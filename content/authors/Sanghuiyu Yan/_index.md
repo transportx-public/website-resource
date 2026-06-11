@@ -11,6 +11,7 @@ bio: ""
 interests:
   - "Emergency transportation planning and system resilience"
 enrollment_year: 2021
+avatar_source: "sanghuiyu_yan.jpg"
 academic_degree: "Ph.D"
 academic_status: "Student"
 name_chinese: "阎桑慧宇"

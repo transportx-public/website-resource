@@ -10,6 +10,7 @@ organizations: []
 bio: ""
 interests: []
 enrollment_year: 2025
+avatar_source: "zhiwei_huang.jpg"
 academic_degree: "Master"
 academic_status: "Student"
 name_chinese: "黄知微"

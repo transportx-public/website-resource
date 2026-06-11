@@ -11,6 +11,7 @@ bio: ""
 interests:
   - "Human mobility"
 enrollment_year: 2022
+avatar_source: "yuhang_liu.jpg"
 academic_degree: "Master"
 academic_status: "Graduate"
 name_chinese: "刘宇航"

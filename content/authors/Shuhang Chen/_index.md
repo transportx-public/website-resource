@@ -11,6 +11,7 @@ bio: ""
 interests:
   - "Vessel dynamic information optimization and prediction with artificial intelligence algorithms"
 enrollment_year: 2024
+avatar_source: "shuhang_chen.jpg"
 academic_degree: "Ph.D"
 academic_status: "Student"
 name_chinese: "陈书航"

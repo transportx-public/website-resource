@@ -13,6 +13,7 @@ bio: ""
 interests:
   - "Traffic Behavior and Multi-Agent simulation"
 enrollment_year: 2019
+avatar_source: "xinyuan_wang.jpg"
 academic_degree: "Master"
 academic_status: "Graduate"
 name_chinese: "王歆远"

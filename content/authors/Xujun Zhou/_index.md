@@ -12,6 +12,7 @@ interests:
   - "Shipping Data Mining and Modeling"
   - "Intelligent Planning"
 enrollment_year: 2023
+avatar_source: "xujun_zhou.jpg"
 academic_degree: "Ph.D"
 academic_status: "Student"
 name_chinese: "周胥君"

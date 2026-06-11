@@ -11,6 +11,7 @@ bio: ""
 interests:
   - "Decision Support for Transportation Policy-Making"
 enrollment_year: 2021
+avatar_source: "pengju_ren.jpg"
 academic_degree: "Ph.D"
 academic_status: "Student"
 name_chinese: "任鹏举"

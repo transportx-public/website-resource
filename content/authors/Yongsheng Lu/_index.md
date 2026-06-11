@@ -11,6 +11,7 @@ bio: ""
 interests:
   - "Discovery and prediction of human mobile behavior patterns driven by LLMs"
 enrollment_year: 2025
+avatar_source: "yongsheng_lu.jpg"
 academic_degree: "Master"
 academic_status: "Student"
 name_chinese: "卢永晟"

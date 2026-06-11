@@ -13,6 +13,7 @@ interests:
   - "data pattern mining and city visitor identification"
   - "carbon neutrality"
 enrollment_year: 2023
+avatar_source: "yilin_hao.jpg"
 academic_degree: "Master"
 academic_status: "Graduate"
 name_chinese: "郝一霖"

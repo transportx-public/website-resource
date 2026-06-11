@@ -13,6 +13,7 @@ bio: ""
 interests:
   - "Traffic public opinion analysis based on machine learning"
 enrollment_year: 2018
+avatar_source: "zeal_li.jpg"
 academic_degree: "Master"
 academic_status: "Graduate"
 education:

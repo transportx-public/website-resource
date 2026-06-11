@@ -13,6 +13,7 @@ bio: ""
 interests:
   - "traffic resilience modeling"
 enrollment_year: 2021
+avatar_source: "rui_ma.png"
 academic_degree: "Master"
 academic_status: "Graduate"
 name_chinese: "马瑞"

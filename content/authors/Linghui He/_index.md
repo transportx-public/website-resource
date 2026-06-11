@@ -13,6 +13,7 @@ bio: ""
 interests:
   - "Urban Transportation Emergency Management and Data Analytics"
 enrollment_year: 2019
+avatar_source: "linghui_he.png"
 academic_degree: "Ph.D"
 academic_status: "Graduate"
 name_chinese: "何凌晖"

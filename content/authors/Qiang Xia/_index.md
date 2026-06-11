@@ -11,6 +11,8 @@ bio: ""
 interests:
   - "Human Mobility and LLMs"
 enrollment_year: 2024
+website: "https://ran-blog.vercel.app/"
+avatar_source: "qiang_xia.jpg"
 academic_degree: "Ph.D"
 academic_status: "Student"
 name_chinese: "夏强"

@@ -13,6 +13,7 @@ bio: ""
 interests:
   - "Transportation Planning"
 enrollment_year: 2020
+avatar_source: "yuru_wu.png"
 academic_degree: "Master"
 academic_status: "Graduate"
 education:

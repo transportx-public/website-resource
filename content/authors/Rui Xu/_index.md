@@ -11,6 +11,7 @@ bio: ""
 interests:
   - "logistics and operation management"
 enrollment_year: 2022
+avatar_source: "rui_xu.jpg"
 academic_degree: "Ph.D"
 academic_status: "Student"
 name_chinese: "许睿"

@@ -13,6 +13,7 @@ interests:
   - "large model"
   - "evidence-based decision making"
 enrollment_year: 2024
+avatar_source: "yizhe_li.jpg"
 academic_degree: "Master"
 academic_status: "Student"
 name_chinese: "李毅喆"

@@ -11,6 +11,7 @@ bio: ""
 interests:
   - "Travel Behavior"
 enrollment_year: 2022
+avatar_source: "yi_zhou.jpg"
 academic_degree: "Ph.D"
 academic_status: "Student"
 name_chinese: "周漪"

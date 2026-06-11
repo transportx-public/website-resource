@@ -1,0 +1,136 @@
+{{- define "main" -}}
+
+{{ if not .File }}
+<div class="universal-wrapper pt-3">
+  <h1>{{ .Title }}</h1>
+</div>
+{{ end }}
+
+{{ if .File }}
+{{ $person := .Params }}
+{{ $avatar := (.Resources.ByType "image").GetMatch "*avatar*" }}
+{{ $avatar_shape := site.Params.features.avatar.shape | default "circle" }}
+{{ $profile_items := slice }}
+{{ with $person.name_chinese }}{{ $profile_items = $profile_items | append (dict "label" "中文名" "value" .) }}{{ end }}
+{{ with $person.academic_degree }}{{ $profile_items = $profile_items | append (dict "label" "身份" "value" .) }}{{ else }}{{ with $person.role }}{{ $profile_items = $profile_items | append (dict "label" "身份" "value" .) }}{{ end }}{{ end }}
+{{ with $person.academic_status }}
+  {{ $status := . }}
+  {{ if eq (lower $status) "graduate" }}{{ $status = "已毕业" }}{{ end }}
+  {{ if eq (lower $status) "student" }}{{ $status = "在读" }}{{ end }}
+  {{ $profile_items = $profile_items | append (dict "label" "状态" "value" $status) }}
+{{ end }}
+{{ with $person.enrollment_year }}{{ $profile_items = $profile_items | append (dict "label" "入学年份" "value" .) }}{{ end }}
+{{ range $person.organizations }}
+  {{ if .name }}{{ $profile_items = $profile_items | append (dict "label" "当前单位" "value" .name "url" .url) }}{{ end }}
+{{ end }}
+{{ with $person.email }}{{ $profile_items = $profile_items | append (dict "label" "邮箱" "value" . "url" (printf "mailto:%s" .)) }}{{ end }}
+{{ with $person.website }}{{ $profile_items = $profile_items | append (dict "label" "个人主页" "value" . "url" .) }}{{ end }}
+
+<section id="profile-page" class="pt-5 transportx-author-page">
+  <div class="container">
+    <div class="row transportx-author-layout">
+      <aside class="col-12 col-lg-4">
+        <div id="profile" class="transportx-author-card">
+          {{ if site.Params.features.avatar.gravatar }}
+          <img class="avatar {{ if eq $avatar_shape "square" }}avatar-square{{ else }}avatar-circle{{ end }}" src="https://s.gravatar.com/avatar/{{ md5 $person.email }}?s=270" alt="{{ .Title }}">
+          {{ else if $avatar }}
+          {{ $avatar_image := $avatar.Fill "270x270 Center" }}
+          <img class="avatar {{ if eq $avatar_shape "square" }}avatar-square{{ else }}avatar-circle{{ end }}"
+               width="{{ $avatar_image.Width }}" height="{{ $avatar_image.Height }}"
+               src="{{ $avatar_image.RelPermalink }}" alt="{{ .Title }}">
+          {{ end }}
+
+          <div class="portrait-title">
+            <h1>{{ .Title }}</h1>
+            {{ with $person.name_chinese }}<div class="transportx-author-cn">{{ . }}</div>{{ end }}
+            {{ with $person.role }}<h2>{{ . | markdownify | emojify }}</h2>{{ end }}
+          </div>
+
+          <ul class="network-icon" aria-hidden="true">
+            {{ range $person.social }}
+            {{ $pack := or .icon_pack "fas" }}
+            {{ $pack_prefix := $pack }}
+            {{ if in (slice "fab" "fas" "far" "fal") $pack }}{{ $pack_prefix = "fa" }}{{ end }}
+            {{ $link := .link }}
+            {{ $scheme := (urls.Parse $link).Scheme }}
+            {{ $target := "" }}
+            {{ if not $scheme }}
+              {{ $link = .link | relLangURL }}
+            {{ else if in (slice "http" "https") $scheme }}
+              {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+            {{ end }}
+            <li>
+              <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} aria-label="{{ .icon }}">
+                <i class="{{ $pack }} {{ $pack_prefix }}-{{ .icon }} big-icon"></i>
+              </a>
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+      </aside>
+
+      <div class="col-12 col-lg-8">
+        <div class="transportx-info-section">
+          <h2>Profile</h2>
+          <dl class="transportx-profile-grid">
+            {{ range $profile_items }}
+            <div>
+              <dt>{{ .label }}</dt>
+              <dd>
+                {{ if .url }}
+                <a href="{{ .url | safeURL }}"{{ if hasPrefix .url "http" }} target="_blank" rel="noopener"{{ end }}>{{ .value }}</a>
+                {{ else }}
+                {{ .value }}
+                {{ end }}
+              </dd>
+            </div>
+            {{ end }}
+          </dl>
+        </div>
+
+        {{ with $person.interests }}
+        <div class="transportx-info-section">
+          <h2>Research Interests</h2>
+          <ul class="transportx-interest-list">
+            {{ range . }}
+            <li>{{ . | markdownify | emojify }}</li>
+            {{ end }}
+          </ul>
+        </div>
+        {{ end }}
+
+        {{ if or .Content $person.bio $person.other_information }}
+        <div class="transportx-info-section">
+          <h2>Introduction</h2>
+          {{ with .Content }}
+          <div class="article-style transportx-author-intro">{{ . }}</div>
+          {{ else with $person.bio }}
+          <p>{{ . | markdownify | emojify }}</p>
+          {{ end }}
+          {{ with $person.other_information }}
+          <p class="transportx-author-note">{{ . | markdownify | emojify }}</p>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+    </div>
+
+    {{ $query := where .Pages ".IsNode" false }}
+    {{ $count := len $query }}
+    {{ if $count }}
+    <div class="article-widget content-widget-hr">
+      <h3>{{ i18n "user_profile_latest" | default "Latest" }}</h3>
+      <ul>
+        {{ range $query }}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+{{- end -}}

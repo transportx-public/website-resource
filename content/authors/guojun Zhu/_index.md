@@ -13,6 +13,7 @@ interests:
   - "Emergency Management"
   - "KAG and AGI"
 enrollment_year: 2019
+avatar_source: "guojun_zhu.jpg"
 academic_degree: "Ph.D"
 academic_status: "Student"
 name_chinese: "朱国军"

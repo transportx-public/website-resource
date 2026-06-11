@@ -13,6 +13,7 @@ bio: ""
 interests:
   - "Sustainable Transportation Planning"
 enrollment_year: 2020
+avatar_source: "chenjie_xu.png"
 academic_degree: "Master"
 academic_status: "Graduate"
 name_chinese: "徐晨捷"

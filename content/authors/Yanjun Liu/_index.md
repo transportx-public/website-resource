@@ -11,6 +11,7 @@ bio: ""
 interests:
   - "Human Mobility"
 enrollment_year: 2023
+avatar_source: "yanjun_liu.jpg"
 academic_degree: "Ph.D"
 academic_status: "Student"
 name_chinese: "刘彦君"

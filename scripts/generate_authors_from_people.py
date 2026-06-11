@@ -203,6 +203,10 @@ def render_author(person: Person) -> str:
     )
     if person.enrollment_year is not None:
         lines.append(f"enrollment_year: {person.enrollment_year}")
+    if person.website:
+        lines.append(f"website: {yaml_scalar(person.website)}")
+    if person.picture:
+        lines.append(f"avatar_source: {yaml_scalar(person.picture)}")
     if person.degree:
         lines.append(f"academic_degree: {yaml_scalar(person.degree)}")
     if person.status:

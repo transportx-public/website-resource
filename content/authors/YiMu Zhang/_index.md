@@ -13,6 +13,7 @@ bio: ""
 interests:
   - "Public Transportation Big Data Mining and Modeling"
 enrollment_year: 2019
+avatar_source: "yimu_zhang.png"
 academic_degree: "Master"
 academic_status: "Graduate"
 name_chinese: "张懿木"

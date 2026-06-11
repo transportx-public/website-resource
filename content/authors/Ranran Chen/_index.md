@@ -11,6 +11,7 @@ bio: ""
 interests:
   - "Emergency Logistics"
 enrollment_year: 2020
+avatar_source: "ranran_chen.png"
 academic_degree: "Ph.D"
 academic_status: "Student"
 name_chinese: "陈冉冉"

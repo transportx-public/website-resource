@@ -13,6 +13,7 @@ bio: ""
 interests:
   - "Ride-Hailing Operational Characteristics and Regulatory Policies"
 enrollment_year: 2019
+avatar_source: "ziyue_xiong.png"
 academic_degree: "Master"
 academic_status: "Graduate"
 name_chinese: "熊子曰"
