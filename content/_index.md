@@ -14,7 +14,7 @@ sections:
       text: |
         <br>
         
-        The **Wowchemy Research Group** has been a center of excellence for Artificial Intelligence research, teaching, and practice since its founding in 2016.
+        **TransportX** focuses on intelligent transportation research, teaching, and practice, advancing data-driven mobility and urban traffic innovation.
   
   - block: collection
     content:
