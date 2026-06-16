@@ -5,7 +5,7 @@ last_name: "Zha"
 authors:
   - "Wenbin Zha"
 superuser: false
-role: "Ph.D Graduate"
+role: "Ph.D. Graduate"
 organizations: []
 bio: ""
 interests:

@@ -5,7 +5,7 @@ last_name: "Liu"
 authors:
   - "Yuhang Liu"
 superuser: false
-role: "Master Graduate"
+role: "Master's Graduate"
 organizations: []
 bio: ""
 interests:

@@ -5,7 +5,7 @@ last_name: "Zhou"
 authors:
   - "Xujun Zhou"
 superuser: false
-role: "Ph.D Student"
+role: "Ph.D. Student"
 organizations: []
 bio: ""
 interests:

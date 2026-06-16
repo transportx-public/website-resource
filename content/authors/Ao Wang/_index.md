@@ -5,7 +5,7 @@ last_name: "Wang"
 authors:
   - "Ao Wang"
 superuser: false
-role: "Master Graduate"
+role: "Master's Graduate"
 organizations: []
 bio: ""
 interests:

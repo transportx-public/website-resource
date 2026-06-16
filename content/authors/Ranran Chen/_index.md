@@ -5,7 +5,7 @@ last_name: "Chen"
 authors:
   - "Ranran Chen"
 superuser: false
-role: "Ph.D Student"
+role: "Ph.D. Student"
 organizations: []
 bio: ""
 interests:

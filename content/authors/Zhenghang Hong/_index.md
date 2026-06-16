@@ -5,7 +5,7 @@ last_name: "Hong"
 authors:
   - "Zhenghang Hong"
 superuser: false
-role: "Master Graduate"
+role: "Master's Graduate"
 organizations: []
 bio: ""
 interests: []

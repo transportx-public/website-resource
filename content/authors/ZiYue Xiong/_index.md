@@ -5,7 +5,7 @@ last_name: "Xiong"
 authors:
   - "Ziyue Xiong"
 superuser: false
-role: "Master Graduate"
+role: "Master's Graduate"
 organizations:
   - name: "携程"
     url: ''

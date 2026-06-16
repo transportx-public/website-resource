@@ -72,6 +72,11 @@ def safe_folder_name(name: str) -> str:
 
 def role_label(degree: str, status: str) -> str:
     degree = " ".join(degree.replace("PhD", "Ph.D").split())
+    degree_map = {
+        "Master": "Master's",
+        "Ph.D": "Ph.D.",
+    }
+    degree = degree_map.get(degree, degree)
     status = " ".join(status.split())
     if not degree:
         return status or "People"

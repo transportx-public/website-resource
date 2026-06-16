@@ -5,7 +5,7 @@ last_name: "Liu"
 authors:
   - "Yanjun Liu"
 superuser: false
-role: "Ph.D Student"
+role: "Ph.D. Student"
 organizations: []
 bio: ""
 interests:

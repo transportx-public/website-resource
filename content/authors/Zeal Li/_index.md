@@ -5,7 +5,7 @@ last_name: "Li"
 authors:
   - "Zeal Li"
 superuser: false
-role: "Master Graduate"
+role: "Master's Graduate"
 organizations:
   - name: "Wayfair"
     url: ''

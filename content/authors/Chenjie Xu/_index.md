@@ -5,7 +5,7 @@ last_name: "Xu"
 authors:
   - "Chenjie Xu"
 superuser: false
-role: "Master Graduate"
+role: "Master's Graduate"
 organizations:
   - name: "上海市城乡建设和交通发展研究院"
     url: ''

@@ -5,7 +5,7 @@ last_name: "Li"
 authors:
   - "Yizhe Li"
 superuser: false
-role: "Master Student"
+role: "Master's Student"
 organizations: []
 bio: ""
 interests:

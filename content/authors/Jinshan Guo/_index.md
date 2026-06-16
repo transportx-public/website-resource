@@ -5,7 +5,7 @@ last_name: "Guo"
 authors:
   - "Jinshan Guo"
 superuser: false
-role: "Master Student"
+role: "Master's Student"
 organizations: []
 bio: "籍贯河北唐山，本科毕业于大连海事大学交通学院。待人热忱，秉持积极务实的生活态度。喜好旅行和美食。"
 interests:

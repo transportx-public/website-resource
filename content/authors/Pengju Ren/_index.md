@@ -5,7 +5,7 @@ last_name: "Ren"
 authors:
   - "Pengju Ren"
 superuser: false
-role: "Ph.D Student"
+role: "Ph.D. Student"
 organizations: []
 bio: ""
 interests:

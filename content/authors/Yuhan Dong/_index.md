@@ -5,7 +5,7 @@ last_name: "Dong"
 authors:
   - "Yuhan Dong"
 superuser: false
-role: "Master Student"
+role: "Master's Student"
 organizations: []
 bio: "女，21岁，贵州遵义人。本科毕业于同济大学交通学院，爱好手工，音乐，漫画。"
 interests:

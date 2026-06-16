@@ -5,7 +5,7 @@ last_name: "Ma"
 authors:
   - "Rui Ma"
 superuser: false
-role: "Master Graduate"
+role: "Master's Graduate"
 organizations:
   - name: "纽约大学"
     url: ''

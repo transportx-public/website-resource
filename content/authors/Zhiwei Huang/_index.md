@@ -5,7 +5,7 @@ last_name: "Huang"
 authors:
   - "Zhiwei Huang"
 superuser: false
-role: "Master Student"
+role: "Master's Student"
 organizations: []
 bio: ""
 interests: []

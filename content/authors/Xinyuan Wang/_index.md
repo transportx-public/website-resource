@@ -5,7 +5,7 @@ last_name: "Wang"
 authors:
   - "Xinyuan Wang"
 superuser: false
-role: "Master Graduate"
+role: "Master's Graduate"
 organizations:
   - name: "福建省高速公路集团科技创新研究院"
     url: ''

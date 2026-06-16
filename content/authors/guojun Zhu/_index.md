@@ -5,7 +5,7 @@ last_name: "Zhu"
 authors:
   - "guojun Zhu"
 superuser: false
-role: "Ph.D Student"
+role: "Ph.D. Student"
 organizations: []
 bio: ""
 interests:

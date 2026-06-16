@@ -5,7 +5,7 @@ last_name: "Wu"
 authors:
   - "Yuru Wu"
 superuser: false
-role: "Master Graduate"
+role: "Master's Graduate"
 organizations:
   - name: "上海国际港务集团股份有限公司"
     url: ''

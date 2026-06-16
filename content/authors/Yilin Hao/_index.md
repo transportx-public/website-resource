@@ -5,7 +5,7 @@ last_name: "Hao"
 authors:
   - "Yilin Hao"
 superuser: false
-role: "Master Graduate"
+role: "Master's Graduate"
 organizations: []
 bio: ""
 interests:

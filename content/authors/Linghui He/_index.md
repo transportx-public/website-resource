@@ -5,7 +5,7 @@ last_name: "He"
 authors:
   - "Linghui He"
 superuser: false
-role: "Ph.D Graduate"
+role: "Ph.D. Graduate"
 organizations:
   - name: "上海东方枢纽投资建设发展集团有限公司"
     url: ''

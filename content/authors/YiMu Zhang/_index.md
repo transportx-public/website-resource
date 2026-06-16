@@ -5,7 +5,7 @@ last_name: "Zhang"
 authors:
   - "Yimu Zhang"
 superuser: false
-role: "Master Graduate"
+role: "Master's Graduate"
 organizations:
   - name: "郑州科技学院"
     url: ''

@@ -5,7 +5,7 @@ last_name: "Gan"
 authors:
   - "Tian Gan"
 superuser: false
-role: "Ph.D Student"
+role: "Ph.D. Student"
 organizations: []
 bio: ""
 interests: []
