@@ -11,7 +11,7 @@
 - `Name_Chinese`: 中文名。
 - `picture`: 头像文件名，例如 `ao_wang.jpg`。文件必须放在 `avatars/`。
 - `user_groups`: 身份类型，例如 `Ph.D`、`Master`。
-- `is_gradiate`: 状态。当前兼容旧字段名，填 `Student` 或 `Graduate`。
+- `is_gradiate`: 状态。当前兼容旧字段名，学生填 `Student` 或 `Graduate`；导师可将 `user_groups` 填为 `Professor`，状态留空。
 - `enrollment_year`: 入学年份，例如 `2023`。
 - `introduction`: 自我介绍。
 - `Interests`: 研究兴趣。多个兴趣用英文分号、中文分号、逗号分隔均可。

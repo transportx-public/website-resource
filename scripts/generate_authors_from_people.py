@@ -81,6 +81,10 @@ def role_label(degree: str, status: str) -> str:
 
 
 def year_group(person: Person) -> str:
+    degree = person.degree.strip().lower()
+    status = person.status.strip().lower()
+    if degree in {"faculty", "professor", "advisor"} or status in {"faculty", "professor", "advisor", "pi"}:
+        return "Faculty"
     if person.enrollment_year is None:
         return "Unknown Year"
     return str(person.enrollment_year)
