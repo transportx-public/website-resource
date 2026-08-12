@@ -1,0 +1,103 @@
+{{- define "main" -}}
+
+<div class="pub">
+  {{ partial "page_header.html" . }}
+
+  <div class="article-container">
+    <div class="transportx-event-facts">
+      <div class="transportx-event-fact">
+        <span class="transportx-event-fact-label">日期</span>
+        <span>{{ partial "functions/get_event_dates" . }}</span>
+      </div>
+      {{ with .Params.event }}
+        <div class="transportx-event-fact">
+          <span class="transportx-event-fact-label">活动</span>
+          <span>{{ . | markdownify }}</span>
+        </div>
+      {{ end }}
+      {{ with .Params.location }}
+        <div class="transportx-event-fact">
+          <span class="transportx-event-fact-label">地点</span>
+          <span>{{ . | markdownify }}</span>
+        </div>
+      {{ end }}
+    </div>
+
+    {{ if .Params.readings }}
+      <section class="transportx-meeting-overview" aria-labelledby="meeting-readings-title">
+        <p class="transportx-meeting-summary">{{ .Params.summary }}</p>
+
+        <div class="transportx-meeting-participants">
+          <h2>参与文献分享</h2>
+          <div class="transportx-member-list">
+            {{ range .Params.reading_members }}
+              {{ partial "transportx/member-chip.html" (dict "member" . "compact" false) }}
+            {{ end }}
+          </div>
+        </div>
+
+        <h2 id="meeting-readings-title">文献分享</h2>
+        <div class="transportx-reading-grid">
+          {{ range .Params.readings }}
+            <article class="transportx-reading-card">
+              <h3>{{ .title }}</h3>
+
+              {{ partial "transportx/member-chip.html" (dict "member" (dict "name" .reader_name "profile" .reader_profile) "compact" false) }}
+
+              {{ if or .source .published }}
+                <dl class="transportx-reading-meta">
+                  {{ with .source }}
+                    <div>
+                      <dt>出处</dt>
+                      <dd>{{ . }}</dd>
+                    </div>
+                  {{ end }}
+                  {{ with .published }}
+                    <div>
+                      <dt>发表时间</dt>
+                      <dd>{{ . }}</dd>
+                    </div>
+                  {{ end }}
+                </dl>
+              {{ end }}
+
+              {{ with .highlight }}
+                <p class="transportx-reading-highlight">{{ . | markdownify }}</p>
+              {{ end }}
+
+              {{ if or .url .slides }}
+                <div class="transportx-resource-links">
+                  {{ with .url }}<a href="{{ . }}" target="_blank" rel="noopener">查看原文</a>{{ end }}
+                  {{ with .slides }}<a href="{{ . }}" target="_blank" rel="noopener">阅读 PPT</a>{{ end }}
+                </div>
+              {{ end }}
+            </article>
+          {{ end }}
+        </div>
+      </section>
+
+      {{ if or .Params.meeting_slides .Params.meeting_notes }}
+        <section class="transportx-meeting-resources" aria-labelledby="meeting-resources-title">
+          <h2 id="meeting-resources-title">组会资料</h2>
+          <div class="transportx-resource-links">
+            {{ with .Params.meeting_slides }}<a href="{{ . }}" target="_blank" rel="noopener">组会 PPT</a>{{ end }}
+            {{ with .Params.meeting_notes }}<a href="{{ . }}" target="_blank" rel="noopener">会议纪要</a>{{ end }}
+          </div>
+        </section>
+      {{ end }}
+    {{ else }}
+      {{ with .Params.abstract }}
+        <h2>{{ i18n "abstract" }}</h2>
+        <p class="pub-abstract">{{ . | markdownify | emojify }}</p>
+      {{ end }}
+    {{ end }}
+
+    {{ with .Content }}
+      <div class="article-style">{{ . }}</div>
+    {{ end }}
+
+    {{ partial "page_footer" . }}
+  </div>
+</div>
+
+{{- end -}}

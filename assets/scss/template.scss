@@ -100,3 +100,278 @@
     columns: 1;
   }
 }
+
+.transportx-meeting-archive {
+  max-width: 1080px;
+}
+
+.transportx-meeting-year {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  margin-bottom: 3.5rem;
+}
+
+.transportx-meeting-year-title {
+  color: #4b5563;
+  font-size: 1.2rem;
+  margin: .35rem 0 0;
+}
+
+.transportx-meeting-year-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.transportx-meeting-list-item,
+.transportx-reading-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+}
+
+.transportx-meeting-list-item {
+  padding: 1.25rem 1.4rem;
+}
+
+.transportx-meeting-list-title {
+  font-size: 1.18rem;
+  margin: 0 0 .4rem;
+}
+
+.transportx-meeting-list-summary,
+.transportx-meeting-summary {
+  color: #4b5563;
+}
+
+.transportx-meeting-list-summary {
+  margin: 0 0 1rem;
+}
+
+.transportx-meeting-list-label {
+  color: #6b7280;
+  display: block;
+  font-size: .86rem;
+  font-weight: 600;
+  margin-bottom: .55rem;
+}
+
+.transportx-member-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+}
+
+.transportx-member-chip {
+  align-items: center;
+  background: #eef2f7;
+  border: 1px solid #dbe3ec;
+  border-radius: 999px;
+  color: #253247;
+  display: inline-flex;
+  font-size: .92rem;
+  font-weight: 600;
+  gap: .55rem;
+  min-height: 2.75rem;
+  padding: .28rem .8rem .28rem .28rem;
+  text-decoration: none;
+}
+
+.transportx-member-chip:hover,
+.transportx-member-chip:focus {
+  background: #e5ebf2;
+  color: #15233a;
+  text-decoration: none;
+}
+
+.transportx-member-chip:active {
+  transform: translateY(1px);
+}
+
+.transportx-member-chip-compact {
+  font-size: .84rem;
+  min-height: 2.25rem;
+  padding-right: .65rem;
+}
+
+.transportx-member-avatar {
+  border-radius: 50% !important;
+  flex: 0 0 auto;
+  height: 2.15rem;
+  object-fit: cover;
+  width: 2.15rem;
+}
+
+.transportx-member-chip-compact .transportx-member-avatar {
+  height: 1.7rem;
+  width: 1.7rem;
+}
+
+.transportx-event-facts {
+  border-bottom: 1px solid #e5e7eb;
+  display: grid;
+  gap: .75rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.5rem;
+}
+
+.transportx-event-fact {
+  display: grid;
+  gap: .75rem;
+  grid-template-columns: 5rem minmax(0, 1fr);
+}
+
+.transportx-event-fact-label {
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.transportx-meeting-summary {
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+.transportx-meeting-participants {
+  margin-bottom: 2.25rem;
+}
+
+.transportx-meeting-participants h2,
+.transportx-meeting-overview > h2,
+.transportx-meeting-resources h2 {
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+}
+
+.transportx-reading-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.transportx-reading-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.35rem;
+}
+
+.transportx-reading-card h3 {
+  font-size: 1.08rem;
+  line-height: 1.4;
+  margin: 0 0 1rem;
+}
+
+.transportx-reading-meta {
+  display: grid;
+  gap: .65rem;
+  margin: 1rem 0 0;
+}
+
+.transportx-reading-meta div {
+  display: grid;
+  gap: .5rem;
+  grid-template-columns: 4.25rem minmax(0, 1fr);
+}
+
+.transportx-reading-meta dt {
+  color: #6b7280;
+  font-size: .84rem;
+  font-weight: 600;
+}
+
+.transportx-reading-meta dd {
+  color: #374151;
+  font-size: .9rem;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.transportx-reading-highlight {
+  color: #374151;
+  line-height: 1.75;
+  margin: 1rem 0 0;
+}
+
+.transportx-resource-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+  margin-top: 1.1rem;
+}
+
+.transportx-resource-links a {
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: .88rem;
+  font-weight: 600;
+  padding: .42rem .8rem;
+  text-decoration: none;
+}
+
+.transportx-resource-links a:active {
+  transform: translateY(1px);
+}
+
+.transportx-meeting-resources {
+  border-top: 1px solid #e5e7eb;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+}
+
+.dark .transportx-meeting-list-item,
+.dark .transportx-reading-card {
+  background: #20242b;
+  border-color: #343a44;
+}
+
+.dark .transportx-meeting-year-title,
+.dark .transportx-meeting-list-summary,
+.dark .transportx-meeting-summary,
+.dark .transportx-meeting-list-label,
+.dark .transportx-event-fact-label,
+.dark .transportx-reading-meta dt {
+  color: #b8c0cc;
+}
+
+.dark .transportx-member-chip {
+  background: #29313b;
+  border-color: #3b4654;
+  color: #eef2f7;
+}
+
+.dark .transportx-member-chip:hover,
+.dark .transportx-member-chip:focus {
+  background: #333d49;
+  color: #f4f6f8;
+}
+
+.dark .transportx-event-facts,
+.dark .transportx-meeting-resources {
+  border-color: #343a44;
+}
+
+.dark .transportx-reading-meta dd,
+.dark .transportx-reading-highlight {
+  color: #d8dde5;
+}
+
+@media (min-width: 992px) {
+  .transportx-reading-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767.98px) {
+  .transportx-meeting-year {
+    display: block;
+    margin-bottom: 2.5rem;
+  }
+
+  .transportx-meeting-year-title {
+    margin-bottom: 1rem;
+  }
+
+  .transportx-meeting-list-item,
+  .transportx-reading-card {
+    padding: 1.1rem;
+  }
+}
