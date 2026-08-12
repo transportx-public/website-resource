@@ -1,0 +1,77 @@
+{{- define "main" -}}
+
+{{ partial "page_header.html" . }}
+
+{{- $publication_types := slice -}}
+{{- range .Pages -}}
+  {{- range .Params.publication_types -}}
+    {{- $publication_types = $publication_types | append . -}}
+  {{- end -}}
+{{- end -}}
+
+<div class="universal-wrapper transportx-publication-archive">
+  {{ with .Content }}
+    <div class="article-style transportx-publication-intro">{{ . }}</div>
+  {{ end }}
+
+  <div class="form-row transportx-publication-tools" aria-label="Publication filters">
+    <div class="col-auto transportx-publication-search">
+      <label class="sr-only" for="transportx-publication-search">Search publications</label>
+      <input
+        id="transportx-publication-search"
+        type="search"
+        class="filter-search form-control form-control-sm"
+        placeholder="Search publications"
+        autocapitalize="off"
+        autocomplete="off"
+        autocorrect="off"
+        spellcheck="false"
+      >
+    </div>
+
+    <div class="col-auto">
+      <label class="sr-only" for="transportx-publication-type">Filter by publication type</label>
+      <select
+        id="transportx-publication-type"
+        class="pub-filters pubtype-select form-control form-control-sm"
+        data-filter-group="pubtype"
+      >
+        <option value="*">All types</option>
+        {{ range ($publication_types | uniq | sort) }}
+          <option value=".pubtype-{{ . | urlize }}">{{ . }}</option>
+        {{ end }}
+      </select>
+    </div>
+
+    <div class="col-auto">
+      <label class="sr-only" for="transportx-publication-year">Filter by publication year</label>
+      <select
+        id="transportx-publication-year"
+        class="pub-filters form-control form-control-sm"
+        data-filter-group="year"
+      >
+        <option value="*">All years</option>
+        {{ range .Pages.GroupByDate "2006" }}
+          <option value=".year-{{ .Key }}">{{ .Key }}</option>
+        {{ end }}
+      </select>
+    </div>
+  </div>
+
+  <div id="container-publications" class="transportx-publication-list">
+    <div class="grid-sizer" aria-hidden="true"></div>
+    {{ range .Pages.ByDate.Reverse }}
+      {{ partial "transportx/publication-item.html" . }}
+    {{ else }}
+      <p class="transportx-publication-empty">No publications are available yet.</p>
+    {{ end }}
+  </div>
+  <p class="transportx-publication-empty transportx-publication-filter-empty" hidden>
+    No publications match the current filters.
+  </p>
+</div>
+
+{{- $publication_script := resources.Get "js/transportx-publications.js" | minify | fingerprint -}}
+<script src="{{ $publication_script.RelPermalink }}" defer></script>
+
+{{- end -}}
