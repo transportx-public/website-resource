@@ -11,7 +11,7 @@ bio: ""
 interests:
   - "Human Mobility and LLMs"
 enrollment_year: 2024
-website: "https://ran-blog.vercel.app/"
+website: "https://ran24.org/"
 avatar_source: "qiang_xia.jpg"
 academic_degree: "Ph.D"
 academic_status: "Student"
@@ -25,7 +25,7 @@ social:
     link: "mailto:xiaqiang@tongji.edu.cn"
   - icon: "globe"
     icon_pack: "fas"
-    link: "https://ran-blog.vercel.app/"
+    link: "https://ran24.org/"
 highlight_name: false
 user_groups:
   - "2024"
