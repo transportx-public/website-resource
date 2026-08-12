@@ -3,8 +3,8 @@
 #   Documentation: https://docs.hugoblox.com/reference/language/
 
 en:
-  locale: en_US
-  label: English
+  languageCode: en-us
+  languageName: English
   weight: 1
   title: TransportX
   params:
@@ -31,8 +31,8 @@ en:
         weight: 60
 
 zh:
-  locale: zh_CN
-  label: 中文
+  languageCode: zh-Hans
+  languageName: 中文
   weight: 2
   title: TransportX
   params:
