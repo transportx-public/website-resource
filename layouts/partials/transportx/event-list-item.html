@@ -7,15 +7,15 @@
   <div class="transportx-meeting-list-main">
     <h2 class="section-subheading transportx-meeting-list-title">
       <a href="{{ $item.RelPermalink }}" aria-label="{{ $item.Title }}">
-        {{ $item.Params.event | default "课题组组会" }}
+        {{ i18n "event_group_meeting" }}
       </a>
     </h2>
-    <p class="transportx-meeting-list-summary">{{ len $item.Params.readings }} 篇文献分享</p>
+    <p class="transportx-meeting-list-summary">{{ i18n "event_readings_count" (dict "Count" (len $item.Params.readings)) }}</p>
   </div>
 
   <div class="transportx-meeting-list-participants">
-    <span class="transportx-meeting-list-label">分享成员</span>
-    <div class="transportx-member-list" aria-label="参与文献分享的成员">
+    <span class="transportx-meeting-list-label">{{ i18n "event_share_members" }}</span>
+    <div class="transportx-member-list" aria-label="{{ i18n "event_members_aria" }}">
       {{- range $item.Params.reading_members -}}
         {{ partial "transportx/member-chip.html" (dict "member" . "compact" true) }}
       {{- end -}}

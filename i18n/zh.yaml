@@ -1,0 +1,122 @@
+published_with:
+  other: 使用 {hugoblox} 构建。
+
+member_profile_aria:
+  other: 查看{{ .Name }}的成员主页
+publication_view_aria:
+  other: 查看《{{ .Title }}》
+publication_figure_alt:
+  other: 《{{ .Title }}》研究框架图
+publication_links_aria:
+  other: 《{{ .Title }}》相关链接
+publication_authors:
+  other: 作者
+publication_topics:
+  other: 研究方向
+publication_chinese_overview:
+  other: 中文解读
+publication_code:
+  other: 代码
+publication_filters:
+  other: 论文筛选
+publication_search:
+  other: 搜索论文
+publication_filter_type:
+  other: 按论文类型筛选
+publication_filter_year:
+  other: 按发表年份筛选
+publication_all_types:
+  other: 全部类型
+publication_all_years:
+  other: 全部年份
+publication_type_conference:
+  other: 会议论文
+publication_type_journal:
+  other: 期刊论文
+publication_empty:
+  other: 暂无论文。
+publication_filter_empty:
+  other: 没有符合当前筛选条件的论文。
+
+event_group_meeting:
+  other: 课题组组会
+event_readings_count:
+  other: "{{ .Count }} 篇文献分享"
+event_share_members:
+  other: 分享成员
+event_members_aria:
+  other: 参与文献分享的成员
+event_date:
+  other: 日期
+event_activity:
+  other: 活动
+event_location:
+  other: 地点
+event_readings_title:
+  other: 文献方向与要点
+event_readings_caption:
+  other: 本次组会文献分享明细
+event_paper_highlight:
+  other: 文献与研究要点
+event_presenter:
+  other: 分享人
+event_publication_info:
+  other: 发表信息
+event_resources:
+  other: 资料
+event_none:
+  other: 暂无
+event_original:
+  other: 原文
+event_meeting_resources:
+  other: 组会资料
+event_meeting_slides:
+  other: 组会 PPT
+event_meeting_notes:
+  other: 会议纪要
+
+profile_title:
+  other: 个人信息
+profile_chinese_name:
+  other: 中文名
+profile_position:
+  other: 身份
+profile_status:
+  other: 状态
+profile_enrollment_year:
+  other: 入学年份
+profile_organization:
+  other: 当前单位
+profile_email:
+  other: 邮箱
+profile_website:
+  other: 个人主页
+profile_student:
+  other: 在读
+profile_graduate:
+  other: 已毕业
+profile_interests:
+  other: 研究方向
+profile_introduction:
+  other: 个人简介
+
+contact_lead:
+  other: TransportX 欢迎就科研合作、研究生培养与学术交流进行联系。
+contact_note:
+  other: 请直接联系李健老师，并在邮件中简要说明您的单位与来意。
+contact_primary:
+  other: 主要联系人
+contact_telephone:
+  other: 电话
+contact_write_email:
+  other: 发送邮件
+contact_official_profile:
+  other: 同济大学官方主页
+contact_location:
+  other: 地址
+contact_address:
+  other: "上海市嘉定区曹安公路 4800 号<br>同济大学交通学院 A526 室<br>邮编：201804"
+contact_visit_note:
+  other: 如需来访，请提前通过邮件预约。
+contact_college_info:
+  other: 交通学院联系方式

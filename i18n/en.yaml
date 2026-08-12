@@ -1,2 +1,123 @@
 published_with:
   other: Built with {hugoblox}, the free {repo_link}open-source{/repo_link} website builder.
+
+member_profile_aria:
+  other: View {{ .Name }}'s profile
+publication_view_aria:
+  other: View {{ .Title }}
+publication_figure_alt:
+  other: Research framework for {{ .Title }}
+publication_links_aria:
+  other: Links for {{ .Title }}
+publication_authors:
+  other: Authors
+publication_topics:
+  other: Research topics
+publication_chinese_overview:
+  other: Chinese overview
+publication_code:
+  other: Code
+publication_filters:
+  other: Publication filters
+publication_search:
+  other: Search publications
+publication_filter_type:
+  other: Filter by publication type
+publication_filter_year:
+  other: Filter by publication year
+publication_all_types:
+  other: All types
+publication_all_years:
+  other: All years
+publication_type_conference:
+  other: Conference Papers
+publication_type_journal:
+  other: Journal Publications
+publication_empty:
+  other: No publications are available yet.
+publication_filter_empty:
+  other: No publications match the current filters.
+
+event_group_meeting:
+  other: Group meeting
+event_readings_count:
+  one: 1 paper shared
+  other: "{{ .Count }} papers shared"
+event_share_members:
+  other: Presenters
+event_members_aria:
+  other: Members presenting papers
+event_date:
+  other: Date
+event_activity:
+  other: Event
+event_location:
+  other: Location
+event_readings_title:
+  other: Papers and research themes
+event_readings_caption:
+  other: Papers presented at this group meeting
+event_paper_highlight:
+  other: Paper and research focus
+event_presenter:
+  other: Presenter
+event_publication_info:
+  other: Publication
+event_resources:
+  other: Resources
+event_none:
+  other: Not available
+event_original:
+  other: Paper
+event_meeting_resources:
+  other: Meeting materials
+event_meeting_slides:
+  other: Meeting slides
+event_meeting_notes:
+  other: Meeting notes
+
+profile_title:
+  other: Profile
+profile_chinese_name:
+  other: Chinese name
+profile_position:
+  other: Position
+profile_status:
+  other: Status
+profile_enrollment_year:
+  other: Enrollment year
+profile_organization:
+  other: Current organization
+profile_email:
+  other: Email
+profile_website:
+  other: Website
+profile_student:
+  other: Current student
+profile_graduate:
+  other: Graduate
+profile_interests:
+  other: Research interests
+profile_introduction:
+  other: Introduction
+
+contact_lead:
+  other: TransportX welcomes enquiries about research collaboration, graduate study, and academic exchange.
+contact_note:
+  other: Please contact Jian Li directly and include your affiliation and a concise description of your enquiry.
+contact_primary:
+  other: Primary contact
+contact_telephone:
+  other: Telephone
+contact_write_email:
+  other: Write an email
+contact_official_profile:
+  other: Official university profile
+contact_location:
+  other: Location
+contact_address:
+  other: "Room A526<br>College of Transportation Engineering<br>Tongji University<br>No. 4800 Cao'an Road, Jiading District<br>Shanghai 201804, China"
+contact_visit_note:
+  other: Please arrange a visit by email in advance.
+contact_college_info:
+  other: College contact information
