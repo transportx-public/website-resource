@@ -1,9 +1,9 @@
 ---
-title: "guojun Zhu"
-first_name: "guojun"
+title: "Guojun Zhu"
+first_name: "Guojun"
 last_name: "Zhu"
 authors:
-  - "guojun Zhu"
+  - "Guojun Zhu"
 superuser: false
 role: "Ph.D. Student"
 organizations: []
