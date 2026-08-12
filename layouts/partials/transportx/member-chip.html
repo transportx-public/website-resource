@@ -9,13 +9,13 @@
     aria-label="查看 {{ $member.name }} 的成员主页"
   >
     {{- with $avatar -}}
-      {{- $avatar_image := .Fill "96x96 Center" -}}
+      {{- $avatar_image := .Fill "64x64 Center" -}}
       <img
         class="transportx-member-avatar"
         src="{{ $avatar_image.RelPermalink }}"
         width="{{ $avatar_image.Width }}"
         height="{{ $avatar_image.Height }}"
-        alt="{{ $member.name }}"
+        alt=""
         loading="lazy"
       >
     {{- end -}}
