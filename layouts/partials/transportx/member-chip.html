@@ -1,0 +1,28 @@
+{{- $member := .member -}}
+{{- $compact := .compact -}}
+{{- $profile_page := site.GetPage (printf "/authors/%s" ($member.profile | urlize)) -}}
+{{- with $profile_page -}}
+  {{- $avatar := (.Resources.ByType "image").GetMatch "*avatar*" -}}
+  <a
+    class="transportx-member-chip{{ if $compact }} transportx-member-chip-compact{{ end }}"
+    href="{{ .RelPermalink }}"
+    aria-label="查看 {{ $member.name }} 的成员主页"
+  >
+    {{- with $avatar -}}
+      {{- $avatar_image := .Fill "96x96 Center" -}}
+      <img
+        class="transportx-member-avatar"
+        src="{{ $avatar_image.RelPermalink }}"
+        width="{{ $avatar_image.Width }}"
+        height="{{ $avatar_image.Height }}"
+        alt="{{ $member.name }}"
+        loading="lazy"
+      >
+    {{- end -}}
+    <span>@{{ $member.name }}</span>
+  </a>
+{{- else -}}
+  <span class="transportx-member-chip{{ if $compact }} transportx-member-chip-compact{{ end }}">
+    @{{ $member.name }}
+  </span>
+{{- end -}}
