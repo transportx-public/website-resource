@@ -32,7 +32,7 @@ url_slides: ""
 url_source: "https://mp.weixin.qq.com/s/RV14fJCbhqTD2RtKYkaPwQ"
 url_video: ""
 image:
-  caption: "TransportX Lab visual summary of HSGraphAgent. Source: [paper](https://doi.org/10.18653/v1/2026.acl-long.2072)."
+  caption: "HSGraphAgent knowledge-graph-guided reasoning framework. Source: [paper](https://doi.org/10.18653/v1/2026.acl-long.2072)."
   focal_point: Center
   preview_only: false
 projects: []
