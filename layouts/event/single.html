@@ -1,6 +1,6 @@
 {{- define "main" -}}
 
-<div class="pub">
+<div class="pub transportx-event-page">
   {{ partial "page_header.html" . }}
 
   <div class="article-container">
@@ -25,54 +25,61 @@
 
     {{ if .Params.readings }}
       <section class="transportx-meeting-overview" aria-labelledby="meeting-readings-title">
-        <p class="transportx-meeting-summary">{{ .Params.summary }}</p>
-
-        <div class="transportx-meeting-participants">
-          <h2>参与文献分享</h2>
-          <div class="transportx-member-list">
-            {{ range .Params.reading_members }}
-              {{ partial "transportx/member-chip.html" (dict "member" . "compact" false) }}
-            {{ end }}
+        <div class="transportx-meeting-intro">
+          <p class="transportx-meeting-summary">{{ .Params.summary }}</p>
+          <div class="transportx-meeting-participants">
+            <span class="transportx-meeting-participants-label">分享成员</span>
+            <div class="transportx-member-list">
+              {{ range .Params.reading_members }}
+                {{ partial "transportx/member-chip.html" (dict "member" . "compact" true) }}
+              {{ end }}
+            </div>
           </div>
         </div>
 
-        <h2 id="meeting-readings-title">文献分享</h2>
-        <div class="transportx-reading-grid">
-          {{ range .Params.readings }}
-            <article class="transportx-reading-card">
-              <h3>{{ .title }}</h3>
-
-              {{ partial "transportx/member-chip.html" (dict "member" (dict "name" .reader_name "profile" .reader_profile) "compact" false) }}
-
-              {{ if or .source .published }}
-                <dl class="transportx-reading-meta">
-                  {{ with .source }}
-                    <div>
-                      <dt>出处</dt>
-                      <dd>{{ . }}</dd>
-                    </div>
-                  {{ end }}
-                  {{ with .published }}
-                    <div>
-                      <dt>发表时间</dt>
-                      <dd>{{ . }}</dd>
-                    </div>
-                  {{ end }}
-                </dl>
+        <h2 id="meeting-readings-title">文献方向与要点</h2>
+        <div class="transportx-reading-table-wrap">
+          <table class="transportx-reading-table">
+            <caption class="sr-only">本次组会文献分享明细</caption>
+            <thead>
+              <tr>
+                <th scope="col">文献与研究要点</th>
+                <th scope="col">分享人</th>
+                <th scope="col">发表信息</th>
+                <th scope="col">资料</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{ range .Params.readings }}
+                <tr>
+                  <td data-label="文献与研究要点">
+                    <h3>{{ .title }}</h3>
+                    {{ with .highlight }}
+                      <p class="transportx-reading-highlight">{{ . | markdownify }}</p>
+                    {{ end }}
+                  </td>
+                  <td data-label="分享人">
+                    {{ partial "transportx/member-chip.html" (dict "member" (dict "name" .reader_name "profile" .reader_profile) "compact" true) }}
+                  </td>
+                  <td data-label="发表信息">
+                    {{ with .source }}<span class="transportx-reading-source">{{ . }}</span>{{ end }}
+                    {{ with .published }}<span class="transportx-reading-published">{{ . }}</span>{{ end }}
+                    {{ if not (or .source .published) }}<span class="transportx-reading-empty">暂无</span>{{ end }}
+                  </td>
+                  <td data-label="资料">
+                    {{ if or .url .slides }}
+                      <div class="transportx-resource-links">
+                        {{ with .url }}<a href="{{ . }}" target="_blank" rel="noopener">原文</a>{{ end }}
+                        {{ with .slides }}<a href="{{ . }}" target="_blank" rel="noopener">PPT</a>{{ end }}
+                      </div>
+                    {{ else }}
+                      <span class="transportx-reading-empty">暂无</span>
+                    {{ end }}
+                  </td>
+                </tr>
               {{ end }}
-
-              {{ with .highlight }}
-                <p class="transportx-reading-highlight">{{ . | markdownify }}</p>
-              {{ end }}
-
-              {{ if or .url .slides }}
-                <div class="transportx-resource-links">
-                  {{ with .url }}<a href="{{ . }}" target="_blank" rel="noopener">查看原文</a>{{ end }}
-                  {{ with .slides }}<a href="{{ . }}" target="_blank" rel="noopener">阅读 PPT</a>{{ end }}
-                </div>
-              {{ end }}
-            </article>
-          {{ end }}
+            </tbody>
+          </table>
         </div>
       </section>
 

@@ -1,13 +1,20 @@
 {{- $item := . -}}
 <article class="transportx-meeting-list-item">
-  <h2 class="section-subheading transportx-meeting-list-title">
-    <a href="{{ $item.RelPermalink }}">{{ $item.Title }}</a>
-  </h2>
+  <time class="transportx-meeting-list-date" datetime="{{ $item.Date.Format "2006-01-02" }}">
+    {{ $item.Date.Format "01-02" }}
+  </time>
 
-  <p class="transportx-meeting-list-summary">{{ $item.Params.summary }}</p>
+  <div class="transportx-meeting-list-main">
+    <h2 class="section-subheading transportx-meeting-list-title">
+      <a href="{{ $item.RelPermalink }}" aria-label="{{ $item.Title }}">
+        {{ $item.Params.event | default "课题组组会" }}
+      </a>
+    </h2>
+    <p class="transportx-meeting-list-summary">{{ len $item.Params.readings }} 篇文献分享</p>
+  </div>
 
   <div class="transportx-meeting-list-participants">
-    <span class="transportx-meeting-list-label">参与文献分享</span>
+    <span class="transportx-meeting-list-label">分享成员</span>
     <div class="transportx-member-list" aria-label="参与文献分享的成员">
       {{- range $item.Params.reading_members -}}
         {{ partial "transportx/member-chip.html" (dict "member" . "compact" true) }}
