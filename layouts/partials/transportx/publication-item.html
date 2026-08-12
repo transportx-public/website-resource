@@ -1,0 +1,71 @@
+{{- $item := . -}}
+{{- $type_classes := slice -}}
+{{- range $item.Params.publication_types -}}
+  {{- $type_classes = $type_classes | append (printf "pubtype-%s" (. | urlize)) -}}
+{{- end -}}
+{{- $featured := ($item.Resources.ByType "image").GetMatch "*featured*" -}}
+
+<article class="transportx-publication-entry pub-list-item isotope-item {{ delimit $type_classes " " }} year-{{ $item.Date.Format "2006" }}">
+  <div class="transportx-publication-visual">
+    <a href="{{ $item.RelPermalink }}" aria-label="View {{ $item.Title }}">
+      {{- with $featured -}}
+        {{- $figure := .Resize "960x webp q86" -}}
+        <img
+          src="{{ $figure.RelPermalink }}"
+          width="{{ $figure.Width }}"
+          height="{{ $figure.Height }}"
+          alt="Research framework for {{ $item.Title }}"
+          loading="lazy"
+        >
+      {{- end -}}
+    </a>
+  </div>
+
+  <div class="transportx-publication-info">
+    <h2 class="transportx-publication-title">
+      <a href="{{ $item.RelPermalink }}">{{ $item.Title }}</a>
+    </h2>
+
+    <div class="transportx-publication-meta">
+      <span class="transportx-publication-venue">
+        {{ $item.Params.publication_short | default $item.Params.publication }}
+      </span>
+      <span>{{ $item.Date.Format "2006" }}</span>
+      {{ with index $item.Params.publication_types 0 }}
+        <span>{{ . }}</span>
+      {{ end }}
+    </div>
+
+    <div class="transportx-member-list transportx-publication-authors" aria-label="Authors">
+      {{- range $item.Params.authors -}}
+        {{- $author := . -}}
+        {{ partial "transportx/member-chip.html" (dict "member" (dict "name" $author "profile" ($author | urlize)) "compact" true) }}
+      {{- end -}}
+    </div>
+
+    {{ with $item.Params.tags }}
+      <div class="transportx-publication-tags" aria-label="Research topics">
+        {{ range first 5 . }}
+          <span>{{ . }}</span>
+        {{ end }}
+      </div>
+    {{ end }}
+
+    {{ with $item.Params.summary }}
+      <p class="transportx-publication-summary">{{ . }}</p>
+    {{ end }}
+
+    <nav class="transportx-publication-links" aria-label="Links for {{ $item.Title }}">
+      <a href="{{ $item.RelPermalink }}">Details</a>
+      {{ with $item.Params.doi }}
+        <a href="https://doi.org/{{ . }}" target="_blank" rel="noopener">DOI</a>
+      {{ end }}
+      {{ with $item.Params.url_code }}
+        <a href="{{ . }}" target="_blank" rel="noopener">Code</a>
+      {{ end }}
+      {{ with $item.Params.url_source }}
+        <a href="{{ . }}" target="_blank" rel="noopener">中文解读</a>
+      {{ end }}
+    </nav>
+  </div>
+</article>
