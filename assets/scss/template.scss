@@ -761,3 +761,199 @@
     flex-direction: column;
   }
 }
+
+.transportx-contact-heading,
+.transportx-contact-page {
+  --transportx-contact-line: #dfe3e8;
+  --transportx-contact-muted: #667085;
+  --transportx-contact-text: #20252d;
+  max-width: 1040px;
+}
+
+.transportx-contact-heading {
+  padding-top: 3rem;
+}
+
+.transportx-contact-heading h1 {
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.transportx-contact-page {
+  padding-bottom: 5rem;
+}
+
+.transportx-contact-intro {
+  align-items: start;
+  border-bottom: 1px solid var(--transportx-contact-line);
+  display: grid;
+  gap: 2rem 5rem;
+  grid-template-columns: minmax(0, 1.35fr) minmax(15rem, .65fr);
+  padding: 1rem 0 3.25rem;
+}
+
+.transportx-contact-lead {
+  color: var(--transportx-contact-text);
+  font-size: clamp(1.6rem, 3vw, 2.35rem);
+  font-weight: 600;
+  letter-spacing: -.025em;
+  line-height: 1.25;
+  margin: 0;
+  max-width: 24ch;
+}
+
+.transportx-contact-note {
+  color: var(--transportx-contact-muted);
+  font-size: .96rem;
+  line-height: 1.7;
+  margin: .35rem 0 0;
+  max-width: 34rem;
+}
+
+.transportx-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.transportx-contact-section {
+  min-width: 0;
+  padding: 2.75rem 3.25rem 0 0;
+}
+
+.transportx-contact-section + .transportx-contact-section {
+  border-left: 1px solid var(--transportx-contact-line);
+  padding-left: 3.25rem;
+  padding-right: 0;
+}
+
+.transportx-contact-section h2 {
+  color: var(--transportx-contact-muted);
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  margin: 0 0 1.5rem;
+}
+
+.transportx-contact-name {
+  align-items: baseline;
+  color: var(--transportx-contact-text);
+  display: flex;
+  gap: .8rem;
+  margin: 0 0 2rem;
+}
+
+.transportx-contact-name strong {
+  font-size: 1.55rem;
+  font-weight: 600;
+}
+
+.transportx-contact-name span {
+  color: var(--transportx-contact-muted);
+  font-size: 1rem;
+}
+
+.transportx-contact-details {
+  margin: 0;
+}
+
+.transportx-contact-details > div {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 5.25rem minmax(0, 1fr);
+  margin-bottom: .85rem;
+}
+
+.transportx-contact-details dt {
+  color: var(--transportx-contact-muted);
+  font-size: .88rem;
+  font-weight: 500;
+}
+
+.transportx-contact-details dd {
+  color: var(--transportx-contact-text);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.transportx-contact-details a,
+.transportx-contact-actions a {
+  color: #235aa6;
+  text-decoration-color: transparent;
+  text-underline-offset: .18em;
+}
+
+.transportx-contact-details a:hover,
+.transportx-contact-details a:focus,
+.transportx-contact-actions a:hover,
+.transportx-contact-actions a:focus {
+  text-decoration-color: currentColor;
+}
+
+.transportx-contact-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: .9rem;
+  font-weight: 600;
+  gap: .55rem 1.35rem;
+  margin-top: 2rem;
+}
+
+.transportx-contact-address {
+  color: var(--transportx-contact-text);
+  font-size: 1.02rem;
+  font-style: normal;
+  line-height: 1.75;
+  margin: -.25rem 0 1.2rem;
+}
+
+.transportx-contact-visit-note {
+  color: var(--transportx-contact-muted);
+  font-size: .9rem;
+  margin: 0;
+}
+
+.dark .transportx-contact-page {
+  --transportx-contact-line: #343a43;
+  --transportx-contact-muted: #aab2bf;
+  --transportx-contact-text: #eef1f5;
+}
+
+.dark .transportx-contact-details a,
+.dark .transportx-contact-actions a {
+  color: #8ab4ef;
+}
+
+@media (max-width: 767.98px) {
+  .transportx-contact-heading {
+    padding-top: 2rem;
+  }
+
+  .transportx-contact-page {
+    padding-bottom: 3.5rem;
+  }
+
+  .transportx-contact-intro,
+  .transportx-contact-grid {
+    display: block;
+  }
+
+  .transportx-contact-intro {
+    padding: .5rem 0 2.25rem;
+  }
+
+  .transportx-contact-note {
+    margin-top: 1.25rem;
+  }
+
+  .transportx-contact-section,
+  .transportx-contact-section + .transportx-contact-section {
+    border-left: 0;
+    padding: 2.25rem 0 0;
+  }
+
+  .transportx-contact-section + .transportx-contact-section {
+    border-top: 1px solid var(--transportx-contact-line);
+    margin-top: 2.25rem;
+  }
+}

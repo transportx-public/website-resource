@@ -12,7 +12,7 @@ interests:
   - "Large Language Model"
   - "Blockchain"
 enrollment_year: 2023
-website: "https://www.orville.wang/"
+website: "https://aowang.ai/"
 avatar_source: "ao_wang.jpg"
 academic_degree: "Master"
 academic_status: "Graduate"
@@ -26,7 +26,7 @@ social:
     link: "mailto:2331623@tongji.edu.cn"
   - icon: "globe"
     icon_pack: "fas"
-    link: "https://www.orville.wang/"
+    link: "https://aowang.ai/"
 highlight_name: false
 user_groups:
   - "2023"
