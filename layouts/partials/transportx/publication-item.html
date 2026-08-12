@@ -26,14 +26,28 @@
       <a href="{{ $item.RelPermalink }}">{{ $item.Title }}</a>
     </h2>
 
-    <div class="transportx-publication-meta">
-      <span class="transportx-publication-venue">
-        {{ $item.Params.publication_short | default $item.Params.publication }}
-      </span>
-      <span>{{ $item.Date.Format "2006" }}</span>
-      {{ with index $item.Params.publication_types 0 }}
-        <span>{{ . }}</span>
-      {{ end }}
+    <div class="transportx-publication-meta-row">
+      <div class="transportx-publication-meta">
+        <span class="transportx-publication-venue">
+          {{ $item.Params.publication_short | default $item.Params.publication }}
+        </span>
+        <span>{{ $item.Date.Format "2006" }}</span>
+        {{ with index $item.Params.publication_types 0 }}
+          <span>{{ . }}</span>
+        {{ end }}
+      </div>
+
+      <nav class="transportx-publication-links" aria-label="Links for {{ $item.Title }}">
+        {{ with $item.Params.doi }}
+          <a href="https://doi.org/{{ . }}" target="_blank" rel="noopener">DOI</a>
+        {{ end }}
+        {{ with $item.Params.url_code }}
+          <a href="{{ . }}" target="_blank" rel="noopener">Code</a>
+        {{ end }}
+        {{ with $item.Params.url_source }}
+          <a href="{{ . }}" target="_blank" rel="noopener">中文解读</a>
+        {{ end }}
+      </nav>
     </div>
 
     <div class="transportx-member-list transportx-publication-authors" aria-label="Authors">
@@ -43,29 +57,16 @@
       {{- end -}}
     </div>
 
-    {{ with $item.Params.tags }}
-      <div class="transportx-publication-tags" aria-label="Research topics">
-        {{ range first 5 . }}
-          <span>{{ . }}</span>
-        {{ end }}
-      </div>
-    {{ end }}
-
     {{ with $item.Params.summary }}
       <p class="transportx-publication-summary">{{ . }}</p>
     {{ end }}
 
-    <nav class="transportx-publication-links" aria-label="Links for {{ $item.Title }}">
-      <a href="{{ $item.RelPermalink }}">Details</a>
-      {{ with $item.Params.doi }}
-        <a href="https://doi.org/{{ . }}" target="_blank" rel="noopener">DOI</a>
-      {{ end }}
-      {{ with $item.Params.url_code }}
-        <a href="{{ . }}" target="_blank" rel="noopener">Code</a>
-      {{ end }}
-      {{ with $item.Params.url_source }}
-        <a href="{{ . }}" target="_blank" rel="noopener">中文解读</a>
-      {{ end }}
-    </nav>
+    {{ with $item.Params.tags }}
+      <div class="transportx-publication-tags" aria-label="Research topics">
+        {{ range first 3 . }}
+          <span>{{ . }}</span>
+        {{ end }}
+      </div>
+    {{ end }}
   </div>
 </article>

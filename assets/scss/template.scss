@@ -540,11 +540,12 @@
 }
 
 .transportx-publication-entry {
+  align-items: stretch;
   border-bottom: 1px solid var(--transportx-publication-line);
   display: grid;
-  gap: clamp(1.5rem, 3.5vw, 3rem);
-  grid-template-columns: minmax(0, 41%) minmax(0, 1fr);
-  padding: 2.5rem 0;
+  gap: clamp(1.5rem, 2.8vw, 2.5rem);
+  grid-template-columns: minmax(0, 38%) minmax(0, 1fr);
+  padding: 2.1rem 0;
 }
 
 .transportx-publication-entry:first-of-type {
@@ -552,7 +553,7 @@
 }
 
 .transportx-publication-visual {
-  align-self: start;
+  align-self: stretch;
   min-width: 0;
 }
 
@@ -560,6 +561,7 @@
   background: #f7f8fa;
   border: 1px solid var(--transportx-publication-line);
   display: flex;
+  height: 100%;
   min-height: 13rem;
   overflow: hidden;
   place-content: center;
@@ -568,8 +570,7 @@
 
 .transportx-publication-visual img {
   display: block;
-  height: auto;
-  max-height: 22rem;
+  height: 100%;
   object-fit: contain;
   transition: transform .2s ease;
   width: 100%;
@@ -583,14 +584,15 @@
 .transportx-publication-info {
   align-self: center;
   min-width: 0;
+  padding: .15rem 0;
 }
 
 .transportx-publication-title {
   color: var(--transportx-publication-text);
-  font-size: clamp(1.15rem, 1.55vw, 1.42rem);
+  font-size: clamp(1.12rem, 1.35vw, 1.3rem);
   font-weight: 650;
   line-height: 1.35;
-  margin: 0 0 .65rem;
+  margin: 0 0 .5rem;
 }
 
 .transportx-publication-title a {
@@ -606,13 +608,21 @@
   text-decoration-color: currentColor;
 }
 
+.transportx-publication-meta-row {
+  align-items: baseline;
+  display: flex;
+  gap: .4rem 1rem;
+  justify-content: space-between;
+  margin-bottom: .55rem;
+}
+
 .transportx-publication-meta {
   color: var(--transportx-publication-muted);
   display: flex;
   flex-wrap: wrap;
-  font-size: .86rem;
+  font-size: .8rem;
   gap: .25rem 0;
-  margin-bottom: .75rem;
+  margin-bottom: 0;
 }
 
 .transportx-publication-meta span {
@@ -632,36 +642,44 @@
 }
 
 .transportx-publication-authors {
-  gap: .3rem .85rem;
-  margin-bottom: .8rem;
+  gap: .25rem .65rem;
+  margin-bottom: .65rem;
 }
 
 .transportx-publication-authors .transportx-member-chip {
   color: var(--transportx-publication-text);
+  font-size: .78rem;
 }
 
 .transportx-publication-tags {
   display: flex;
-  flex-wrap: wrap;
-  gap: .4rem;
-  margin-bottom: .9rem;
+  width: 100%;
+  white-space: nowrap;
 }
 
 .transportx-publication-tags span {
-  background: #eef3fb;
-  border-radius: 999px;
-  color: #294f86;
-  font-size: .75rem;
-  line-height: 1.35;
-  padding: .28rem .65rem;
+  color: var(--transportx-publication-muted);
+  font-size: .68rem;
+  line-height: 1.45;
+}
+
+.transportx-publication-tags span:not(:last-child)::after {
+  color: #a4aab3;
+  content: "/";
+  margin: 0 .35rem;
 }
 
 .transportx-publication-summary {
   color: #4b5563;
-  font-size: .92rem;
-  line-height: 1.7;
-  margin: 0 0 .9rem;
+  display: -webkit-box;
+  font-size: .86rem;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  line-height: 1.6;
+  margin: 0 0 .5rem;
   max-width: 65ch;
+  overflow: hidden;
 }
 
 .transportx-publication-links {
@@ -672,10 +690,17 @@
 
 .transportx-publication-links a {
   color: var(--transportx-publication-accent);
-  font-size: .8rem;
+  font-size: .76rem;
   font-weight: 600;
   text-decoration-color: currentColor;
   text-underline-offset: .18em;
+}
+
+.transportx-publication-meta-row .transportx-publication-links {
+  flex: 0 0 auto;
+  flex-wrap: nowrap;
+  gap: .4rem .75rem;
+  white-space: nowrap;
 }
 
 .transportx-publication-empty {
@@ -692,11 +717,6 @@
 
 .dark .transportx-publication-visual a {
   background: #20252d;
-}
-
-.dark .transportx-publication-tags span {
-  background: #263c59;
-  color: #d6e7fb;
 }
 
 .dark .transportx-publication-summary {
@@ -724,10 +744,20 @@
   }
 
   .transportx-publication-visual a {
+    height: auto;
     min-height: 0;
+  }
+
+  .transportx-publication-visual img {
+    height: auto;
   }
 
   .transportx-publication-title {
     font-size: 1.12rem;
+  }
+
+  .transportx-publication-meta-row {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
