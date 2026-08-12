@@ -16,6 +16,7 @@ SCRIPTS = {
     "events": REPO_ROOT / "scripts" / "generate_events_from_xlsx.py",
     "publications": REPO_ROOT / "scripts" / "generate_publications_from_xlsx.py",
 }
+LANGUAGE_VARIANTS = REPO_ROOT / "scripts" / "generate_language_variants.py"
 
 
 def run_module(name: str) -> None:
@@ -40,6 +41,7 @@ def main() -> None:
     for module in modules:
         print(f"==> Syncing {module}", flush=True)
         run_module(module)
+    subprocess.run([sys.executable, str(LANGUAGE_VARIANTS)], cwd=REPO_ROOT, check=True)
 
 
 if __name__ == "__main__":

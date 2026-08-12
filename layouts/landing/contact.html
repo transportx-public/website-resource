@@ -7,48 +7,44 @@
 <main class="universal-wrapper transportx-contact-page">
   <header class="transportx-contact-intro">
     <p class="transportx-contact-lead">
-      TransportX welcomes enquiries about research collaboration, graduate study, and academic exchange.
+      {{ i18n "contact_lead" }}
     </p>
     <p class="transportx-contact-note">
-      Please contact Jian Li directly and include your affiliation and a concise description of your enquiry.
+      {{ i18n "contact_note" }}
     </p>
   </header>
 
   <div class="transportx-contact-grid">
     <section class="transportx-contact-section" aria-labelledby="transportx-primary-contact">
-      <h2 id="transportx-primary-contact">Primary contact</h2>
+      <h2 id="transportx-primary-contact">{{ i18n "contact_primary" }}</h2>
       <p class="transportx-contact-name">
         <strong>Jian Li</strong>
         <span lang="zh-CN">李健</span>
       </p>
       <dl class="transportx-contact-details">
         <div>
-          <dt>Email</dt>
+          <dt>{{ i18n "profile_email" }}</dt>
           <dd><a href="mailto:jianli@tongji.edu.cn">jianli@tongji.edu.cn</a></dd>
         </div>
         <div>
-          <dt>Telephone</dt>
+          <dt>{{ i18n "contact_telephone" }}</dt>
           <dd><a href="tel:+862169583697">+86 21 6958 3697</a></dd>
         </div>
       </dl>
       <div class="transportx-contact-actions">
-        <a href="mailto:jianli@tongji.edu.cn">Write an email</a>
-        <a href="https://tjjt.tongji.edu.cn/szdw1/jsml2/jtgcx1/lj.htm" target="_blank" rel="noopener">Official university profile</a>
+        <a href="mailto:jianli@tongji.edu.cn">{{ i18n "contact_write_email" }}</a>
+        <a href="https://tjjt.tongji.edu.cn/szdw1/jsml2/jtgcx1/lj.htm" target="_blank" rel="noopener">{{ i18n "contact_official_profile" }}</a>
       </div>
     </section>
 
     <section class="transportx-contact-section" aria-labelledby="transportx-location">
-      <h2 id="transportx-location">Location</h2>
+      <h2 id="transportx-location">{{ i18n "contact_location" }}</h2>
       <address class="transportx-contact-address">
-        Room A526<br>
-        College of Transportation Engineering<br>
-        Tongji University<br>
-        No. 4800 Cao'an Road, Jiading District<br>
-        Shanghai 201804, China
+        {{ i18n "contact_address" | safeHTML }}
       </address>
-      <p class="transportx-contact-visit-note">Please arrange a visit by email in advance.</p>
+      <p class="transportx-contact-visit-note">{{ i18n "contact_visit_note" }}</p>
       <div class="transportx-contact-actions">
-        <a href="https://tjjt.tongji.edu.cn/English_Home/INTERNATIONAL/Contact_Us.htm" target="_blank" rel="noopener">College contact information</a>
+        <a href="https://tjjt.tongji.edu.cn/English_Home/INTERNATIONAL/Contact_Us.htm" target="_blank" rel="noopener">{{ i18n "contact_college_info" }}</a>
       </div>
     </section>
   </div>

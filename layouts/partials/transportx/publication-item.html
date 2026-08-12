@@ -7,14 +7,14 @@
 
 <article class="transportx-publication-entry pub-list-item isotope-item {{ delimit $type_classes " " }} year-{{ $item.Date.Format "2006" }}">
   <div class="transportx-publication-visual">
-    <a href="{{ $item.RelPermalink }}" aria-label="View {{ $item.Title }}">
+    <a href="{{ $item.RelPermalink }}" aria-label="{{ i18n "publication_view_aria" (dict "Title" $item.Title) }}">
       {{- with $featured -}}
         {{- $figure := .Resize "960x webp q86" -}}
         <img
           src="{{ $figure.RelPermalink }}"
           width="{{ $figure.Width }}"
           height="{{ $figure.Height }}"
-          alt="Research framework for {{ $item.Title }}"
+          alt="{{ i18n "publication_figure_alt" (dict "Title" $item.Title) }}"
           loading="lazy"
         >
       {{- end -}}
@@ -33,24 +33,27 @@
         </span>
         <span>{{ $item.Date.Format "2006" }}</span>
         {{ with index $item.Params.publication_types 0 }}
-          <span>{{ . }}</span>
+          {{- $type_label := . -}}
+          {{- if eq . "Conference Papers" -}}{{- $type_label = i18n "publication_type_conference" -}}{{- end -}}
+          {{- if eq . "Journal Publications" -}}{{- $type_label = i18n "publication_type_journal" -}}{{- end -}}
+          <span>{{ $type_label }}</span>
         {{ end }}
       </div>
 
-      <nav class="transportx-publication-links" aria-label="Links for {{ $item.Title }}">
+      <nav class="transportx-publication-links" aria-label="{{ i18n "publication_links_aria" (dict "Title" $item.Title) }}">
         {{ with $item.Params.doi }}
           <a href="https://doi.org/{{ . }}" target="_blank" rel="noopener">DOI</a>
         {{ end }}
         {{ with $item.Params.url_code }}
-          <a href="{{ . }}" target="_blank" rel="noopener">Code</a>
+          <a href="{{ . }}" target="_blank" rel="noopener">{{ i18n "publication_code" }}</a>
         {{ end }}
         {{ with $item.Params.url_source }}
-          <a href="{{ . }}" target="_blank" rel="noopener">中文解读</a>
+          <a href="{{ . }}" target="_blank" rel="noopener">{{ i18n "publication_chinese_overview" }}</a>
         {{ end }}
       </nav>
     </div>
 
-    <div class="transportx-member-list transportx-publication-authors" aria-label="Authors">
+    <div class="transportx-member-list transportx-publication-authors" aria-label="{{ i18n "publication_authors" }}">
       {{- range $item.Params.authors -}}
         {{- $author := . -}}
         {{ partial "transportx/member-chip.html" (dict "member" (dict "name" $author "profile" ($author | urlize)) "compact" true) }}
@@ -62,7 +65,7 @@
     {{ end }}
 
     {{ with $item.Params.tags }}
-      <div class="transportx-publication-tags" aria-label="Research topics">
+      <div class="transportx-publication-tags" aria-label="{{ i18n "publication_topics" }}">
         {{ range first 3 . }}
           <span>{{ . }}</span>
         {{ end }}

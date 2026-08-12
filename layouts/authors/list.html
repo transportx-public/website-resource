@@ -11,20 +11,20 @@
 {{ $avatar := (.Resources.ByType "image").GetMatch "*avatar*" }}
 {{ $avatar_shape := site.Params.features.avatar.shape | default "circle" }}
 {{ $profile_items := slice }}
-{{ with $person.name_chinese }}{{ $profile_items = $profile_items | append (dict "label" "中文名" "value" .) }}{{ end }}
-{{ with $person.academic_degree }}{{ $profile_items = $profile_items | append (dict "label" "身份" "value" .) }}{{ else }}{{ with $person.role }}{{ $profile_items = $profile_items | append (dict "label" "身份" "value" .) }}{{ end }}{{ end }}
+{{ if ne .Lang "zh" }}{{ with $person.name_chinese }}{{ $profile_items = $profile_items | append (dict "label" (i18n "profile_chinese_name") "value" .) }}{{ end }}{{ end }}
+{{ with $person.academic_degree }}{{ $profile_items = $profile_items | append (dict "label" (i18n "profile_position") "value" .) }}{{ else }}{{ with $person.role }}{{ $profile_items = $profile_items | append (dict "label" (i18n "profile_position") "value" .) }}{{ end }}{{ end }}
 {{ with $person.academic_status }}
   {{ $status := . }}
-  {{ if eq (lower $status) "graduate" }}{{ $status = "已毕业" }}{{ end }}
-  {{ if eq (lower $status) "student" }}{{ $status = "在读" }}{{ end }}
-  {{ $profile_items = $profile_items | append (dict "label" "状态" "value" $status) }}
+  {{ if eq (lower $status) "graduate" }}{{ $status = i18n "profile_graduate" }}{{ end }}
+  {{ if eq (lower $status) "student" }}{{ $status = i18n "profile_student" }}{{ end }}
+  {{ $profile_items = $profile_items | append (dict "label" (i18n "profile_status") "value" $status) }}
 {{ end }}
-{{ with $person.enrollment_year }}{{ $profile_items = $profile_items | append (dict "label" "入学年份" "value" .) }}{{ end }}
+{{ with $person.enrollment_year }}{{ $profile_items = $profile_items | append (dict "label" (i18n "profile_enrollment_year") "value" .) }}{{ end }}
 {{ range $person.organizations }}
-  {{ if .name }}{{ $profile_items = $profile_items | append (dict "label" "当前单位" "value" .name "url" .url) }}{{ end }}
+  {{ if .name }}{{ $profile_items = $profile_items | append (dict "label" (i18n "profile_organization") "value" .name "url" .url) }}{{ end }}
 {{ end }}
-{{ with $person.email }}{{ $profile_items = $profile_items | append (dict "label" "邮箱" "value" . "url" (printf "mailto:%s" .)) }}{{ end }}
-{{ with $person.website }}{{ $profile_items = $profile_items | append (dict "label" "个人主页" "value" . "url" .) }}{{ end }}
+{{ with $person.email }}{{ $profile_items = $profile_items | append (dict "label" (i18n "profile_email") "value" . "url" (printf "mailto:%s" .)) }}{{ end }}
+{{ with $person.website }}{{ $profile_items = $profile_items | append (dict "label" (i18n "profile_website") "value" . "url" .) }}{{ end }}
 
 <section id="profile-page" class="pt-5 transportx-author-page">
   <div class="container">
@@ -42,7 +42,7 @@
 
           <div class="portrait-title">
             <h1>{{ .Title }}</h1>
-            {{ with $person.name_chinese }}<div class="transportx-author-cn">{{ . }}</div>{{ end }}
+            {{ if ne $.Lang "zh" }}{{ with $person.name_chinese }}<div class="transportx-author-cn">{{ . }}</div>{{ end }}{{ end }}
             {{ with $person.role }}<h2>{{ . | markdownify | emojify }}</h2>{{ end }}
           </div>
 
@@ -71,7 +71,7 @@
 
       <div class="col-12 col-lg-8">
         <div class="transportx-info-section">
-          <h2>Profile</h2>
+          <h2>{{ i18n "profile_title" }}</h2>
           <dl class="transportx-profile-grid">
             {{ range $profile_items }}
             <div>
@@ -90,7 +90,7 @@
 
         {{ with $person.interests }}
         <div class="transportx-info-section">
-          <h2>Research Interests</h2>
+          <h2>{{ i18n "profile_interests" }}</h2>
           <ul class="transportx-interest-list">
             {{ range . }}
             <li>{{ . | markdownify | emojify }}</li>
@@ -101,7 +101,7 @@
 
         {{ if or .Content $person.bio $person.other_information }}
         <div class="transportx-info-section">
-          <h2>Introduction</h2>
+          <h2>{{ i18n "profile_introduction" }}</h2>
           {{ with .Content }}
           <div class="article-style transportx-author-intro">{{ . }}</div>
           {{ else with $person.bio }}

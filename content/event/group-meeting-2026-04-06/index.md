@@ -1,15 +1,15 @@
 ---
-title: "组会 | 2026-04-06"
-event: "课题组组会"
-summary: "本次组会收录 1 篇文献阅读分享。"
+title: "Group Meeting | 2026-04-06"
+event: "Group meeting"
+summary: "1 papers were presented at this group meeting."
 abstract: ''
 date: "2026-04-06T00:00:00+08:00"
 all_day: true
 publishDate: "2026-04-06T00:00:00+08:00"
 authors: []
 tags:
-  - "组会"
-  - "文献分享"
+  - "Group meeting"
+  - "Literature review"
 featured: false
 image:
   caption: ''

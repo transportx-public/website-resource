@@ -957,3 +957,39 @@
     margin-top: 2.25rem;
   }
 }
+.i18n-dropdown > .nav-link {
+  align-items: center;
+  border: 1px solid rgba(36, 92, 153, 0.28);
+  border-radius: 999px;
+  color: #245c99 !important;
+  display: inline-flex;
+  font-size: 0.72rem;
+  font-weight: 650;
+  justify-content: center;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin: 0.55rem 0.25rem;
+  min-height: 2rem;
+  padding: 0.45rem 0.72rem !important;
+}
+
+.i18n-dropdown > .nav-link:hover,
+.i18n-dropdown > .nav-link:focus {
+  background: rgba(36, 92, 153, 0.07);
+  border-color: rgba(36, 92, 153, 0.5);
+}
+
+.i18n-dropdown > .nav-link .fa-globe,
+.i18n-dropdown > .nav-link > span {
+  display: none !important;
+}
+
+.i18n-dropdown > .nav-link::before {
+  content: "中文 / EN";
+}
+
+.i18n-dropdown .dropdown-menu {
+  border: 1px solid #e2e7ec;
+  box-shadow: 0 0.5rem 1.5rem rgba(25, 40, 58, 0.1);
+  min-width: 8.5rem;
+}

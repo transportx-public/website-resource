@@ -2,21 +2,58 @@
 #   Create a section for each of your site's languages.
 #   Documentation: https://docs.hugoblox.com/reference/language/
 
-# Default language
 en:
-  languageCode: en-us
-  # Uncomment for multi-lingual sites, and move English content into `en` sub-folder.
-  #contentDir: content/en
+  locale: en_US
+  label: English
+  weight: 1
+  title: TransportX
+  params:
+    description: Intelligent transportation research group at Tongji University.
+  menus:
+    main:
+      - name: Tour
+        url: tour
+        weight: 10
+      - name: People
+        url: people
+        weight: 30
+      - name: News
+        url: post
+        weight: 20
+      - name: Events
+        url: event
+        weight: 40
+      - name: Publications
+        url: publication
+        weight: 50
+      - name: Contact
+        url: contact
+        weight: 60
 
-# Uncomment the lines below to configure your website in a second language.
-#zh:
-#  languageCode: zh-Hans
-#  contentDir: content/zh
-#  title: Chinese website title...
-#  params:
-#    description: Site description in Chinese...
-#  menu:
-#    main:
-#      - name: 传
-#        url: '#about'
-#        weight: 1
+zh:
+  locale: zh_CN
+  label: 中文
+  weight: 2
+  title: TransportX
+  params:
+    description: 同济大学智能交通研究团队。
+  menus:
+    main:
+      - name: 课题组
+        url: tour
+        weight: 10
+      - name: 成员
+        url: people
+        weight: 30
+      - name: 新闻动态
+        url: post
+        weight: 20
+      - name: 活动
+        url: event
+        weight: 40
+      - name: 论文发表
+        url: publication
+        weight: 50
+      - name: 联系我们
+        url: contact
+        weight: 60

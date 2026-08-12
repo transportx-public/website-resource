@@ -34,6 +34,25 @@ sections:
     design:
       view: card
       columns: '1'
+
+  - block: collection
+    content:
+      title: Latest Group Meetings
+      subtitle:
+      text:
+      count: 5
+      filters:
+        author: ''
+        category: ''
+        exclude_featured: false
+        publication_type: ''
+        tag: ''
+      offset: 0
+      order: desc
+      page_type: event
+    design:
+      view: card
+      columns: '1'
   
   - block: markdown
     content:
@@ -57,13 +76,13 @@ sections:
 
   - block: collection
     content:
-      title: Latest Preprints
+      title: Latest Publications
       text: ""
       count: 5
       filters:
         folders:
           - publication
-        publication_type: 'article'
+        publication_type: ''
     design:
       view: citation
       columns: '1'

@@ -6,18 +6,18 @@
   <div class="article-container">
     <div class="transportx-event-facts">
       <div class="transportx-event-fact">
-        <span class="transportx-event-fact-label">日期</span>
+        <span class="transportx-event-fact-label">{{ i18n "event_date" }}</span>
         <span>{{ partial "functions/get_event_dates" . }}</span>
       </div>
       {{ with .Params.event }}
         <div class="transportx-event-fact">
-          <span class="transportx-event-fact-label">活动</span>
-          <span>{{ . | markdownify }}</span>
+          <span class="transportx-event-fact-label">{{ i18n "event_activity" }}</span>
+          <span>{{ i18n "event_group_meeting" }}</span>
         </div>
       {{ end }}
       {{ with .Params.location }}
         <div class="transportx-event-fact">
-          <span class="transportx-event-fact-label">地点</span>
+          <span class="transportx-event-fact-label">{{ i18n "event_location" }}</span>
           <span>{{ . | markdownify }}</span>
         </div>
       {{ end }}
@@ -28,7 +28,7 @@
         <div class="transportx-meeting-intro">
           <p class="transportx-meeting-summary">{{ .Params.summary }}</p>
           <div class="transportx-meeting-participants">
-            <span class="transportx-meeting-participants-label">分享成员</span>
+            <span class="transportx-meeting-participants-label">{{ i18n "event_share_members" }}</span>
             <div class="transportx-member-list">
               {{ range .Params.reading_members }}
                 {{ partial "transportx/member-chip.html" (dict "member" . "compact" true) }}
@@ -37,43 +37,43 @@
           </div>
         </div>
 
-        <h2 id="meeting-readings-title">文献方向与要点</h2>
+        <h2 id="meeting-readings-title">{{ i18n "event_readings_title" }}</h2>
         <div class="transportx-reading-table-wrap">
           <table class="transportx-reading-table">
-            <caption class="sr-only">本次组会文献分享明细</caption>
+            <caption class="sr-only">{{ i18n "event_readings_caption" }}</caption>
             <thead>
               <tr>
-                <th scope="col">文献与研究要点</th>
-                <th scope="col">分享人</th>
-                <th scope="col">发表信息</th>
-                <th scope="col">资料</th>
+                <th scope="col">{{ i18n "event_paper_highlight" }}</th>
+                <th scope="col">{{ i18n "event_presenter" }}</th>
+                <th scope="col">{{ i18n "event_publication_info" }}</th>
+                <th scope="col">{{ i18n "event_resources" }}</th>
               </tr>
             </thead>
             <tbody>
               {{ range .Params.readings }}
                 <tr>
-                  <td data-label="文献与研究要点">
+                  <td data-label="{{ i18n "event_paper_highlight" }}">
                     <h3>{{ .title }}</h3>
                     {{ with .highlight }}
                       <p class="transportx-reading-highlight">{{ . | markdownify }}</p>
                     {{ end }}
                   </td>
-                  <td data-label="分享人">
+                  <td data-label="{{ i18n "event_presenter" }}">
                     {{ partial "transportx/member-chip.html" (dict "member" (dict "name" .reader_name "profile" .reader_profile) "compact" true) }}
                   </td>
-                  <td data-label="发表信息">
+                  <td data-label="{{ i18n "event_publication_info" }}">
                     {{ with .source }}<span class="transportx-reading-source">{{ . }}</span>{{ end }}
                     {{ with .published }}<span class="transportx-reading-published">{{ . }}</span>{{ end }}
-                    {{ if not (or .source .published) }}<span class="transportx-reading-empty">暂无</span>{{ end }}
+                    {{ if not (or .source .published) }}<span class="transportx-reading-empty">{{ i18n "event_none" }}</span>{{ end }}
                   </td>
-                  <td data-label="资料">
+                  <td data-label="{{ i18n "event_resources" }}">
                     {{ if or .url .slides }}
                       <div class="transportx-resource-links">
-                        {{ with .url }}<a href="{{ . }}" target="_blank" rel="noopener">原文</a>{{ end }}
+                        {{ with .url }}<a href="{{ . }}" target="_blank" rel="noopener">{{ i18n "event_original" }}</a>{{ end }}
                         {{ with .slides }}<a href="{{ . }}" target="_blank" rel="noopener">PPT</a>{{ end }}
                       </div>
                     {{ else }}
-                      <span class="transportx-reading-empty">暂无</span>
+                      <span class="transportx-reading-empty">{{ i18n "event_none" }}</span>
                     {{ end }}
                   </td>
                 </tr>
@@ -85,10 +85,10 @@
 
       {{ if or .Params.meeting_slides .Params.meeting_notes }}
         <section class="transportx-meeting-resources" aria-labelledby="meeting-resources-title">
-          <h2 id="meeting-resources-title">组会资料</h2>
+          <h2 id="meeting-resources-title">{{ i18n "event_meeting_resources" }}</h2>
           <div class="transportx-resource-links">
-            {{ with .Params.meeting_slides }}<a href="{{ . }}" target="_blank" rel="noopener">组会 PPT</a>{{ end }}
-            {{ with .Params.meeting_notes }}<a href="{{ . }}" target="_blank" rel="noopener">会议纪要</a>{{ end }}
+            {{ with .Params.meeting_slides }}<a href="{{ . }}" target="_blank" rel="noopener">{{ i18n "event_meeting_slides" }}</a>{{ end }}
+            {{ with .Params.meeting_notes }}<a href="{{ . }}" target="_blank" rel="noopener">{{ i18n "event_meeting_notes" }}</a>{{ end }}
           </div>
         </section>
       {{ end }}

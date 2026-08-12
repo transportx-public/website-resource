@@ -2,11 +2,12 @@
 {{- $compact := .compact -}}
 {{- $profile_page := site.GetPage (printf "/authors/%s" ($member.profile | urlize)) -}}
 {{- with $profile_page -}}
+  {{- $display_name := .Title | default $member.name -}}
   {{- $avatar := (.Resources.ByType "image").GetMatch "*avatar*" -}}
   <a
     class="transportx-member-chip{{ if $compact }} transportx-member-chip-compact{{ end }}"
     href="{{ .RelPermalink }}"
-    aria-label="查看 {{ $member.name }} 的成员主页"
+    aria-label="{{ i18n "member_profile_aria" (dict "Name" $display_name) }}"
   >
     {{- with $avatar -}}
       {{- $avatar_image := .Fill "64x64 Center" -}}
@@ -19,7 +20,7 @@
         loading="lazy"
       >
     {{- end -}}
-    <span>@{{ $member.name }}</span>
+    <span>@{{ $display_name }}</span>
   </a>
 {{- else -}}
   <span class="transportx-member-chip{{ if $compact }} transportx-member-chip-compact{{ end }}">
