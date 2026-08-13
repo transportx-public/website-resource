@@ -1,5 +1,5 @@
 ---
-title: "TransportX at the 2026 Urban Transport Planning Annual Conference: AI and an Open, Collaborative Innovation Ecosystem"
+title: "Team Participates in the 2026 Urban Transport Planning Annual Conference"
 date: 2026-07-18
 summary: "On July 17, Associate Professor Jian Li delivered a plenary presentation; on July 18, TransportX joined Forum 4 on an open and collaborative transport innovation ecosystem."
 image:
