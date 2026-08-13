@@ -848,8 +848,7 @@
   align-items: start;
   border-bottom: 1px solid var(--transportx-contact-line);
   display: grid;
-  gap: 2rem 5rem;
-  grid-template-columns: minmax(0, 1.35fr) minmax(15rem, .65fr);
+  grid-template-columns: minmax(0, 1fr);
   padding: 1rem 0 3.25rem;
 }
 
@@ -860,15 +859,7 @@
   letter-spacing: -.025em;
   line-height: 1.25;
   margin: 0;
-  max-width: 24ch;
-}
-
-.transportx-contact-note {
-  color: var(--transportx-contact-muted);
-  font-size: .96rem;
-  line-height: 1.7;
-  margin: .35rem 0 0;
-  max-width: 34rem;
+  max-width: none;
 }
 
 .transportx-contact-grid {
@@ -1001,10 +992,6 @@
 
   .transportx-contact-intro {
     padding: .5rem 0 2.25rem;
-  }
-
-  .transportx-contact-note {
-    margin-top: 1.25rem;
   }
 
   .transportx-contact-section,

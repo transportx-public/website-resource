@@ -129,12 +129,8 @@ profile_latest_events:
 
 contact_lead:
   other: TransportX 欢迎就科研合作、研究生培养与学术交流进行联系。
-contact_note:
-  other: 请直接联系李健老师，并在邮件中简要说明您的单位与来意。
 contact_primary:
   other: 主要联系人
-contact_telephone:
-  other: 电话
 contact_write_email:
   other: 发送邮件
 contact_official_profile:
