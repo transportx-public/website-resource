@@ -17,7 +17,7 @@
     <span class="transportx-meeting-list-label">{{ i18n "event_share_members" }}</span>
     <div class="transportx-member-list" aria-label="{{ i18n "event_members_aria" }}">
       {{- range $item.Params.reading_members -}}
-        {{ partial "transportx/member-chip.html" (dict "member" . "compact" true) }}
+        {{ partial "transportx/member-chip.html" (dict "member" . "compact" true "show_avatar" false) }}
       {{- end -}}
     </div>
   </div>

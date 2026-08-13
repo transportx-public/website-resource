@@ -100,6 +100,12 @@ profile_interests:
   other: Research interests
 profile_introduction:
   other: Introduction
+profile_latest_news:
+  other: News
+profile_latest_publications:
+  other: Publications
+profile_latest_events:
+  other: Events
 
 contact_lead:
   other: TransportX welcomes enquiries about research collaboration, graduate study, and academic exchange.
