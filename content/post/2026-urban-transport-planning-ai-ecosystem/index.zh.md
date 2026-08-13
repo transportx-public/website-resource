@@ -9,6 +9,8 @@ image:
 
 2026 年 7 月 17 日至 18 日，TransportX 参加 2026 年城市交通规划年会。李健副教授在大会作报告，并参与专题论坛 4“交通开放共享创新生态”的交流。
 
+**课题组参会成员：** [李健](/zh/author/jian-li/)、[夏强](/zh/author/qiang-xia/)、[果金杉](/zh/author/jinshan-guo/)
+
 <!--more-->
 
 ## 7 月 17 日：大会报告
