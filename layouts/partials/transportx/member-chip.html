@@ -1,5 +1,9 @@
 {{- $member := .member -}}
 {{- $compact := .compact -}}
+{{- $show_avatar := true -}}
+{{- if isset . "show_avatar" -}}
+  {{- $show_avatar = .show_avatar -}}
+{{- end -}}
 {{- $profile_page := site.GetPage (printf "/authors/%s" ($member.profile | urlize)) -}}
 {{- with $profile_page -}}
   {{- $display_name := .Title | default $member.name -}}
@@ -9,8 +13,8 @@
     href="{{ .RelPermalink }}"
     aria-label="{{ i18n "member_profile_aria" (dict "Name" $display_name) }}"
   >
-    {{- with $avatar -}}
-      {{- $avatar_image := .Fill "64x64 Center" -}}
+    {{- if and $show_avatar $avatar -}}
+      {{- $avatar_image := $avatar.Fill "64x64 Center" -}}
       <img
         class="transportx-member-avatar"
         src="{{ $avatar_image.RelPermalink }}"

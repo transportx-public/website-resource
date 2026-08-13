@@ -93,11 +93,72 @@
   margin-top: .75rem;
 }
 
+.transportx-author-latest > h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.transportx-author-latest-group {
+  border-top: 1px solid #e5e7eb;
+  padding: 1.25rem 0;
+}
+
+.transportx-author-latest-group h4 {
+  color: #4b5563;
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  margin: 0 0 .65rem;
+}
+
+.transportx-author-latest-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.transportx-author-latest-list li {
+  align-items: baseline;
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 7.25rem minmax(0, 1fr);
+  padding: .55rem 0;
+}
+
+.transportx-author-latest-list li + li {
+  border-top: 1px solid #f0f2f4;
+}
+
+.transportx-author-latest-list time {
+  color: #6b7280;
+  font-size: .82rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.transportx-author-latest-list a {
+  color: inherit;
+  line-height: 1.5;
+  text-decoration-color: transparent;
+  text-underline-offset: .18em;
+}
+
+.transportx-author-latest-list a:hover,
+.transportx-author-latest-list a:focus {
+  color: inherit;
+  text-decoration-color: currentColor;
+}
+
 @media (max-width: 767.98px) {
   .transportx-profile-grid,
   .transportx-interest-list {
     display: block;
     columns: 1;
+  }
+
+  .transportx-author-latest-list li {
+    gap: .75rem;
+    grid-template-columns: 4.5rem minmax(0, 1fr);
   }
 }
 

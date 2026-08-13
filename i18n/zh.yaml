@@ -99,6 +99,12 @@ profile_interests:
   other: 研究方向
 profile_introduction:
   other: 个人简介
+profile_latest_news:
+  other: 新闻动态
+profile_latest_publications:
+  other: 论文发表
+profile_latest_events:
+  other: 活动与组会
 
 contact_lead:
   other: TransportX 欢迎就科研合作、研究生培养与学术交流进行联系。

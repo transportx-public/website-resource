@@ -115,18 +115,60 @@
       </div>
     </div>
 
-    {{ $query := where .Pages ".IsNode" false }}
-    {{ $count := len $query }}
-    {{ if $count }}
-    <div class="article-widget content-widget-hr">
+    {{ $profile_key := .Title }}
+    {{ with $person.authors }}
+      {{ if gt (len .) 0 }}{{ $profile_key = index . 0 }}{{ end }}
+    {{ end }}
+
+    {{ $latest_news := slice }}
+    {{ range where site.RegularPages "Section" "post" }}
+      {{ if in (.Params.authors | default (slice)) $profile_key }}
+        {{ $latest_news = $latest_news | append . }}
+      {{ end }}
+    {{ end }}
+
+    {{ $latest_publications := slice }}
+    {{ range where site.RegularPages "Section" "publication" }}
+      {{ if in (.Params.authors | default (slice)) $profile_key }}
+        {{ $latest_publications = $latest_publications | append . }}
+      {{ end }}
+    {{ end }}
+
+    {{ $latest_events := slice }}
+    {{ range where site.RegularPages "Section" "event" }}
+      {{ $event_page := . }}
+      {{ $is_related := false }}
+      {{ range .Params.reading_members }}
+        {{ if eq .profile $profile_key }}{{ $is_related = true }}{{ end }}
+      {{ end }}
+      {{ if $is_related }}{{ $latest_events = $latest_events | append $event_page }}{{ end }}
+    {{ end }}
+
+    {{ $latest_groups := slice
+      (dict "label" (i18n "profile_latest_news") "items" $latest_news)
+      (dict "label" (i18n "profile_latest_publications") "items" $latest_publications)
+      (dict "label" (i18n "profile_latest_events") "items" $latest_events)
+    }}
+    {{ $latest_count := add (len $latest_news) (len $latest_publications) }}
+    {{ $latest_count = add $latest_count (len $latest_events) }}
+    {{ if gt $latest_count 0 }}
+    <div class="article-widget content-widget-hr transportx-author-latest">
       <h3>{{ i18n "user_profile_latest" | default "Latest" }}</h3>
-      <ul>
-        {{ range $query }}
-        <li>
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        </li>
+      {{ range $latest_groups }}
+        {{ if gt (len .items) 0 }}
+        <section class="transportx-author-latest-group">
+          <h4>{{ .label }}</h4>
+          <ol class="transportx-author-latest-list">
+            {{ range first 6 (sort .items "Date" "desc") }}
+            <li>
+              <time datetime="{{ .Date.Format "2006-01" }}">{{ .Date.Format "2006/01" }}</time>
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </li>
+            {{ end }}
+          </ol>
+        </section>
         {{ end }}
-      </ul>
+      {{ end }}
     </div>
     {{ end }}
   </div>
