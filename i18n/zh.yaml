@@ -38,6 +38,27 @@ publication_empty:
 publication_filter_empty:
   other: 没有符合当前筛选条件的论文。
 
+application_kicker:
+  other: 研究软件
+application_view:
+  other: 查看产品
+application_view_aria:
+  other: 查看 {{ .Title }}
+application_hero_alt:
+  other: "{{ .Title }} 界面"
+application_empty:
+  other: 暂无应用产品。
+application_overview:
+  other: 产品简介
+application_workflow:
+  other: 工作流程
+application_capabilities:
+  other: 可以协助的工作
+application_examples:
+  other: 分析示例
+application_open_image:
+  other: 查看完整界面图
+
 event_group_meeting:
   other: 课题组组会
 event_readings_count:

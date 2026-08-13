@@ -1054,3 +1054,409 @@
   box-shadow: 0 0.5rem 1.5rem rgba(25, 40, 58, 0.1);
   min-width: 8.5rem;
 }
+
+.transportx-application-heading,
+.transportx-application-archive,
+.transportx-application-page {
+  --transportx-application-accent: #2059a6;
+  --transportx-application-line: #dfe3e8;
+  --transportx-application-muted: #667085;
+  --transportx-application-surface: #f6f7f8;
+  --transportx-application-text: #20252d;
+  max-width: 1180px;
+}
+
+.transportx-application-heading {
+  padding-top: 3.5rem;
+}
+
+.transportx-application-heading h1,
+.transportx-application-page h1 {
+  color: var(--transportx-application-text);
+  text-align: left;
+}
+
+.transportx-application-heading h1 {
+  font-size: clamp(2.2rem, 4vw, 3.3rem);
+  letter-spacing: -.035em;
+  margin: 0 0 1rem;
+}
+
+.transportx-application-kicker,
+.transportx-application-stage {
+  color: var(--transportx-application-accent);
+  font-size: .72rem;
+  font-weight: 650;
+  letter-spacing: .08em;
+  margin: 0 0 .8rem;
+  text-transform: uppercase;
+}
+
+.transportx-application-intro {
+  color: var(--transportx-application-muted);
+  font-size: 1.02rem;
+  line-height: 1.7;
+  max-width: 48rem;
+}
+
+.transportx-application-intro p {
+  margin: 0;
+}
+
+.transportx-application-archive {
+  padding-bottom: 5rem;
+  padding-top: 2.5rem;
+}
+
+.transportx-application-list {
+  border-top: 1px solid var(--transportx-application-line);
+}
+
+.transportx-application-entry {
+  align-items: center;
+  border-bottom: 1px solid var(--transportx-application-line);
+  display: grid;
+  gap: clamp(2rem, 4vw, 4rem);
+  grid-template-columns: minmax(0, 54%) minmax(0, 1fr);
+  padding: 2.75rem 0;
+}
+
+.transportx-application-entry-visual {
+  background: var(--transportx-application-surface);
+  border: 1px solid var(--transportx-application-line);
+  display: block;
+  overflow: hidden;
+}
+
+.transportx-application-entry-visual img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.transportx-application-entry-copy {
+  min-width: 0;
+}
+
+.transportx-application-entry-copy h2 {
+  color: var(--transportx-application-text);
+  font-size: clamp(1.65rem, 2.5vw, 2.25rem);
+  letter-spacing: -.025em;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+}
+
+.transportx-application-entry-copy h2 a {
+  color: inherit;
+  text-decoration-color: transparent;
+  text-underline-offset: .16em;
+}
+
+.transportx-application-entry-copy h2 a:hover,
+.transportx-application-entry-copy h2 a:focus {
+  color: var(--transportx-application-accent);
+  text-decoration-color: currentColor;
+}
+
+.transportx-application-entry-copy > p:not(.transportx-application-stage) {
+  color: var(--transportx-application-muted);
+  font-size: .98rem;
+  line-height: 1.7;
+  margin: 0 0 1.35rem;
+}
+
+.transportx-application-detail-link {
+  color: var(--transportx-application-accent);
+  font-size: .86rem;
+  font-weight: 650;
+  text-decoration-color: currentColor;
+  text-underline-offset: .2em;
+}
+
+.transportx-application-detail-link span {
+  margin-left: .25rem;
+}
+
+.transportx-application-empty {
+  color: var(--transportx-application-muted);
+  padding: 2rem 0;
+}
+
+.transportx-application-page {
+  padding-bottom: 5rem;
+  padding-top: 3.25rem;
+}
+
+.transportx-application-hero {
+  align-items: center;
+  border-bottom: 1px solid var(--transportx-application-line);
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  grid-template-columns: minmax(17rem, .72fr) minmax(0, 1.28fr);
+  padding: 0 0 3.5rem;
+}
+
+.transportx-application-hero h1 {
+  font-size: clamp(2.7rem, 5vw, 4.5rem);
+  letter-spacing: -.05em;
+  line-height: 1.02;
+  margin: 0 0 1.35rem;
+}
+
+.transportx-application-summary {
+  color: var(--transportx-application-muted);
+  font-size: clamp(1rem, 1.4vw, 1.14rem);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 38rem;
+}
+
+.transportx-application-hero-figure {
+  background: var(--transportx-application-surface);
+  border: 1px solid var(--transportx-application-line);
+  margin: 0;
+  min-width: 0;
+}
+
+.transportx-application-hero-figure img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.transportx-application-overview,
+.transportx-application-workflow,
+.transportx-application-capabilities,
+.transportx-application-gallery {
+  border-bottom: 1px solid var(--transportx-application-line);
+  padding: 3.5rem 0;
+}
+
+.transportx-application-overview {
+  display: grid;
+  gap: 2rem 4rem;
+  grid-template-columns: 10rem minmax(0, 1fr);
+}
+
+.transportx-application-overview h2,
+.transportx-application-workflow > h2,
+.transportx-application-capabilities > h2,
+.transportx-application-gallery > h2 {
+  color: var(--transportx-application-text);
+  font-size: 1.05rem;
+  font-weight: 650;
+  margin: 0 0 2rem;
+}
+
+.transportx-application-overview h2 {
+  margin: .15rem 0 0;
+}
+
+.transportx-application-body {
+  color: var(--transportx-application-text);
+  font-size: 1.05rem;
+  line-height: 1.78;
+  max-width: 50rem;
+}
+
+.transportx-application-body p:last-child {
+  margin-bottom: 0;
+}
+
+.transportx-application-workflow ol {
+  border-top: 1px solid var(--transportx-application-line);
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.transportx-application-workflow li {
+  min-width: 0;
+  padding: 1.3rem 1.35rem 0 0;
+}
+
+.transportx-application-workflow li + li {
+  border-left: 1px solid var(--transportx-application-line);
+  padding-left: 1.35rem;
+}
+
+.transportx-application-workflow h3,
+.transportx-application-capabilities dt {
+  color: var(--transportx-application-text);
+  font-size: .92rem;
+  font-weight: 650;
+  line-height: 1.45;
+  margin: 0 0 .55rem;
+}
+
+.transportx-application-workflow p,
+.transportx-application-capabilities dd {
+  color: var(--transportx-application-muted);
+  font-size: .84rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.transportx-application-capabilities dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+}
+
+.transportx-application-capabilities dl > div {
+  border-top: 1px solid var(--transportx-application-line);
+  padding: 1.3rem 2rem 0 0;
+}
+
+.transportx-application-capabilities dl > div + div {
+  border-left: 1px solid var(--transportx-application-line);
+  padding-left: 2rem;
+}
+
+.transportx-application-gallery {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.transportx-application-gallery-grid {
+  display: grid;
+  gap: 2.25rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.transportx-application-gallery figure {
+  margin: 0;
+  min-width: 0;
+}
+
+.transportx-application-gallery figure a {
+  background: var(--transportx-application-surface);
+  border: 1px solid var(--transportx-application-line);
+  display: block;
+}
+
+.transportx-application-gallery img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.transportx-application-gallery figcaption {
+  color: var(--transportx-application-muted);
+  font-size: .8rem;
+  line-height: 1.55;
+  margin-top: .7rem;
+}
+
+.dark .transportx-application-heading,
+.dark .transportx-application-archive,
+.dark .transportx-application-page {
+  --transportx-application-accent: #84b7f4;
+  --transportx-application-line: #343a44;
+  --transportx-application-muted: #b8c0cc;
+  --transportx-application-surface: #20252d;
+  --transportx-application-text: #eef1f4;
+}
+
+@media (max-width: 991.98px) {
+  .transportx-application-hero {
+    align-items: start;
+    gap: 2.25rem;
+    grid-template-columns: minmax(14rem, .65fr) minmax(0, 1.35fr);
+  }
+
+  .transportx-application-workflow ol {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .transportx-application-workflow li:nth-child(4) {
+    border-left: 0;
+    border-top: 1px solid var(--transportx-application-line);
+    margin-top: 1.5rem;
+    padding-left: 0;
+  }
+
+  .transportx-application-workflow li:nth-child(5) {
+    border-top: 1px solid var(--transportx-application-line);
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .transportx-application-heading {
+    padding-top: 2.25rem;
+  }
+
+  .transportx-application-archive,
+  .transportx-application-page {
+    padding-bottom: 3.5rem;
+  }
+
+  .transportx-application-archive {
+    padding-top: 1.75rem;
+  }
+
+  .transportx-application-entry,
+  .transportx-application-hero,
+  .transportx-application-overview,
+  .transportx-application-gallery-grid {
+    display: block;
+  }
+
+  .transportx-application-entry {
+    padding: 2rem 0;
+  }
+
+  .transportx-application-entry-visual {
+    margin-bottom: 1.5rem;
+  }
+
+  .transportx-application-page {
+    padding-top: 2rem;
+  }
+
+  .transportx-application-hero {
+    padding-bottom: 2.5rem;
+  }
+
+  .transportx-application-hero-copy {
+    margin-bottom: 2rem;
+  }
+
+  .transportx-application-overview,
+  .transportx-application-workflow,
+  .transportx-application-capabilities,
+  .transportx-application-gallery {
+    padding: 2.5rem 0;
+  }
+
+  .transportx-application-overview h2,
+  .transportx-application-workflow > h2,
+  .transportx-application-capabilities > h2,
+  .transportx-application-gallery > h2 {
+    margin-bottom: 1.4rem;
+  }
+
+  .transportx-application-workflow ol,
+  .transportx-application-capabilities dl {
+    display: block;
+  }
+
+  .transportx-application-workflow li,
+  .transportx-application-workflow li + li,
+  .transportx-application-workflow li:nth-child(4),
+  .transportx-application-workflow li:nth-child(5),
+  .transportx-application-capabilities dl > div,
+  .transportx-application-capabilities dl > div + div {
+    border-left: 0;
+    border-top: 1px solid var(--transportx-application-line);
+    margin: 0;
+    padding: 1.15rem 0;
+  }
+
+  .transportx-application-gallery figure + figure {
+    margin-top: 2rem;
+  }
+}

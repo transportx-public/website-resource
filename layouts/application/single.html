@@ -1,0 +1,86 @@
+{{- define "main" -}}
+{{- $hero := .Resources.GetMatch .Params.hero_image -}}
+
+<main class="universal-wrapper transportx-application-page">
+  <header class="transportx-application-hero">
+    <div class="transportx-application-hero-copy">
+      <p class="transportx-application-stage">{{ .Params.product_stage }}</p>
+      <h1>{{ .Title }}</h1>
+      <p class="transportx-application-summary">{{ .Params.summary }}</p>
+    </div>
+    {{ with $hero }}
+      {{- $display := .Resize "1800x webp q86" -}}
+      <figure class="transportx-application-hero-figure">
+        <img
+          src="{{ $display.RelPermalink }}"
+          width="{{ $display.Width }}"
+          height="{{ $display.Height }}"
+          alt="{{ i18n "application_hero_alt" (dict "Title" $.Title) }}"
+          fetchpriority="high"
+        >
+      </figure>
+    {{ end }}
+  </header>
+
+  <section class="transportx-application-overview" aria-labelledby="application-overview-title">
+    <h2 id="application-overview-title">{{ i18n "application_overview" }}</h2>
+    <div class="article-style transportx-application-body">{{ .Content }}</div>
+  </section>
+
+  {{ with .Params.workflow }}
+    <section class="transportx-application-workflow" aria-labelledby="application-workflow-title">
+      <h2 id="application-workflow-title">{{ i18n "application_workflow" }}</h2>
+      <ol>
+        {{ range . }}
+          <li>
+            <h3>{{ .title }}</h3>
+            <p>{{ .description }}</p>
+          </li>
+        {{ end }}
+      </ol>
+    </section>
+  {{ end }}
+
+  {{ with .Params.capabilities }}
+    <section class="transportx-application-capabilities" aria-labelledby="application-capabilities-title">
+      <h2 id="application-capabilities-title">{{ i18n "application_capabilities" }}</h2>
+      <dl>
+        {{ range . }}
+          <div>
+            <dt>{{ .title }}</dt>
+            <dd>{{ .description }}</dd>
+          </div>
+        {{ end }}
+      </dl>
+    </section>
+  {{ end }}
+
+  {{ with .Params.gallery }}
+    <section class="transportx-application-gallery" aria-labelledby="application-gallery-title">
+      <h2 id="application-gallery-title">{{ i18n "application_examples" }}</h2>
+      <div class="transportx-application-gallery-grid">
+        {{ range . }}
+          {{- $item := . -}}
+          {{- $image := $.Resources.GetMatch $item.image -}}
+          {{ with $image }}
+            {{- $display := .Resize "1600x webp q86" -}}
+            <figure>
+              <a href="{{ .RelPermalink }}" target="_blank" rel="noopener" aria-label="{{ i18n "application_open_image" }}">
+                <img
+                  src="{{ $display.RelPermalink }}"
+                  width="{{ $display.Width }}"
+                  height="{{ $display.Height }}"
+                  alt="{{ $item.alt }}"
+                  loading="lazy"
+                >
+              </a>
+              <figcaption>{{ $item.caption }}</figcaption>
+            </figure>
+          {{ end }}
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+</main>
+
+{{- end -}}
