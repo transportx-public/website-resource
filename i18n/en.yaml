@@ -38,6 +38,27 @@ publication_empty:
 publication_filter_empty:
   other: No publications match the current filters.
 
+application_kicker:
+  other: Research software
+application_view:
+  other: View product
+application_view_aria:
+  other: View {{ .Title }}
+application_hero_alt:
+  other: Interface of {{ .Title }}
+application_empty:
+  other: No applications are available yet.
+application_overview:
+  other: Overview
+application_workflow:
+  other: Working process
+application_capabilities:
+  other: What it can help with
+application_examples:
+  other: Example analyses
+application_open_image:
+  other: Open the full-size interface image
+
 event_group_meeting:
   other: Group meeting
 event_readings_count:

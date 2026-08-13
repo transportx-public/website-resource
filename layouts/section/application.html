@@ -1,0 +1,44 @@
+{{- define "main" -}}
+
+<header class="universal-wrapper transportx-application-heading">
+  <p class="transportx-application-kicker">{{ i18n "application_kicker" }}</p>
+  <h1>{{ .Title }}</h1>
+  {{ with .Content }}
+    <div class="transportx-application-intro">{{ . }}</div>
+  {{ end }}
+</header>
+
+<main class="universal-wrapper transportx-application-archive">
+  <div class="transportx-application-list">
+    {{ range .Pages.ByDate.Reverse }}
+      {{- $page := . -}}
+      {{- $hero := $page.Resources.GetMatch $page.Params.hero_image -}}
+      <article class="transportx-application-entry">
+        <a class="transportx-application-entry-visual" href="{{ $page.RelPermalink }}" aria-label="{{ i18n "application_view_aria" (dict "Title" $page.Title) }}">
+          {{ with $hero }}
+            {{- $preview := .Resize "1200x webp q84" -}}
+            <img
+              src="{{ $preview.RelPermalink }}"
+              width="{{ $preview.Width }}"
+              height="{{ $preview.Height }}"
+              alt="{{ i18n "application_hero_alt" (dict "Title" $page.Title) }}"
+              loading="lazy"
+            >
+          {{ end }}
+        </a>
+        <div class="transportx-application-entry-copy">
+          <p class="transportx-application-stage">{{ $page.Params.product_stage }}</p>
+          <h2><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h2>
+          <p>{{ $page.Params.summary }}</p>
+          <a class="transportx-application-detail-link" href="{{ $page.RelPermalink }}">
+            {{ i18n "application_view" }} <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+    {{ else }}
+      <p class="transportx-application-empty">{{ i18n "application_empty" }}</p>
+    {{ end }}
+  </div>
+</main>
+
+{{- end -}}

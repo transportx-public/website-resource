@@ -26,6 +26,9 @@ en:
       - name: Publications
         url: publication
         weight: 50
+      - name: Applications
+        url: application
+        weight: 55
       - name: Contact
         url: contact
         weight: 60
@@ -54,6 +57,9 @@ zh:
       - name: 论文发表
         url: publication
         weight: 50
+      - name: 应用产品
+        url: application
+        weight: 55
       - name: 联系我们
         url: contact
         weight: 60
