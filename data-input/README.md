@@ -18,21 +18,21 @@
 在仓库根目录运行：
 
 ```bash
-/Users/ran/WorkSpace/SoftWare/miniconda3/envs/research/bin/python3.10 scripts/sync_content_from_data_input.py people
+python3 scripts/sync_content_from_data_input.py people
 ```
 
 同步全部内容：
 
 ```bash
-/Users/ran/WorkSpace/SoftWare/miniconda3/envs/research/bin/python3.10 scripts/sync_content_from_data_input.py
+python3 scripts/sync_content_from_data_input.py
 ```
 
 只同步某一类：
 
 ```bash
-/Users/ran/WorkSpace/SoftWare/miniconda3/envs/research/bin/python3.10 scripts/sync_content_from_data_input.py events
-/Users/ran/WorkSpace/SoftWare/miniconda3/envs/research/bin/python3.10 scripts/sync_content_from_data_input.py posts
-/Users/ran/WorkSpace/SoftWare/miniconda3/envs/research/bin/python3.10 scripts/sync_content_from_data_input.py publications
+python3 scripts/sync_content_from_data_input.py events
+python3 scripts/sync_content_from_data_input.py posts
+python3 scripts/sync_content_from_data_input.py publications
 ```
 
 同步后，用 Hugo 检查：

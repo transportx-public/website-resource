@@ -37,5 +37,5 @@
 同步命令：
 
 ```bash
-/Users/ran/WorkSpace/SoftWare/miniconda3/envs/research/bin/python3.10 scripts/sync_content_from_data_input.py publications
+python3 scripts/sync_content_from_data_input.py publications
 ```

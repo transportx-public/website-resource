@@ -1,66 +1,51 @@
-# [Hugo Research Group Theme](https://github.com/wowchemy/starter-hugo-research-group)
+# TransportX Website
 
-## TransportX content workflow
+TransportX 课题组的中英文静态网站，基于 Hugo 与 Hugo Blox 构建。线上地址：<https://transportxlab.com/>。
 
-Website content that should be maintained by non-code contributors lives in `data-input/`.
+## 技术栈
 
-- People: edit `data-input/people/people.xlsx` and put avatars in `data-input/people/avatars/`.
-- News: edit `data-input/posts/posts.xlsx`; optional pictures and Markdown notes go under `data-input/posts/`.
-- Events: edit `data-input/events/events.xlsx` and put event pictures in `data-input/events/pictures/`.
-- Publications: edit `data-input/publications/publications.xlsx`; optional pictures, Markdown notes, and PDFs go under `data-input/publications/`.
+- Hugo Extended `0.134.1`
+- Hugo Blox Bootstrap v5
+- Python 3.10、`openpyxl`、`PyYAML`（内容同步）
+- GitHub Actions、GitHub Pages（构建与发布）
 
-After editing, run:
+## 内容维护
+
+人员、新闻、活动和论文统一在 `data-input/` 中维护；字段说明见 [`data-input/README.md`](data-input/README.md)。不要直接修改脚本生成的对应页面。以下命令均从仓库根目录运行。
+
+同步全部结构化内容：
 
 ```bash
-/Users/ran/WorkSpace/SoftWare/miniconda3/envs/research/bin/python3.10 scripts/sync_content_from_data_input.py
+python3 scripts/sync_content_from_data_input.py
+```
+
+只同步某一类内容：
+
+```bash
+python3 scripts/sync_content_from_data_input.py people
+python3 scripts/sync_content_from_data_input.py posts
+python3 scripts/sync_content_from_data_input.py events
+python3 scripts/sync_content_from_data_input.py publications
+```
+
+首页、课题组介绍、应用产品和联系页等非结构化页面直接在 `content/` 中维护。
+
+## 本地预览与构建
+
+```bash
+hugo server
+```
+
+提交前执行正式构建：
+
+```bash
 hugo --minify --cleanDestinationDir
 ```
 
-See `data-input/README.md` for field descriptions.
+构建产物位于 `public/`。`resources/_gen/` 是 Hugo 生成的资源缓存，两者都不应手工编辑。
 
-[![Screenshot](preview.png)](https://hugoblox.com/hugo-themes/)
+## 发布
 
-The **Research Group Template** empowers your research group to easily create a beautiful website with a stunning homepage, news, academic publications, events, team profiles, and a contact form.
+推送 `main` 分支后，`.github/workflows/gh-pages.yml` 会构建站点，并将 `public/` 发布到 `transportx-public/transportx-public.github.io` 仓库。
 
-️**Trusted by 250,000+ researchers, educators, and students.** Highly customizable via the integrated **no-code, widget-based Wowchemy page builder**, making every site truly personalized ⭐⭐⭐⭐⭐
-
-[![Get Started](https://img.shields.io/badge/-Get%20started-ff4655?style=for-the-badge)](https://hugoblox.com/hugo-themes/)
-[![Discord](https://img.shields.io/discord/722225264733716590?style=for-the-badge)](https://discord.com/channels/722225264733716590/742892432458252370/742895548159492138)  
-[![Twitter Follow](https://img.shields.io/twitter/follow/GetResearchDev?label=Follow%20on%20Twitter)](https://twitter.com/wowchemy)
-
-Easily write technical content with plain text Markdown, LaTeX math, diagrams, RMarkdown, or Jupyter, and import publications from BibTeX.
-
-[Check out the latest demo](https://research-group.netlify.app/) of what you'll get in less than 60 seconds, or [view the showcase](https://hugoblox.com/creators/).
-
-The integrated [**Wowchemy**](https://hugoblox.com) website builder and CMS makes it easy to create a beautiful website for free. Edit your site in the CMS (or your favorite editor), generate it with [Hugo](https://github.com/gohugoio/hugo), and deploy with GitHub or Netlify. Customize anything on your site with widgets, light/dark themes, and language packs.
-
-- 👉 [**Get Started**](https://hugoblox.com/hugo-themes/)
-- 📚 [View the **documentation**](https://docs.hugoblox.com/)
-- 💬 [Chat with the **Wowchemy research community**](https://discord.gg/z8wNYzb) or [**Hugo community**](https://discourse.gohugo.io)
-- ⬇️ **Automatically import citations from BibTeX** with the [Hugo Academic CLI](https://github.com/GetRD/academic-file-converter)
-- 🐦 Share your new site with the community: [@wowchemy](https://twitter.com/wowchemy) [@GeorgeCushen](https://twitter.com/GeorgeCushen) [#MadeWithWowchemy](https://twitter.com/search?q=%23MadeWithWowchemy&src=typed_query)
-- 🗳 [Take the survey and help us improve #OpenSource](https://forms.gle/NioD9VhUg7PNmdCAA)
-- 🚀 [Contribute improvements](https://github.com/HugoBlox/hugo-blox-builder/blob/main/CONTRIBUTING.md) or [suggest improvements](https://github.com/HugoBlox/hugo-blox-builder/issues)
-- ⬆️ **Updating?** View the [Update Guide](https://docs.hugoblox.com/hugo-tutorials/update/) and [Release Notes](https://github.com/HugoBlox/hugo-blox-builder/releases)
-
-## We ask you, humbly, to support this open source movement
-
-Today we ask you to defend the open source independence of the Wowchemy website builder and themes 🐧
-
-We're an open source movement that depends on your support to stay online and thriving, but 99.9% of our creators don't give; they simply look the other way.
-
-### [❤️ Click here to become a GitHub Sponsor, unlocking awesome perks such as _exclusive academic templates and widgets_](https://github.com/sponsors/gcushen)
-
-## Demo credits
-
-Please replace the demo images with your own.
-
-- [Female scientist](https://unsplash.com/photos/uVnRa6mOLOM)
-- [2 Coders](https://unsplash.com/photos/kwzWjTnDPLk)
-- [Cafe](https://unsplash.com/photos/RnDGGnMEOao)
-- Blog posts
-  - https://unsplash.com/photos/AndE50aaHn4
-  - https://unsplash.com/photos/OYzbqk2y26c
-- Avatars
-  - https://unsplash.com/photos/5yENNRbbat4
-  - https://unsplash.com/photos/WNoLnJo7tS8
+项目组成与目录职责见 [`architecture.md`](architecture.md)。
