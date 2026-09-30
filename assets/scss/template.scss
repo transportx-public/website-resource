@@ -1050,6 +1050,7 @@
   --transportx-application-muted: #667085;
   --transportx-application-surface: #f6f7f8;
   --transportx-application-text: #20252d;
+  --transportx-application-accent-contrast: #fff;
   max-width: 1180px;
 }
 
@@ -1198,6 +1199,61 @@
   max-width: 38rem;
 }
 
+.transportx-application-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 1.7rem;
+}
+
+.transportx-application-primary-action,
+.transportx-application-secondary-action,
+.transportx-application-download-button {
+  align-items: center;
+  border: 1px solid var(--transportx-application-accent);
+  display: inline-flex;
+  font-size: .86rem;
+  font-weight: 650;
+  justify-content: center;
+  line-height: 1.2;
+  min-height: 2.75rem;
+  padding: .72rem 1rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.transportx-application-primary-action,
+.transportx-application-download-button {
+  background: var(--transportx-application-accent);
+  color: var(--transportx-application-accent-contrast);
+}
+
+.transportx-application-primary-action:hover,
+.transportx-application-primary-action:focus,
+.transportx-application-download-button:hover,
+.transportx-application-download-button:focus {
+  color: var(--transportx-application-accent-contrast);
+  filter: brightness(.92);
+  text-decoration: none;
+}
+
+.transportx-application-secondary-action {
+  color: var(--transportx-application-accent);
+}
+
+.transportx-application-secondary-action:hover,
+.transportx-application-secondary-action:focus {
+  background: var(--transportx-application-surface);
+  color: var(--transportx-application-accent);
+  text-decoration: none;
+}
+
+.transportx-application-primary-action:active,
+.transportx-application-secondary-action:active,
+.transportx-application-download-button:active {
+  transform: translateY(1px);
+}
+
 .transportx-application-hero-figure {
   background: var(--transportx-application-surface);
   border: 1px solid var(--transportx-application-line);
@@ -1211,9 +1267,47 @@
   width: 100%;
 }
 
+.transportx-application-facts {
+  border-bottom: 1px solid var(--transportx-application-line);
+}
+
+.transportx-application-facts dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+}
+
+.transportx-application-facts dl > div {
+  padding: 1.25rem 1.5rem 1.25rem 0;
+}
+
+.transportx-application-facts dl > div + div {
+  border-left: 1px solid var(--transportx-application-line);
+  padding-left: 1.5rem;
+}
+
+.transportx-application-facts dt,
+.transportx-application-download dt {
+  color: var(--transportx-application-muted);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  margin-bottom: .3rem;
+  text-transform: uppercase;
+}
+
+.transportx-application-facts dd,
+.transportx-application-download dd {
+  color: var(--transportx-application-text);
+  font-size: .9rem;
+  margin: 0;
+}
+
 .transportx-application-overview,
+.transportx-application-downloads,
 .transportx-application-workflow,
 .transportx-application-capabilities,
+.transportx-application-demo,
 .transportx-application-gallery {
   border-bottom: 1px solid var(--transportx-application-line);
   padding: 3.5rem 0;
@@ -1226,6 +1320,7 @@
 }
 
 .transportx-application-overview h2,
+.transportx-application-section-heading h2,
 .transportx-application-workflow > h2,
 .transportx-application-capabilities > h2,
 .transportx-application-gallery > h2 {
@@ -1233,6 +1328,96 @@
   font-size: 1.05rem;
   font-weight: 650;
   margin: 0 0 2rem;
+}
+
+.transportx-application-section-heading {
+  margin-bottom: 1.8rem;
+  max-width: 50rem;
+}
+
+.transportx-application-section-heading h2 {
+  margin-bottom: .75rem;
+}
+
+.transportx-application-section-heading > p {
+  color: var(--transportx-application-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.transportx-application-section-heading .transportx-application-release-version {
+  color: var(--transportx-application-text);
+  font-size: .82rem;
+  font-weight: 650;
+  margin-top: .55rem;
+}
+
+.transportx-application-downloads {
+  scroll-margin-top: 5rem;
+}
+
+.transportx-application-download-grid {
+  border-top: 1px solid var(--transportx-application-line);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.transportx-application-download {
+  min-width: 0;
+  padding: 1.5rem 2rem 0 0;
+}
+
+.transportx-application-download + .transportx-application-download {
+  border-left: 1px solid var(--transportx-application-line);
+  padding-left: 2rem;
+}
+
+.transportx-application-download-heading h3 {
+  color: var(--transportx-application-text);
+  font-size: 1.35rem;
+  margin: 0 0 .35rem;
+}
+
+.transportx-application-download-heading > p {
+  color: var(--transportx-application-muted);
+  font-size: .88rem;
+  margin: 0;
+}
+
+.transportx-application-download dl {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 1.35rem 0;
+}
+
+.transportx-application-download-button {
+  margin-right: .9rem;
+}
+
+.transportx-application-checksum-link,
+.transportx-application-release-links a {
+  color: var(--transportx-application-accent);
+  font-size: .82rem;
+  text-decoration-color: currentColor;
+  text-underline-offset: .18em;
+}
+
+.transportx-application-release-notice {
+  background: var(--transportx-application-surface);
+  border-left: 3px solid var(--transportx-application-accent);
+  color: var(--transportx-application-muted);
+  font-size: .84rem;
+  line-height: 1.65;
+  margin-top: 2rem;
+  padding: .9rem 1rem;
+}
+
+.transportx-application-release-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem 1.4rem;
+  margin-top: 1.25rem;
 }
 
 .transportx-application-overview h2 {
@@ -1253,7 +1438,7 @@
 .transportx-application-workflow ol {
   border-top: 1px solid var(--transportx-application-line);
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   list-style: none;
   margin: 0;
   padding: 0;
@@ -1288,7 +1473,7 @@
 
 .transportx-application-capabilities dl {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   margin: 0;
 }
 
@@ -1297,9 +1482,28 @@
   padding: 1.3rem 2rem 0 0;
 }
 
-.transportx-application-capabilities dl > div + div {
+.transportx-application-capabilities dl > div:nth-child(even) {
   border-left: 1px solid var(--transportx-application-line);
   padding-left: 2rem;
+}
+
+.transportx-application-demo figure {
+  margin: 0;
+}
+
+.transportx-application-demo video {
+  background: var(--transportx-application-surface);
+  border: 1px solid var(--transportx-application-line);
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.transportx-application-demo figcaption {
+  color: var(--transportx-application-muted);
+  font-size: .8rem;
+  line-height: 1.55;
+  margin-top: .7rem;
 }
 
 .transportx-application-gallery {
@@ -1345,6 +1549,7 @@
   --transportx-application-muted: #b8c0cc;
   --transportx-application-surface: #20252d;
   --transportx-application-text: #eef1f4;
+  --transportx-application-accent-contrast: #111820;
 }
 
 @media (max-width: 991.98px) {
@@ -1355,17 +1560,17 @@
   }
 
   .transportx-application-workflow ol {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .transportx-application-workflow li:nth-child(4) {
+  .transportx-application-workflow li:nth-child(3) {
     border-left: 0;
     border-top: 1px solid var(--transportx-application-line);
     margin-top: 1.5rem;
     padding-left: 0;
   }
 
-  .transportx-application-workflow li:nth-child(5) {
+  .transportx-application-workflow li:nth-child(4) {
     border-top: 1px solid var(--transportx-application-line);
     margin-top: 1.5rem;
   }
@@ -1388,6 +1593,7 @@
   .transportx-application-entry,
   .transportx-application-hero,
   .transportx-application-overview,
+  .transportx-application-download-grid,
   .transportx-application-gallery-grid {
     display: block;
   }
@@ -1413,13 +1619,16 @@
   }
 
   .transportx-application-overview,
+  .transportx-application-downloads,
   .transportx-application-workflow,
   .transportx-application-capabilities,
+  .transportx-application-demo,
   .transportx-application-gallery {
     padding: 2.5rem 0;
   }
 
   .transportx-application-overview h2,
+  .transportx-application-section-heading,
   .transportx-application-workflow > h2,
   .transportx-application-capabilities > h2,
   .transportx-application-gallery > h2 {
@@ -1433,14 +1642,45 @@
 
   .transportx-application-workflow li,
   .transportx-application-workflow li + li,
+  .transportx-application-workflow li:nth-child(3),
   .transportx-application-workflow li:nth-child(4),
-  .transportx-application-workflow li:nth-child(5),
   .transportx-application-capabilities dl > div,
-  .transportx-application-capabilities dl > div + div {
+  .transportx-application-capabilities dl > div:nth-child(even) {
     border-left: 0;
     border-top: 1px solid var(--transportx-application-line);
     margin: 0;
     padding: 1.15rem 0;
+  }
+
+  .transportx-application-facts dl {
+    display: block;
+  }
+
+  .transportx-application-facts dl > div,
+  .transportx-application-facts dl > div + div {
+    border-left: 0;
+    border-top: 1px solid var(--transportx-application-line);
+    padding: 1rem 0;
+  }
+
+  .transportx-application-facts dl > div:first-child {
+    border-top: 0;
+  }
+
+  .transportx-application-download {
+    padding: 1.4rem 0 0;
+  }
+
+  .transportx-application-download + .transportx-application-download {
+    border-left: 0;
+    border-top: 1px solid var(--transportx-application-line);
+    margin-top: 2rem;
+    padding-left: 0;
+    padding-top: 1.4rem;
+  }
+
+  .transportx-application-download-button {
+    margin-bottom: .8rem;
   }
 
   .transportx-application-gallery figure + figure {

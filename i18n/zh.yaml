@@ -55,9 +55,37 @@ application_workflow:
 application_capabilities:
   other: 可以协助的工作
 application_examples:
-  other: 分析示例
+  other: 产品截图
 application_open_image:
   other: 查看完整界面图
+application_view_downloads:
+  other: 查看下载
+application_source_code:
+  other: 查看源代码
+application_product_facts:
+  other: 产品信息
+application_downloads:
+  other: 下载 TransportX Agent
+application_release:
+  other: 正式版本
+application_architecture:
+  other: 处理器架构
+application_package:
+  other: 安装包
+application_package_size:
+  other: 下载大小
+application_download_for:
+  other: 下载
+application_checksum:
+  other: SHA-256 校验值
+application_release_notes:
+  other: 查看版本说明
+application_open_github:
+  other: 在 GitHub 查看项目
+application_demo:
+  other: 产品演示
+application_video_fallback:
+  other: 当前浏览器不支持内嵌视频。
 
 event_group_meeting:
   other: 课题组组会
