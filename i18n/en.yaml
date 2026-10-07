@@ -62,6 +62,8 @@ application_view_downloads:
   other: View downloads
 application_source_code:
   other: Source code
+application_quick_start:
+  other: Quick start (中文)
 application_product_facts:
   other: Product information
 application_downloads:

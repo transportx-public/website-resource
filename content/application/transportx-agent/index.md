@@ -5,6 +5,7 @@ summary: "Ask transport questions, inspect evidence on a shared map, and deliver
 product_stage: "Open-source transport analysis workspace"
 hero_image: "product-home.png"
 source_url: "https://github.com/Ran2424/transportx-agent"
+guide_url: "/application/transportx-agent/guide/#start"
 release_url: "https://github.com/Ran2424/transportx-agent/releases/tag/v3.22.0"
 release_version: "v3.22.0"
 download_intro: "Choose the desktop build for your platform. The application runs locally and requires a Pi-compatible model configured on first use."

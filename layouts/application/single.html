@@ -13,6 +13,9 @@
         {{ if .Params.downloads }}
           <a class="transportx-application-primary-action" href="#downloads">{{ i18n "application_view_downloads" }}</a>
         {{ end }}
+        {{ with .Params.guide_url }}
+          <a class="transportx-application-secondary-action" href="{{ . }}">{{ i18n "application_quick_start" }}</a>
+        {{ end }}
         {{ with .Params.source_url }}
           <a class="transportx-application-secondary-action" href="{{ . }}" target="_blank" rel="noopener">{{ i18n "application_source_code" }}</a>
         {{ end }}

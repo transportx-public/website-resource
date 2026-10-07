@@ -46,6 +46,8 @@ hugo --minify --cleanDestinationDir
 
 ## 发布
 
+TransportX Agent 使用文档部署在 `/application/transportx-agent/guide/`，产品页的“快速上手”按钮直达 `#start`。静态文件位于 `static/application/transportx-agent/guide/`，取自 `Ran2424/transportx-agent` 的 `docs/guide/`（提交 `4fac349bd9c90da3729bf11a8b2466d8020d3e88`）。更新时同步该目录的 HTML、CSS、JavaScript 和 `assets/`，并保留顶部返回产品介绍页的链接；无需额外构建。
+
 推送 `main` 分支后，`.github/workflows/gh-pages.yml` 会构建站点，并将 `public/` 发布到 `transportx-public/transportx-public.github.io` 仓库。
 
 项目组成与目录职责见 [`architecture.md`](architecture.md)。

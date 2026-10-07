@@ -5,6 +5,7 @@ summary: "用自然语言分析道路、公交、轨道、出行需求与交通�
 product_stage: "开源交通分析工作台"
 hero_image: "product-home.png"
 source_url: "https://github.com/Ran2424/transportx-agent"
+guide_url: "/application/transportx-agent/guide/#start"
 release_url: "https://github.com/Ran2424/transportx-agent/releases/tag/v3.22.0"
 release_version: "v3.22.0"
 download_intro: "请选择适合当前系统的桌面安装包。应用在本机运行，首次使用前需要配置一个兼容 Pi 的模型。"
