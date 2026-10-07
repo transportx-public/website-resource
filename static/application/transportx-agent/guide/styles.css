@@ -298,9 +298,6 @@ strong {
   padding-left:8px;
   margin-bottom:16px;
 }
-.steps li strong {
-  display:block;
-}
 .figure {
   margin:28px 0 34px;
 }
@@ -319,6 +316,11 @@ strong {
   border:1px solid var(--line);
   border-radius:var(--radius);
   box-shadow:0 12px 35px #2020200b;
+}
+.figure.community {
+  max-width:340px;
+  margin-left:auto;
+  margin-right:auto;
 }
 .product-video {
   display:block;

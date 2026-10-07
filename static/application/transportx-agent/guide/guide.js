@@ -53,15 +53,19 @@ const pages = [
     id: 'start', group: '开始', title: '快速上手', description: '从配置 API 到第一次交通数据分析。',
     body: `<p class="lead">先跑通一个模型、一份数据和一次分析。地图、知识库和视频能力可以随后按需加入。</p>
     ${note('开始前', '确认已安装桌面应用，并准备 API Key 和一份小型 Excel 或 CSV。还没安装？先查看 <a href="#install">安装与首次启动</a>。')}
-    <h2 id="connect">第一步 接入模型服务</h2><p>打开 <strong>设置 → Agent → 添加模型</strong>。供应商出现在列表中时，可使用“Pi 供应商”模式：</p>
-    <ol class="steps"><li>在服务商平台创建并复制 API Key。</li><li>选择与密钥对应的供应商，粘贴 API Key。</li><li>点击“接入供应商”；返回设置，确认模型列表已加载。</li></ol>
-    ${figure('model-provider', '选择供应商并填写 API Key 的真实表单', '供应商模式：选供应商、填密钥，再接入', 'compact')}
-    <p>需要填写自定义接口地址时，选择“自定义服务”，按 <a href="#models">模型 API 接入</a> 的字段说明配置。</p>
+    <h2 id="connect">第一步 接入模型服务</h2><p>以 DeepSeek 为例，先申请 API Key，再将它填入 TransportX。其他供应商的步骤类似。</p>
+    <h3>申请 DeepSeek API Key</h3><ol class="steps"><li>打开 <a href="https://platform.deepseek.com/" target="_blank" rel="noreferrer">DeepSeek 开放平台 ↗</a>，注册或登录。</li><li>进入 <a href="https://platform.deepseek.com/api_keys" target="_blank" rel="noreferrer">API keys ↗</a>，创建密钥并复制保存。API Key 用于调用模型，不是登录密码。</li><li>在开放平台检查可用余额，按需充值。API 调用按用量计费，详见 <a href="https://api-docs.deepseek.com/zh-cn/" target="_blank" rel="noreferrer">官方说明 ↗</a>。</li></ol>
+    <h3>在 TransportX 中接入</h3><ol class="steps"><li>打开 <strong>设置 → Agent → 添加模型</strong>，选择“Pi 供应商”。</li><li>在“模型供应商”中选 <strong>DeepSeek</strong>，将刚复制的密钥粘贴到“API Key”。</li><li>点击“接入供应商”。若已经接入，按钮显示“更新凭据”，用于替换原来的密钥。</li></ol>
+    <figure class="figure compact"><button type="button" class="image-open" aria-label="放大图片 DeepSeek 模型接入表单"><img src="assets/deepseek-provider.png" width="1138" height="1032" alt="Pi 供应商中选择 DeepSeek 并填写 API Key" loading="lazy" decoding="async"></button><figcaption>截图是已接入状态；首次接入时按钮显示“接入供应商” · 点击图片放大</figcaption></figure>
+    <h3>选择模型</h3><p>接入后，返回设置确认 DeepSeek 模型已出现在列表中。创建任务时，在“模型”下拉框选择要使用的模型，步骤见下方“第三步”。供应商模式会提供内置目录中的模型，无需逐个添加。</p>
+    <p>若所需模型未列出，或列表中的名称已停用，可通过“自定义服务”<a href="#models/deepseek">添加 DeepSeek 模型配置</a>。模型名称以官方文档为准，截图中的数量仅代表当时的目录。</p>
     ${note('怎样验证接入成功', '创建任务后发一句简短提问，确认收到回复。顶部“已连接”表示工作台连接本地服务，不代表远程模型 API 已验证。', true)}
-    <h2 id="module">第二步 准备所需模块</h2><p>只分析自己的表格时，可以先跳过本步。需要专用数据、知识或视频工具时，打开 <strong>设置 → 模块</strong>，选择或拖入模块 ZIP，确认名称、版本与安装项后安装。</p>
+    <h2 id="module">第二步 准备所需模块</h2><p>模块是 TransportX 积累和复用能力的方式。共用的数据、知识和技能可以封装为模块，安装到平台，供后续任务选用。</p>
+    <p>把资料和常用方法交给 Agent，说明用途，就可以让它帮忙<a href="#modules/author">整理并制作模块</a>。只用一次的文件，作为任务附件添加即可。</p>
+    <p>已有模块包时，打开 <strong>设置 → 模块</strong>，选择或拖入 ZIP，确认名称、版本与安装项后安装。</p>
     ${figure('module-install', '模块 ZIP 压缩包选择和拖入入口', '模块在设置页安装，普通数据文件在任务中添加')}
-    <p>安装后检查启用状态，并在下一步创建任务时勾选。详细说明见 <a href="#modules">模块与能力</a>。</p>
-    <h2 id="create">第三步 创建交通任务</h2><ol class="steps"><li>回到首页，点击“新建交通任务”。</li><li>填写任务名称，例如“路口一周交通量分析”。</li><li>选择本次需要的模块与版本，取消无关业务模块。</li><li>按需补充城市、项目、空间范围与起止时间，选择刚接入的模型。</li><li>点击“创建任务”，进入对话区。应用会自动创建任务工作目录。</li></ol>
+    <p>安装后启用模块，在下一步创建任务时勾选。详细说明见 <a href="#modules">模块与能力</a>。</p>
+    <h2 id="create">第三步 创建交通任务</h2><ol class="steps"><li>回到首页，点击“新建交通任务”。</li><li>填写任务名称，例如“路口一周交通量分析”。</li><li>选择本次需要的模块与版本，取消无关业务模块。</li><li>在“模型”下拉框中选择刚接入的 DeepSeek 模型；城市、范围和时间按需填写。</li><li>点击“创建任务”。进入对话后，先发送“你好，请简短回复”，确认模型能正常回答，再添加数据。</li></ol>
     ${figure('new-task', '新建任务中的名称、模块版本和模型选择', '截图中的业务模块来自示例环境，需要另行安装', 'narrow')}
     <h2 id="attach">第四步 添加数据并提问</h2><p>点击输入区左下角“＋”添加 Excel 或 CSV，或将文件拖入输入框。等待上传完成后，再输入问题。</p>
     ${figure('attachment', '输入区左下角添加附件与右下角发送按钮', '单个附件上限为 50 MiB', 'compact')}
@@ -119,14 +123,20 @@ const pages = [
     <h2 id="custom">使用自定义服务</h2><p>需要指定接口地址或模型时，选择“自定义服务”。按服务商提供的接入说明填写，不要直接照抄截图中的占位提示。</p>
     ${figure('model-custom', '自定义服务的 Provider ID Model ID API 类型和基础地址', '模型名称与 API 地址的示例占位符不代表可用配置', 'narrow')}
     ${table(['字段', '填写方式'], [['Provider ID', '该供应商的标识。同一供应商下的模型可按界面提示复用已有凭据。'], ['Model ID', '服务商要求的准确模型标识，不能用显示名称代替。'], ['Pi API 类型', '选择服务实际使用的协议：OpenAI Responses、OpenAI Chat Completions、Anthropic Messages 或 Google Generative AI。'], ['API Base URL', '填写服务商给出的 API 基础地址，不是浏览器中的聊天网页地址。'], ['API Key', '与该模型和接口对应的密钥。已有凭据时可按界面提示留空。'], ['其他字段', '显示名称可选；上下文窗口、推理和图像输入能力按服务实际支持情况填写。']])}
+    <h2 id="deepseek">示例：添加 DeepSeek 模型配置</h2><p>在“添加模型”中切换到“自定义服务”，按下表填写，再点击“保存模型”。这里添加的是调用配置，模型由 DeepSeek 提供。</p>
+    ${table(['字段', 'DeepSeek 示例'], [['Provider ID', '<code>deepseek</code>'], ['Model ID', '<code>deepseek-flash</code>'], ['Pi API 类型', 'OpenAI Chat Completions'], ['API Base URL', '<code>https://api.deepseek.com</code>'], ['API Key', '在 DeepSeek 开放平台创建的密钥。'], ['显示名称', '可填 DeepSeek Flash，便于在任务中识别。']])}
+    <p>上下文窗口、推理与图像输入按所选模型的实际能力填写。上述模型名和接口依据 <a href="https://api-docs.deepseek.com/zh-cn/" target="_blank" rel="noreferrer">DeepSeek 官方文档 ↗</a>（2026 年 10 月核对）；服务更新后，以官方最新说明为准。保存后创建任务，在模型列表中选择该模型并发一句简短提问验证。</p>
     <h2 id="check">保存后怎样验证</h2><ol class="steps"><li>返回设置页确认模型列表可见。</li><li>创建新任务，选择刚接入的模型。</li><li>发出简短提问，确认收到正常回复，再上传分析材料。</li></ol>
     <p>接入变更用于新任务；已有运行任务需重新启动后载入。认证失败时检查密钥和额度，接口错误时核对 Model ID、API 类型与 Base URL。</p>
     <h2 id="credential">凭据与费用</h2><p>API Key 保存在本机，工作台不会返回已有密钥原文。不要在截图、报告或问题反馈中公开密钥。使用远程服务时，请了解服务商对材料内容的处理规则与计费方式。</p>`
   },
   {
     id: 'modules', group: '能力与数据', title: '模块与能力', description: '安装工具、方法、数据、知识与视频运行时。',
-    body: `<p class="lead">Module 是 TransportX 的统一安装单元。一个模块可以组合分析方法、工具、数据、知识、模板和本地运行时。</p>
+    body: `<p class="lead">模块是 TransportX 积累和复用能力的方式。它把共用的数据、知识、技能和工具整理成可安装的包，让平台保留这些内容，供不同任务选用。</p>
     <h2 id="contents">一个模块可以带来什么</h2>${table(['贡献内容', '作用'], [['Skill', '告诉 Agent 怎样使用方法、数据与工具。'], ['Extension', '注册工具或界面交互能力。'], ['Data / Knowledge', '提供数据库、资料与检索所需资产。'], ['Template', '提供报告等成果的模板资产。'], ['Native Runtime', '携带本地运行工具，如视频模块的 ffmpeg / ffprobe。']])}
+    <h2 id="author">让 Agent 制作模块</h2><p>把数据、资料或常用分析流程交给 Agent，说明希望以后怎样使用。它可以整理原始文件、知识和操作方法，补充使用说明并封装为模块。安装后，新任务就能继续使用。</p>
+    ${prompt('请把这份交通量数据封装为可安装的模块，供以后的任务使用。保留原始数据，补充字段、单位和来源说明，并加入按日统计与高峰时段分析的方法。完成后检查模块包，告诉我怎样安装。')}
+    <p>确认内容后，通过“设置 → 模块”安装生成的模块包，再创建任务使用。若 Agent 提示缺少模块制作能力，先检查当前任务是否提供 Module Authoring。</p>
     <h2 id="install">从 ZIP 安装</h2>${figure('module-install', '设置中模块 ZIP 安装区域', '点击或拖入 ZIP 后，先识别再确认安装')}
     <ol class="steps"><li>获取可信来源、兼容当前应用版本的模块包。</li><li>在“设置 → 模块”选择或拖入 ZIP。</li><li>确认识别出的名称、版本与状态，勾选可安装项并安装。</li><li>在已接入模块列表检查结果，按需启用。</li><li>创建新任务并选择所需模块和版本。</li></ol>
     <p>含运行时的模块必须匹配系统和架构。已经解压的完整模块目录，也可通过“模块包路径”安装；目录需要包含 <code>manifest.json</code>。</p>
@@ -137,7 +147,7 @@ const pages = [
   },
   {
     id: 'data', group: '能力与数据', title: '数据导入与本地文件', description: '区分任务附件和模块资产，找到本机任务文件。',
-    body: `<p class="lead">本次分析的一份文件，通常用任务附件。多个任务反复使用的数据与知识，适合通过对应 Module 提供。</p>
+    body: `<p class="lead">本次分析的文件可直接添加为附件。反复使用的数据和资料，可以让 Agent <a href="#modules/author">封装为模块</a>，供后续任务选用。</p>
     <h2 id="choose">选择合适的入口</h2>${table(['你手里的材料', '使用入口'], [['Excel、CSV、图片或文档', '创建任务后，在对话输入区添加附件。'], ['模块 ZIP', '设置 → 模块，识别并确认安装。'], ['包含 manifest.json 的模块目录', '设置 → 模块 → 模块包路径。'], ['模块要求的数据库、知识原文或索引', '按该模块的资产交付说明配置，不是普通附件上传。']])}
     <h2 id="attachment">给任务添加附件</h2>${figure('attachment', '对话输入区的添加附件按钮', '通过“＋”、拖入文件或粘贴图片添加材料', 'compact')}
     <ol class="steps"><li>打开目标任务，点击输入框左下角“＋”选择文件，或把文件拖入输入框。</li><li>等待附件卡片显示上传完成，确认没有错误。</li><li>发送问题，说明使用哪个附件和需要分析的内容。</li></ol>
@@ -165,7 +175,10 @@ const pages = [
     <details class="faq-item"><summary>看不到地图、报告或文件怎么办？</summary><p>确认选择了正确任务，并打开顶部文件栏或画布按钮。Agent 必须先生成文件或发布地图资源，对应内容才会出现。</p></details>
     <details class="faq-item"><summary>报告无法导出 PDF 怎么办？</summary><p>先检查 Markdown 报告和图片是否正常预览，再重试“生成并下载 PDF”。仍失败时可先下载原文件，并保留错误信息排查。</p></details>
     <details class="faq-item"><summary>本地应用可以完全离线使用吗？</summary><p>取决于所用模型和资源。远程 API、在线底图或其他外部服务需要联网；本机保存记录不代表所有分析都不访问网络。</p></details>
-    <h2 id="feedback">反馈问题时提供什么</h2><p>说明应用版本、操作系统、操作步骤和错误提示。截图中隐藏 API Key 与敏感材料；不要上传 auth.json。可通过 <a href="https://github.com/Ran2424/transportx-agent/issues" target="_blank" rel="noreferrer">项目 Issues ↗</a> 反馈可复现的问题。</p>`
+    <h2 id="feedback">反馈问题时提供什么</h2><p>说明应用版本、操作系统、操作步骤和错误提示。截图中隐藏 API Key 与敏感材料；不要上传 auth.json。可通过 <a href="https://github.com/Ran2424/transportx-agent/issues" target="_blank" rel="noreferrer">项目 Issues ↗</a> 反馈可复现的问题。</p>
+    <h2 id="community">内测交流</h2><p>扫描二维码加入 TransportX 内测交流群，交流使用问题、反馈建议。</p>
+    <figure class="figure community"><button type="button" class="image-open" aria-label="放大图片 TransportX 内测交流群二维码"><img src="assets/community-wechat.jpg" width="966" height="1482" alt="TransportX 内测交流群微信二维码，有效期至 2026 年 10 月 14 日" loading="lazy" decoding="async"></button><figcaption>二维码有效期至 2026 年 10 月 14 日 · 点击图片放大</figcaption></figure>
+    <p>二维码过期后，请通过项目 Issues 联系维护者获取新入口。</p>`
   }
 ];
 
