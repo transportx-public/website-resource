@@ -1286,8 +1286,7 @@
   box-shadow: 0 18px 45px rgba(32, 53, 82, .08);
 }
 
-.transportx-application-hero-figure img,
-.transportx-application-gallery img {
+.transportx-application-hero-figure img {
   display: block;
   width: 100%;
   height: auto;
@@ -1315,106 +1314,73 @@
   margin: 0;
 }
 
-.transportx-application-page > section:not(.transportx-application-facts) {
-  padding: 4rem 0;
-}
-
-.transportx-application-overview h2,
-.transportx-application-section-heading h2,
-.transportx-application-workflow > h2,
-.transportx-application-capabilities > h2,
-.transportx-application-gallery > h2 {
+.transportx-application-page { width: 100%; max-width: 1280px; padding-left: 24px; padding-right: 24px; }
+.transportx-application-page > section:not(.transportx-application-facts) { padding: 4rem 0; }
+.transportx-application-section-heading { max-width: 44rem; margin: 0 auto 2.5rem; text-align: center; }
+.transportx-application-section-heading h2 {
   color: var(--transportx-application-text);
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
-  font-weight: 700;
-  letter-spacing: -.025em;
-  margin: 0 0 1.5rem;
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  font-weight: 750;
+  letter-spacing: -.035em;
+  line-height: 1.3;
+  margin: 0 0 1rem;
+  text-wrap: balance;
 }
-
-.transportx-application-section-heading {
-  max-width: 42rem;
-  margin-bottom: 2rem;
-}
-
 .transportx-application-section-heading > p,
-.transportx-application-body {
-  color: var(--transportx-application-muted);
-  font-size: .98rem;
-  line-height: 1.8;
-}
-
+.transportx-application-body { color: var(--transportx-application-muted); font-size: .95rem; line-height: 1.8; }
 .transportx-application-section-heading > p { margin: 0; }
-.transportx-application-overview {
-  max-width: 44rem;
-  margin: 0 auto;
+.transportx-scene-tabs { display: flex; justify-content: center; gap: .5rem; margin-bottom: 1.5rem; }
+.transportx-scene-tabs button {
+  border: 0; border-radius: 999px; background: transparent;
+  color: var(--transportx-application-muted); padding: .65rem 1.2rem; font-size: .9rem; cursor: pointer;
 }
-
-.transportx-application-body p:last-child { margin-bottom: 0; }
-
-.transportx-application-capabilities dl {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2.25rem 4rem;
-  margin: 2rem 0 0;
-}
-
-.transportx-application-workflow ol {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 2rem;
-  list-style: none;
-  margin: 2rem 0 0;
-  padding: 0;
-}
-
-.transportx-application-workflow h3,
-.transportx-application-capabilities dt {
-  color: var(--transportx-application-text);
-  font-size: 1rem;
-  font-weight: 650;
-  line-height: 1.4;
-  margin: 0 0 .6rem;
-}
-
-.transportx-application-workflow p,
-.transportx-application-capabilities dd {
-  color: var(--transportx-application-muted);
-  font-size: .88rem;
-  line-height: 1.75;
-  margin: 0;
-}
-
+.transportx-scene-tabs button[aria-selected="true"] { background: var(--transportx-application-text); color: var(--transportx-application-surface); }
+.transportx-scene[hidden] { display: none; }
+.transportx-scene + .transportx-scene { margin-top: 2rem; }
+.transportx-scene[hidden] + .transportx-scene { margin-top: 0; }
+.transportx-preview { display: block; position: relative; width: 100%; padding: 0; border: 0; cursor: zoom-in; overflow: hidden; background: var(--transportx-application-surface); }
+.transportx-preview img { display: block; width: 100%; height: auto; }
+.transportx-preview:focus-visible,
+.transportx-scene-tabs button:focus-visible,
+.transportx-application-page summary:focus-visible { outline: 2px solid var(--transportx-application-accent); outline-offset: 4px; }
+.transportx-scene-visual { border: 1px solid var(--transportx-application-line); border-radius: 24px; box-shadow: 0 16px 40px rgba(32,53,82,.08); }
+.transportx-zoom { position: absolute; bottom: 1rem; right: 1rem; display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border-radius: 50%; background: #202124; color: #fff; font-size: .85rem; }
+.transportx-screenshot-note { text-align: center; font-size: .75rem; color: var(--transportx-application-muted); margin: .8rem 0 1.5rem; }
+.transportx-scene-context { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 52rem; margin: auto; }
+.transportx-story-label { color: var(--transportx-application-muted); font-size: .8rem; font-weight: 600; margin: 0 0 .6rem; }
+.transportx-scene-context h3 { font-size: 1.25rem; line-height: 1.55; margin: 0; color: var(--transportx-application-text); }
+.transportx-scene-context > div > p:last-child { color: var(--transportx-application-muted); font-size: .9rem; line-height: 1.75; margin-bottom: 0; }
+.transportx-feature-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 1rem; align-items: start; }
+.transportx-feature { min-width: 0; background: rgba(128,139,156,.075); border-radius: 28px; padding: 2rem; }
+.transportx-feature h3 { color: var(--transportx-application-text); font-size: clamp(1.4rem, 2.5vw, 2rem); line-height: 1.3; letter-spacing: -.03em; margin: 0 0 1.8rem; }
+.transportx-feature-visual { height: 16rem; border-radius: 16px; border: 1px solid var(--transportx-application-line); }
+.transportx-feature-visual img { height: 100%; object-fit: cover; object-position: left top; }
+.transportx-feature-map .transportx-feature-visual img { width: 150%; max-width: none; }
+.transportx-feature-report .transportx-feature-visual img { width: 140%; max-width: none; }
+.transportx-feature-intro,
+.transportx-feature-details p { color: var(--transportx-application-muted); font-size: .88rem; line-height: 1.75; margin: 1.25rem 0 0; }
+.transportx-application-page details p { border: 0; padding-left: 0; }
+.transportx-feature-details summary { display: flex; justify-content: space-between; align-items: center; list-style: none; cursor: pointer; font-size: .8rem; font-weight: 600; margin-top: 1.25rem; color: var(--transportx-application-text); }
+.transportx-feature-details summary::-webkit-details-marker { display: none; }
+.transportx-feature-details summary span { display: grid; place-items: center; border-radius: 50%; background: var(--transportx-application-text); color: var(--transportx-application-surface); font-size: 1.2rem; width: 2.3rem; height: 2.3rem; }
+.transportx-feature-details[open] summary span { transform: rotate(45deg); }
+.transportx-module-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 2.5rem; align-items: center; padding: 2rem; background: rgba(128,139,156,.075); border-radius: 28px; }
+.transportx-module-visual { border-radius: 16px; border: 1px solid var(--transportx-application-line); }
+.transportx-module-copy dl { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 0 0 1.75rem; }
+.transportx-module-copy dt { color: var(--transportx-application-text); font-size: 1rem; margin-bottom: .5rem; }
+.transportx-module-copy dd { color: var(--transportx-application-muted); font-size: .82rem; line-height: 1.7; margin: 0; }
+.transportx-module-copy > a { font-size: .85rem; color: var(--transportx-application-accent); }
 .transportx-application-demo figure { margin: 0; }
-.transportx-application-demo video {
-  display: block;
-  height: auto;
-  width: 100%;
-  background: var(--transportx-application-surface);
-  border: 1px solid var(--transportx-application-line);
-  border-radius: 16px;
-}
-
-.transportx-application-demo figcaption,
-.transportx-application-gallery figcaption {
-  color: var(--transportx-application-muted);
-  font-size: .82rem;
-  line-height: 1.6;
-  margin-top: 1rem;
-}
-
-.transportx-application-gallery-grid {
-  display: grid;
-  gap: 2.5rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.transportx-application-gallery figure { margin: 0; min-width: 0; }
-.transportx-application-gallery figure a {
-  display: block;
-  overflow: hidden;
-  border: 1px solid var(--transportx-application-line);
-  border-radius: 16px;
-}
+.transportx-application-demo video { display: block; height: auto; width: 100%; border: 1px solid var(--transportx-application-line); border-radius: 24px; }
+.transportx-application-demo figcaption { color: var(--transportx-application-muted); font-size: .82rem; line-height: 1.6; margin-top: 1rem; }
+.transportx-product-about { max-width: 44rem; margin: auto; }
+.transportx-product-about summary { color: var(--transportx-application-text); font-size: 1.2rem; font-weight: 650; cursor: pointer; margin-bottom: 1rem; }
+.transportx-product-about > a { display: inline-block; margin-top: 1rem; font-size: .85rem; }
+.transportx-image-dialog { width: unquote("min(94vw,1600px)"); max-width: 94vw; max-height: 92vh; padding: 2.5rem 1rem 1rem; border: 1px solid var(--transportx-application-line); border-radius: 16px; background: var(--transportx-application-surface); color: var(--transportx-application-text); }
+.transportx-image-dialog::backdrop { background: rgba(0,0,0,.75); }
+.transportx-image-dialog img { display: block; width: 100%; height: auto; }
+.transportx-image-dialog p { margin: 1rem 0 0; font-size: .8rem; }
+.transportx-dialog-close { position: absolute; right: .5rem; top: .3rem; border: 0; background: transparent; color: inherit; font-size: 1.5rem; cursor: pointer; }
 
 .dark .transportx-application-heading,
 .dark .transportx-application-archive,
@@ -1427,9 +1393,6 @@
   --transportx-application-accent-contrast: #111820;
 }
 
-@media (max-width: 991.98px) {
-  .transportx-application-workflow ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
 
 @media (max-width: 767.98px) {
   .transportx-application-heading { padding-top: 2.25rem; }
@@ -1442,7 +1405,12 @@
   .transportx-application-summary { font-size: .95rem; }
   .transportx-application-facts dl { justify-content: start; text-align: left; gap: 1rem 2rem; }
   .transportx-application-page > section:not(.transportx-application-facts) { padding: 2.5rem 0; }
-  .transportx-application-capabilities dl,
-  .transportx-application-workflow ol,
-  .transportx-application-gallery-grid { grid-template-columns: minmax(0, 1fr); }
+  .transportx-application-page { padding-left: 18px; padding-right: 18px; }
+  .transportx-scene-context, .transportx-feature-grid, .transportx-module-layout { grid-template-columns: minmax(0,1fr); gap: 1.25rem; }
+  .transportx-feature, .transportx-module-layout { padding: 1.25rem; border-radius: 20px; }
+  .transportx-feature-visual { height: 14rem; }
+  .transportx-scene-tabs button { padding: .6rem .85rem; font-size: .8rem; }
+  .transportx-scene-visual { border-radius: 12px; }
+  .transportx-zoom { width: 2rem; height: 2rem; bottom: .6rem; right: .6rem; }
+  .transportx-scene-context h3 { font-size: 1.1rem; }
 }

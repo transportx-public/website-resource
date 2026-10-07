@@ -33,51 +33,74 @@ downloads:
     size: "274.1 MiB"
     url: "https://github.com/Ran2424/transportx-agent/releases/download/v3.22.0/TransportX-Agent-3.22.0-arm64.dmg"
     checksum_url: "https://github.com/Ran2424/transportx-agent/releases/download/v3.22.0/TransportX-Agent-3.22.0-arm64.dmg.sha256"
-workflow:
-  - title: "Create a traffic task"
-    description: "Choose a model and the versioned Modules needed for the analysis."
-  - title: "Ask a question"
-    description: "Work in natural language while retaining model responses, tool calls, and generated files."
-  - title: "Analyze on a shared map"
-    description: "Inspect layers and return features, points, rectangles, or the current viewport as Geo Context."
-  - title: "Deliver a report"
-    description: "Review findings, figures, citations, and source material, then export the report as PDF."
-capabilities:
-  - title: "Conversational analysis"
-    description: "Ask questions in natural language and follow the model's responses, tool calls, and generated files."
-  - title: "Interactive GIS"
-    description: "Share a versioned map context between the agent and analyst through layers, selections, points, rectangles, and viewports."
-  - title: "Data, charts, and video"
-    description: "Analyze tables, databases, and code; create charts; add video search, playback, clips, frame sampling, and time-series metrics through Video Capability."
-  - title: "Traceable findings"
-    description: "Keep citations, map context, source files, and tool output connected to the conclusion that used them."
-  - title: "Report delivery"
-    description: "Build Markdown reports with figures and citations, then export them as PDF from the desktop app."
-  - title: "Versioned capabilities"
-    description: "Install Agent Skills, Extensions, Data, Knowledge, Templates, and native runtimes through versioned Modules."
 demo_video: "transportx-v6-en-68s-1080p.mp4"
 demo_poster: "product-event-traffic.png"
 demo_intro: "See the full workflow from creating a traffic task to shared-map analysis and report delivery."
 demo_caption: "68-second product overview with sound."
-gallery:
-  - image: "product-monthly-report.png"
-    alt: "Monthly passenger-flow report with a trend chart, outline, citations, and the agent's findings"
-    caption: "Review a generated report with charts and citations, then export it as PDF."
-  - image: "product-event-traffic.png"
-    alt: "Map of event-period road speeds and parking demand beside the agent's findings"
-    caption: "Compare road speeds and parking demand around an event venue on the map."
-  - image: "product-bike-transfer.png"
-    alt: "Metro lines and the five stations with the highest shared-bike demand beside a ranked table"
-    caption: "Inspect station rankings and nearby transit lines on the same map."
-  - image: "product-holiday-ridehail.png"
-    alt: "Holiday ride-hailing demand chart beside the agent's comparison"
-    caption: "Compare ride-hailing demand before, during, and after a holiday alongside rail arrivals."
-  - image: "product-task-setup.png"
-    alt: "New traffic task dialog with model and Module version choices"
-    caption: "Choose a model and Module versions when creating a task."
-  - image: "product-map-selection.png"
-    alt: "Transit map with a selected area, demand layer, and agent analysis"
-    caption: "Send a selected map area back to the agent as geographic context."
+story:
+  workspace_title: One question. A shared transport workspace.
+  workspace_intro: Keep conversation, maps, and findings side by side. Explore the examples to see a question become a result
+    you can inspect.
+  example_label: Example question
+  result_label: Inspect in the workspace
+  screenshot_label: Real task screenshot. Click to view full size.
+  scenes:
+  - name: Event traffic
+    image: product-event-traffic.png
+    alt: Road speeds and parking demand around Shanghai Stadium beside the agent analysis
+    question: Which roads need attention after an event at Shanghai Stadium?
+    result: Compare road speeds, parking demand, and venue location on one map, then review the agent findings.
+  - name: Station connections
+    image: product-bike-transfer.png
+    alt: Metro lines, shared-bike station demand, and a ranking table
+    question: Which metro stations have the highest shared-bike connection demand?
+    result: Place station rankings on the map, inspect nearby transit lines, and ask about a specific station or area.
+  - name: Holiday travel
+    image: product-holiday-ridehail.png
+    alt: Holiday ride-hailing demand chart beside comparative analysis
+    question: How does ride-hailing demand change before, during, and after a holiday?
+    result: Compare demand trends with rail arrivals and departures. Check time ranges and definitions before drawing conclusions.
+  features_title: Keep the map in the conversation. Keep evidence in the report.
+  features_intro: Select an area to investigate further. Review charts, citations, and source files in the report. Analysis
+    and delivery stay connected.
+  features:
+  - kind: map
+    label: Shared map
+    title: Select an area. Ask the next question.
+    image: product-map-selection.png
+    alt: A selected area and demand layers on a Shanghai transit map
+    intro: Return a point, feature, rectangle, or viewport as geographic context for the next question.
+    details: The agent publishes layers; you inspect and select. Selections enter the next message with their map revision,
+      keeping the same spatial scope without describing the location again.
+  - kind: report
+    label: Report delivery
+    title: Findings with charts. Evidence with sources.
+    image: product-monthly-report.png
+    alt: Passenger-flow report with trend chart, citations, outline, and PDF export
+    intro: Charts, citations, and findings become one report. Deliver the original file or a PDF.
+    details: Review the generated Markdown report in the document canvas. Check dates, units, methods, and citations, then
+      download the source or export a PDF. Findings remain connected to source files and tool output.
+  expand_label: Learn more
+  zoom_label: View full size
+  close_label: Close preview
+  module_title: Different tasks. Different capabilities.
+  module_intro: Choose a model and Modules when creating a task. Add the data, knowledge, methods, and tools needed for the
+    work, with exact versions retained.
+  module_image: product-task-setup.png
+  module_alt: New traffic task dialog with model and Module version choices
+  module_items:
+  - title: Data and knowledge
+    description: Bring domain datasets, source knowledge, and analysis material.
+  - title: Methods and tools
+    description: Add Skills, Extensions, and native analysis runtimes.
+  - title: Charts and video
+    description: Create charts and install video search and processing capabilities.
+  - title: Templates and versions
+    description: Reuse report templates and retain the Module versions used by each task.
+  module_link: Explore Modules (中文) →
+  video_title: Watch a question become a finished report.
+  about_title: Why TransportX?
+  source_label: Explore the source on GitHub →
 ---
 
 Coding agents such as Codex and Claude Code have improved quickly, but using them still often means working with code, terminals, and unfamiliar file structures. That remains a real barrier for many domain specialists, particularly non-programmers who need to analyze traffic data or build map-based explanations.
