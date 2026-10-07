@@ -48,7 +48,7 @@ hugo --minify --cleanDestinationDir
 
 TransportX Agent 使用文档部署在 `/application/transportx-agent/guide/`，产品页的“快速上手”按钮直达 `#start`。唯一内容来源是 [`Ran2424/transportx-agent/docs/guide/`](https://github.com/Ran2424/transportx-agent/tree/main/docs/guide)。网站目录 `static/application/transportx-agent/guide/` 是部署副本，不直接维护内容。
 
-每次网站发布前，工作流拉取产品仓库 `main` 中的最新 `docs/guide/`，同步全部文件并清除已删除的旧文件。工作流还会每小时自动运行一次（每小时第 17 分钟，GitHub 可能延迟）；推送产品文档到 GitHub 后无需再手工复制。没有变化时，发布 action 不会创建新的页面仓库提交。
+每次网站发布前，工作流拉取产品仓库 `main` 中的最新 `docs/guide/`，同步全部文件并清除已删除的旧文件。脚本和样式按内容生成带哈希的文件名，并改写首页引用，避免更新后继续加载旧资源；历史哈希文件保留，供尚在缓存中的旧首页使用。工作流还会每小时自动运行一次（每小时第 17 分钟，GitHub 可能延迟）；推送产品文档到 GitHub 后无需再手工复制。没有变化时，发布 action 不会创建新的页面仓库提交。
 
 需要立即同步时，在网站仓库 Actions 中手动运行 `web-deploy`，或执行：
 

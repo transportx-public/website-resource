@@ -2,6 +2,8 @@
 """Copy the canonical TransportX guide into the website, including asset deletions."""
 
 import argparse
+import hashlib
+import re
 import shutil
 import tempfile
 from pathlib import Path
@@ -24,6 +26,22 @@ destination.parent.mkdir(parents=True, exist_ok=True)
 with tempfile.TemporaryDirectory(dir=destination.parent) as temporary:
     staged = Path(temporary) / "guide"
     shutil.copytree(source, staged)
+    index_path = staged / "index.html"
+    index = index_path.read_text(encoding="utf-8")
+    for filename in ("styles.css", "guide.js"):
+        asset = staged / filename
+        digest = hashlib.sha256(asset.read_bytes()).hexdigest()[:16]
+        versioned = f"{asset.stem}.{digest}{asset.suffix}"
+        shutil.copy2(asset, staged / versioned)
+        index = re.sub(rf'(["\']){re.escape(filename)}(?:\?[^"\']*)?(["\'])',
+                       lambda match: f"{match[1]}{versioned}{match[2]}", index)
+    index_path.write_text(index, encoding="utf-8")
+    # Cached HTML may still reference an earlier deployment's assets.
+    if destination.exists():
+        for pattern in ("styles.*.css", "guide.*.js"):
+            for asset in destination.glob(pattern):
+                if not (staged / asset.name).exists():
+                    shutil.copy2(asset, staged / asset.name)
     if destination.exists():
         shutil.rmtree(destination)
     staged.rename(destination)
