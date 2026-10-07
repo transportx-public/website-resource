@@ -10,8 +10,11 @@
       <h1>{{ .Params.hero_headline | default .Title }}</h1>
       <p class="transportx-application-summary">{{ .Params.hero_summary | default .Params.summary }}</p>
       <div class="transportx-application-hero-actions">
-        {{ if .Params.downloads }}
-          <a class="transportx-application-primary-action" href="#downloads">{{ i18n "application_view_downloads" }}</a>
+        {{ range .Params.downloads }}
+          <a class="transportx-application-primary-action" href="{{ .url }}">
+            <i class="fab fa-{{ if eq .platform "Windows" }}windows{{ else }}apple{{ end }}" aria-hidden="true"></i>
+            <span>{{ i18n "application_download_for" }} {{ .platform }}</span>
+          </a>
         {{ end }}
         {{ with .Params.guide_url }}
           <a class="transportx-application-secondary-action" href="{{ . }}">{{ i18n "application_quick_start" }}</a>
@@ -19,7 +22,10 @@
       </div>
     </div>
     {{ with $hero }}
-      {{- $display := .Resize "1800x webp q86" -}}
+      {{- $display := . -}}
+      {{- if ne .MediaType.SubType "gif" -}}
+        {{- $display = .Resize "1800x webp q86" -}}
+      {{- end -}}
       <figure class="transportx-application-hero-figure">
         <img
           src="{{ $display.RelPermalink }}"
@@ -116,54 +122,6 @@
               <figcaption>{{ $item.caption }}</figcaption>
             </figure>
           {{ end }}
-        {{ end }}
-      </div>
-    </section>
-  {{ end }}
-  {{ with .Params.downloads }}
-    <section id="downloads" class="transportx-application-downloads" aria-labelledby="application-downloads-title">
-      <div class="transportx-application-section-heading">
-        <h2 id="application-downloads-title">{{ i18n "application_downloads" }}</h2>
-        {{ with $.Params.download_intro }}<p>{{ . }}</p>{{ end }}
-        {{ with $.Params.release_version }}<p class="transportx-application-release-version">{{ i18n "application_release" }} {{ . }}</p>{{ end }}
-      </div>
-      <div class="transportx-application-download-grid">
-        {{ range . }}
-          <article class="transportx-application-download">
-            <div class="transportx-application-download-heading">
-              <h3>{{ .platform }}</h3>
-              <p>{{ .system }}</p>
-            </div>
-            <dl>
-              <div>
-                <dt>{{ i18n "application_architecture" }}</dt>
-                <dd>{{ .architecture }}</dd>
-              </div>
-              <div>
-                <dt>{{ i18n "application_package" }}</dt>
-                <dd>{{ .format }}</dd>
-              </div>
-              <div>
-                <dt>{{ i18n "application_package_size" }}</dt>
-                <dd>{{ .size }}</dd>
-              </div>
-            </dl>
-            <a class="transportx-application-download-button" href="{{ .url }}">{{ i18n "application_download_for" }} {{ .platform }}</a>
-            {{ with .checksum_url }}
-              <a class="transportx-application-checksum-link" href="{{ . }}">{{ i18n "application_checksum" }}</a>
-            {{ end }}
-          </article>
-        {{ end }}
-      </div>
-      {{ with $.Params.release_notice }}
-        <aside class="transportx-application-release-notice">{{ . }}</aside>
-      {{ end }}
-      <div class="transportx-application-release-links">
-        {{ with $.Params.release_url }}
-          <a href="{{ . }}" target="_blank" rel="noopener">{{ i18n "application_release_notes" }}</a>
-        {{ end }}
-        {{ with $.Params.source_url }}
-          <a href="{{ . }}" target="_blank" rel="noopener">{{ i18n "application_open_github" }}</a>
         {{ end }}
       </div>
     </section>
