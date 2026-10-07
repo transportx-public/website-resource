@@ -59,11 +59,11 @@ application_examples:
 application_open_image:
   other: Open the full-size interface image
 application_view_downloads:
-  other: View downloads
+  other: Download
 application_source_code:
   other: Source code
 application_quick_start:
-  other: Quick start (中文)
+  other: Quick start →
 application_product_facts:
   other: Product information
 application_downloads:

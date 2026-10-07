@@ -59,11 +59,11 @@ application_examples:
 application_open_image:
   other: 查看完整界面图
 application_view_downloads:
-  other: 查看下载
+  other: 下载应用
 application_source_code:
   other: 查看源代码
 application_quick_start:
-  other: 快速上手
+  other: 快速上手 →
 application_product_facts:
   other: 产品信息
 application_downloads:

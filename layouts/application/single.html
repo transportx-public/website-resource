@@ -6,18 +6,15 @@
 <main class="universal-wrapper transportx-application-page">
   <header class="transportx-application-hero">
     <div class="transportx-application-hero-copy">
-      <p class="transportx-application-stage">{{ .Params.product_stage }}</p>
-      <h1>{{ .Title }}</h1>
-      <p class="transportx-application-summary">{{ .Params.summary }}</p>
+      <p class="transportx-application-stage">{{ .Title }}</p>
+      <h1>{{ .Params.hero_headline | default .Title }}</h1>
+      <p class="transportx-application-summary">{{ .Params.hero_summary | default .Params.summary }}</p>
       <div class="transportx-application-hero-actions">
         {{ if .Params.downloads }}
           <a class="transportx-application-primary-action" href="#downloads">{{ i18n "application_view_downloads" }}</a>
         {{ end }}
         {{ with .Params.guide_url }}
           <a class="transportx-application-secondary-action" href="{{ . }}">{{ i18n "application_quick_start" }}</a>
-        {{ end }}
-        {{ with .Params.source_url }}
-          <a class="transportx-application-secondary-action" href="{{ . }}" target="_blank" rel="noopener">{{ i18n "application_source_code" }}</a>
         {{ end }}
       </div>
     </div>
@@ -48,6 +45,81 @@
     </section>
   {{ end }}
 
+  {{ with $demoVideo }}
+    <section class="transportx-application-demo" aria-labelledby="application-demo-title">
+      <div class="transportx-application-section-heading">
+        <h2 id="application-demo-title">{{ i18n "application_demo" }}</h2>
+        {{ with $.Params.demo_intro }}<p>{{ . }}</p>{{ end }}
+      </div>
+      <figure>
+        <video controls preload="metadata"{{ with $demoPoster }} poster="{{ .RelPermalink }}"{{ end }}>
+          <source src="{{ .RelPermalink }}" type="video/mp4">
+          {{ i18n "application_video_fallback" }}
+        </video>
+        {{ with $.Params.demo_caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+      </figure>
+    </section>
+  {{ end }}
+
+  <section class="transportx-application-overview" aria-labelledby="application-overview-title">
+    <h2 id="application-overview-title">{{ i18n "application_overview" }}</h2>
+    <div class="article-style transportx-application-body">{{ .Content }}</div>
+  </section>
+
+  {{ with .Params.capabilities }}
+    <section class="transportx-application-capabilities" aria-labelledby="application-capabilities-title">
+      <h2 id="application-capabilities-title">{{ i18n "application_capabilities" }}</h2>
+      <dl>
+        {{ range . }}
+          <div>
+            <dt>{{ .title }}</dt>
+            <dd>{{ .description }}</dd>
+          </div>
+        {{ end }}
+      </dl>
+    </section>
+  {{ end }}
+
+  {{ with .Params.workflow }}
+    <section class="transportx-application-workflow" aria-labelledby="application-workflow-title">
+      <h2 id="application-workflow-title">{{ i18n "application_workflow" }}</h2>
+      <ol>
+        {{ range . }}
+          <li>
+            <h3>{{ .title }}</h3>
+            <p>{{ .description }}</p>
+          </li>
+        {{ end }}
+      </ol>
+    </section>
+  {{ end }}
+
+  {{ with .Params.gallery }}
+    <section class="transportx-application-gallery" aria-labelledby="application-gallery-title">
+      <h2 id="application-gallery-title">{{ i18n "application_examples" }}</h2>
+      <div class="transportx-application-gallery-grid">
+        {{ range . }}
+          {{- $item := . -}}
+          {{- $image := $.Resources.GetMatch $item.image -}}
+          {{ with $image }}
+            {{- $display := .Resize "1600x webp q86" -}}
+            <figure>
+              <a href="{{ .RelPermalink }}" target="_blank" rel="noopener" aria-label="{{ i18n "application_open_image" }}">
+                <img
+                  src="{{ $display.RelPermalink }}"
+                  width="{{ $display.Width }}"
+                  height="{{ $display.Height }}"
+                  alt="{{ $item.alt }}"
+                  loading="lazy"
+                >
+              </a>
+              <figcaption>{{ $item.caption }}</figcaption>
+            </figure>
+          {{ end }}
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
   {{ with .Params.downloads }}
     <section id="downloads" class="transportx-application-downloads" aria-labelledby="application-downloads-title">
       <div class="transportx-application-section-heading">
@@ -97,81 +169,6 @@
     </section>
   {{ end }}
 
-  <section class="transportx-application-overview" aria-labelledby="application-overview-title">
-    <h2 id="application-overview-title">{{ i18n "application_overview" }}</h2>
-    <div class="article-style transportx-application-body">{{ .Content }}</div>
-  </section>
-
-  {{ with .Params.capabilities }}
-    <section class="transportx-application-capabilities" aria-labelledby="application-capabilities-title">
-      <h2 id="application-capabilities-title">{{ i18n "application_capabilities" }}</h2>
-      <dl>
-        {{ range . }}
-          <div>
-            <dt>{{ .title }}</dt>
-            <dd>{{ .description }}</dd>
-          </div>
-        {{ end }}
-      </dl>
-    </section>
-  {{ end }}
-
-  {{ with .Params.workflow }}
-    <section class="transportx-application-workflow" aria-labelledby="application-workflow-title">
-      <h2 id="application-workflow-title">{{ i18n "application_workflow" }}</h2>
-      <ol>
-        {{ range . }}
-          <li>
-            <h3>{{ .title }}</h3>
-            <p>{{ .description }}</p>
-          </li>
-        {{ end }}
-      </ol>
-    </section>
-  {{ end }}
-
-  {{ with $demoVideo }}
-    <section class="transportx-application-demo" aria-labelledby="application-demo-title">
-      <div class="transportx-application-section-heading">
-        <h2 id="application-demo-title">{{ i18n "application_demo" }}</h2>
-        {{ with $.Params.demo_intro }}<p>{{ . }}</p>{{ end }}
-      </div>
-      <figure>
-        <video controls preload="metadata"{{ with $demoPoster }} poster="{{ .RelPermalink }}"{{ end }}>
-          <source src="{{ .RelPermalink }}" type="video/mp4">
-          {{ i18n "application_video_fallback" }}
-        </video>
-        {{ with $.Params.demo_caption }}<figcaption>{{ . }}</figcaption>{{ end }}
-      </figure>
-    </section>
-  {{ end }}
-
-  {{ with .Params.gallery }}
-    <section class="transportx-application-gallery" aria-labelledby="application-gallery-title">
-      <h2 id="application-gallery-title">{{ i18n "application_examples" }}</h2>
-      <div class="transportx-application-gallery-grid">
-        {{ range . }}
-          {{- $item := . -}}
-          {{- $image := $.Resources.GetMatch $item.image -}}
-          {{ with $image }}
-            {{- $display := .Resize "1600x webp q86" -}}
-            <figure>
-              <a href="{{ .RelPermalink }}" target="_blank" rel="noopener" aria-label="{{ i18n "application_open_image" }}">
-                <img
-                  src="{{ $display.RelPermalink }}"
-                  width="{{ $display.Width }}"
-                  height="{{ $display.Height }}"
-                  alt="{{ $item.alt }}"
-                  loading="lazy"
-                >
-              </a>
-              <figcaption>{{ $item.caption }}</figcaption>
-            </figure>
-          {{ end }}
-        {{ end }}
-      </div>
-    </section>
-  {{ end }}
 </main>
 
 {{- end -}}
