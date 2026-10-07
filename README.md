@@ -46,7 +46,24 @@ hugo --minify --cleanDestinationDir
 
 ## 发布
 
-TransportX Agent 使用文档部署在 `/application/transportx-agent/guide/`，产品页的“快速上手”按钮直达 `#start`。静态文件位于 `static/application/transportx-agent/guide/`，取自 `Ran2424/transportx-agent` 的 `docs/guide/`（提交 `4fac349bd9c90da3729bf11a8b2466d8020d3e88`）。更新时同步该目录的 HTML、CSS、JavaScript 和 `assets/`，并保留顶部返回产品介绍页的链接；无需额外构建。
+TransportX Agent 使用文档部署在 `/application/transportx-agent/guide/`，产品页的“快速上手”按钮直达 `#start`。唯一内容来源是 [`Ran2424/transportx-agent/docs/guide/`](https://github.com/Ran2424/transportx-agent/tree/main/docs/guide)。网站目录 `static/application/transportx-agent/guide/` 是部署副本，不直接维护内容。
+
+每次网站发布前，工作流拉取产品仓库 `main` 中的最新 `docs/guide/`，同步全部文件并清除已删除的旧文件。工作流还会每小时自动运行一次（每小时第 17 分钟，GitHub 可能延迟）；推送产品文档到 GitHub 后无需再手工复制。没有变化时，发布 action 不会创建新的页面仓库提交。
+
+需要立即同步时，在网站仓库 Actions 中手动运行 `web-deploy`，或执行：
+
+```bash
+gh workflow run gh-pages.yml --repo transportx-public/website-resource --ref main
+```
+
+本地预览未推送的产品文档，从网站仓库根目录执行：
+
+```bash
+python3 scripts/sync_transportx_guide.py "/Users/ran/WorkSpace/3 Code Project/pi-tau-traffic/docs/guide"
+hugo server
+```
+
+同步脚本只复制文档，不修改内容；返回产品页的链接也在源目录维护。本地修改不会自动上传。正式发布读取 GitHub `main`，因此先将源目录的修改提交并推送。
 
 推送 `main` 分支后，`.github/workflows/gh-pages.yml` 会构建站点，并将 `public/` 发布到 `transportx-public/transportx-public.github.io` 仓库。
 

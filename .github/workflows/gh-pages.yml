@@ -5,6 +5,14 @@ on:
     branches:
       - main # 这里的意思是当 main分支发生push的时候，运行下面的jobs，这里先改为github-actions
 
+  workflow_dispatch:
+  schedule:
+    - cron: '17 * * * *' # 每小时拉取最新文档
+
+concurrency:
+  group: transportx-site-deploy
+  cancel-in-progress: false
+
 jobs:
   deploy: # 任务名自取
     runs-on: ubuntu-latest # 在什么环境运行任务
@@ -13,6 +21,18 @@ jobs:
         with:
           submodules: true # Fetch Hugo themes (true OR recursive) 获取submodule主题
           fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Checkout canonical TransportX guide
+        uses: actions/checkout@v4
+        with:
+          repository: Ran2424/transportx-agent
+          ref: main
+          path: .guide-source
+          sparse-checkout: docs/guide
+          persist-credentials: false
+
+      - name: Sync TransportX guide
+        run: python3 scripts/sync_transportx_guide.py .guide-source/docs/guide
 
       - name: Setup Hugo # 步骤名自取
         uses: peaceiris/actions-hugo@v2 # hugo官方提供的action，用于在任务环境中获取hugo
