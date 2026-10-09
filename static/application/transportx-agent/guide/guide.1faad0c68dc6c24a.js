@@ -178,7 +178,8 @@ const pages = [
     <details class="faq-item"><summary>看不到地图、报告或文件怎么办？</summary><p>确认选择了正确任务，并打开顶部文件栏或画布按钮。Agent 必须先生成文件或发布地图资源，对应内容才会出现。</p></details>
     <details class="faq-item"><summary>报告无法导出 PDF 怎么办？</summary><p>先检查 Markdown 报告和图片是否正常预览，再重试“生成并下载 PDF”。仍失败时可先下载原文件，并保留错误信息排查。</p></details>
     <details class="faq-item"><summary>本地应用可以完全离线使用吗？</summary><p>取决于所用模型和资源。远程 API、在线底图或其他外部服务需要联网；本机保存记录不代表所有分析都不访问网络。</p></details>
-    <h2 id="feedback">反馈问题时提供什么</h2><p>说明应用版本、操作系统、操作步骤和错误提示。截图中隐藏 API Key 与敏感材料；不要上传 auth.json。可通过 <a href="https://github.com/Ran2424/transportx-agent/issues" target="_blank" rel="noreferrer">项目 Issues ↗</a> 反馈可复现的问题。</p>`
+    <h2 id="feedback">反馈问题时提供什么</h2><p>说明应用版本、操作系统、操作步骤和错误提示。截图中隐藏 API Key 与敏感材料；不要上传 auth.json。可通过 <a href="https://github.com/Ran2424/transportx-agent/issues" target="_blank" rel="noreferrer">项目 Issues ↗</a> 反馈可复现的问题。</p>
+`
   }
 ];
 
