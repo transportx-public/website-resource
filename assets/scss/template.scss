@@ -1222,6 +1222,14 @@
   margin-top: 1.75rem;
 }
 
+.transportx-application-release-note {
+  color: var(--transportx-application-muted);
+  font-size: .85rem;
+  line-height: 1.6;
+  margin: 1rem auto 0;
+  max-width: 42rem;
+}
+
 .transportx-application-primary-action,
 .transportx-application-secondary-action {
   display: inline-flex;
