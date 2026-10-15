@@ -21,6 +21,7 @@
         {{ end }}
       </div>
       {{ with .Params.release_notice }}<p class="transportx-application-release-note">{{ . }}</p>{{ end }}
+      {{ with .Params.release_notes_title }}<a class="transportx-application-secondary-action" href="#release-notes">{{ . }} →</a>{{ end }}
     </div>
     {{ with $hero }}
       {{- $display := . -}}
@@ -142,6 +143,14 @@
         </video>
         {{ with $.Params.demo_caption }}<figcaption>{{ . }}</figcaption>{{ end }}
       </figure>
+    </section>
+  {{ end }}
+  {{ with .Params.release_notes }}
+    <section id="release-notes" aria-labelledby="release-notes-title">
+      <div class="transportx-application-section-heading">
+        <h2 id="release-notes-title">{{ $.Params.release_notes_title }}</h2>
+      </div>
+      <div class="article-style">{{ . | markdownify }}</div>
     </section>
   {{ end }}
   <section class="transportx-product-about">
