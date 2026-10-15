@@ -9,12 +9,12 @@ hero_summary: "开源交通分析工作台，用自然语言分析数据、查�
 source_url: "https://github.com/Ran2424/transportx-agent"
 guide_url: "/application/transportx-agent/guide/#start"
 release_url: "https://github.com/Ran2424/transportx-agent/releases/tag/v3.23.0"
-release_version: "v3.23.0（macOS 内测）"
+release_version: "v3.23.0"
 download_intro: "请选择适合当前系统的桌面安装包。应用在本机运行，首次使用前需要配置一个兼容 Pi 的模型。"
-release_notice: "macOS 3.23.0 为 ad-hoc 签名、未经过 Apple 公证的内测包。旧版需手动安装本次版本一次，后续兼容构建可在应用内下载并确认重启更新。Windows 保持 3.22.0。"
+release_notice: "3.23.0 已发布，提供 Windows x64 与 macOS Apple Silicon 安装包。Windows 安装器未签名；Mac 使用 ad-hoc 签名，未经过 Apple 公证。从 3.22 升级请先手动安装一次。"
 release_notes_title: "3.23 更新说明"
 release_notes: |
-  3.23 重点改善对话阅读、附件使用和运行稳定性，新增本地模型接入与应用内更新。本次发布 **macOS Apple Silicon 3.23.0 内测版**；Windows 下载仍为 3.22.0。
+  3.23 重点改善对话阅读、附件使用和运行稳定性，新增本地模型接入与应用内更新。本次发布 **3.23.0 正式版**，提供 Windows x64 与 macOS Apple Silicon 下载。
 
   ### 功能优化
 
@@ -39,10 +39,10 @@ release_notes: |
 
   ### 安装与更新
 
-  - **适用系统**：macOS 12 或更高版本，Apple Silicon（arm64）。[下载 Mac 3.23.0 内测版](https://download.transkgllm.com/releases/v3.23.0/TransportX-Agent-3.23.0-mac-arm64.dmg)。
-  - **从 3.22 或旧内测包升级**：请先手动安装本次版本一次。后续兼容内测版本可在应用内点击“下载更新”，完成后确认“重启并更新”。
-  - **首次打开**：本次为 ad-hoc 签名、未经过 Apple 公证的内测包；如被系统拦截，请按系统提示在 Finder 或“隐私与安全性”中允许打开。
-  - **Windows 用户**：本次未发布 Windows 3.23 安装包，请继续使用 3.22.0。
+  - **适用系统**：macOS 12 或更高版本，Apple Silicon（arm64）。[下载 Mac 3.23.0](https://download.transkgllm.com/releases/v3.23.0/TransportX-Agent-3.23.0-mac-arm64.dmg)。
+  - **从 3.22 或旧版升级**：请先手动安装本次版本一次。后续兼容版本可在应用内点击“下载更新”，完成后确认“重启并更新”。
+  - **首次打开**：Mac 安装包采用 ad-hoc 签名，未经过 Apple 公证；如被系统拦截，请按系统提示在 Finder 或“隐私与安全性”中允许打开。
+  - **Windows 用户**：支持 Windows 10 22H2 或 Windows 11（x64）。[下载 Windows 3.23.0](https://download.transkgllm.com/releases/v3.23.0/TransportX-Agent-3.23.0-win-x64-setup.exe)，可使用随包 SHA-256 文件核验下载；安装器未使用 Authenticode 签名。
 product_facts:
   - label: "支持平台"
     value: "macOS arm64 / Windows x64"
@@ -52,14 +52,15 @@ product_facts:
     value: "桌面端 / Web / CLI"
 downloads:
   - platform: "Windows"
-    version: "v3.22.0"
+    version: "v3.23.0"
     system: "Windows 10 22H2 或 Windows 11"
     architecture: "x64"
     format: "EXE 安装程序"
-    size: "205.5 MiB"
-    url: "https://download.transkgllm.com/releases/v3.22.0/TransportX.Agent-3.22.0-win-x64-setup.exe"
+    size: "220.2 MiB"
+    url: "https://download.transkgllm.com/releases/v3.23.0/TransportX-Agent-3.23.0-win-x64-setup.exe"
+    checksum_url: "https://download.transkgllm.com/releases/v3.23.0/TransportX-Agent-3.23.0-win-x64-setup.exe.sha256"
   - platform: "macOS"
-    version: "v3.23.0 内测"
+    version: "v3.23.0"
     system: "macOS 12 或更高版本"
     architecture: "Apple Silicon"
     format: "DMG"

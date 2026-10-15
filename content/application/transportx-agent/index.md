@@ -9,12 +9,12 @@ hero_summary: "Analyze data, explore maps, and deliver reports with an open-sour
 source_url: "https://github.com/Ran2424/transportx-agent"
 guide_url: "/application/transportx-agent/guide/#start"
 release_url: "https://github.com/Ran2424/transportx-agent/releases/tag/v3.23.0"
-release_version: "v3.23.0 (macOS beta)"
+release_version: "v3.23.0"
 download_intro: "Choose the desktop build for your platform. The application runs locally and requires a Pi-compatible model configured on first use."
-release_notice: "macOS 3.23.0 is an ad-hoc signed beta, without Apple notarization. Install it manually once; later compatible builds support in-app download and restart-to-update. Windows remains on 3.22.0."
+release_notice: "3.23.0 is available for Windows x64 and macOS Apple Silicon. The Windows installer is unsigned; the Mac build is ad-hoc signed without Apple notarization. Install manually once when upgrading from 3.22."
 release_notes_title: "What's new in 3.23"
 release_notes: |
-  3.23 improves conversation readability, file reuse, and reliability, and adds local model access and in-app updates. This release provides the **macOS Apple Silicon 3.23.0 beta**; the Windows download remains on 3.22.0.
+  3.23 improves conversation readability, file reuse, and reliability, and adds local model access and in-app updates. The **3.23.0 stable release** is available for Windows x64 and macOS Apple Silicon.
 
   ### Features and improvements
 
@@ -39,10 +39,10 @@ release_notes: |
 
   ### Installation and updates
 
-  - **Requirements**: macOS 12 or later on Apple Silicon (arm64). [Download the Mac 3.23.0 beta](https://download.transkgllm.com/releases/v3.23.0/TransportX-Agent-3.23.0-mac-arm64.dmg).
-  - **Upgrading from 3.22 or an older beta**: install this version manually once. Later compatible beta builds can be downloaded in the app and installed by confirming restart-to-update.
-  - **First launch**: this beta is ad-hoc signed and has not been notarized by Apple. If macOS blocks it, follow the system prompts in Finder or Privacy & Security to allow it to open.
-  - **Windows users**: no Windows 3.23 installer is included in this release. Continue using 3.22.0.
+  - **Requirements**: macOS 12 or later on Apple Silicon (arm64). [Download Mac 3.23.0](https://download.transkgllm.com/releases/v3.23.0/TransportX-Agent-3.23.0-mac-arm64.dmg).
+  - **Upgrading from 3.22 or an older build**: install this version manually once. Later compatible builds can be downloaded in the app and installed by confirming restart-to-update.
+  - **First launch**: the Mac build is ad-hoc signed and has not been notarized by Apple. If macOS blocks it, follow the system prompts in Finder or Privacy & Security to allow it to open.
+  - **Windows users**: requires Windows 10 22H2 or Windows 11 (x64). [Download Windows 3.23.0](https://download.transkgllm.com/releases/v3.23.0/TransportX-Agent-3.23.0-win-x64-setup.exe) and verify it with the accompanying SHA-256 file. The installer has no Authenticode signature.
 product_facts:
   - label: "Platforms"
     value: "macOS arm64 / Windows x64"
@@ -52,14 +52,15 @@ product_facts:
     value: "Desktop / Web / CLI"
 downloads:
   - platform: "Windows"
-    version: "v3.22.0"
+    version: "v3.23.0"
     system: "Windows 10 22H2 or Windows 11"
     architecture: "x64"
     format: "EXE installer"
-    size: "205.5 MiB"
-    url: "https://download.transkgllm.com/releases/v3.22.0/TransportX.Agent-3.22.0-win-x64-setup.exe"
+    size: "220.2 MiB"
+    url: "https://download.transkgllm.com/releases/v3.23.0/TransportX-Agent-3.23.0-win-x64-setup.exe"
+    checksum_url: "https://download.transkgllm.com/releases/v3.23.0/TransportX-Agent-3.23.0-win-x64-setup.exe.sha256"
   - platform: "macOS"
-    version: "v3.23.0 beta"
+    version: "v3.23.0"
     system: "macOS 12 or later"
     architecture: "Apple Silicon"
     format: "DMG"
