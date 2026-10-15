@@ -13,13 +13,14 @@
         {{ range .Params.downloads }}
           <a class="transportx-application-primary-action" href="{{ .url }}">
             <i class="fab fa-{{ if eq .platform "Windows" }}windows{{ else }}apple{{ end }}" aria-hidden="true"></i>
-            <span>{{ i18n "application_download_for" }} {{ .platform }}</span>
+            <span>{{ i18n "application_download_for" }} {{ .platform }}{{ with .version }} · {{ . }}{{ end }}</span>
           </a>
         {{ end }}
         {{ with .Params.guide_url }}
           <a class="transportx-application-secondary-action" href="{{ . }}">{{ i18n "application_quick_start" }}</a>
         {{ end }}
       </div>
+      {{ with .Params.release_notice }}<p class="transportx-application-release-note">{{ . }}</p>{{ end }}
     </div>
     {{ with $hero }}
       {{- $display := . -}}
