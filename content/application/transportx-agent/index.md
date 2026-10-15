@@ -11,38 +11,6 @@ guide_url: "/application/transportx-agent/guide/#start"
 release_url: "https://github.com/Ran2424/transportx-agent/releases/tag/v3.23.0"
 release_version: "v3.23.0"
 download_intro: "Choose the desktop build for your platform. The application runs locally and requires a Pi-compatible model configured on first use."
-release_notice: "3.23.0 is available for Windows x64 and macOS Apple Silicon. The Windows installer is unsigned; the Mac build is ad-hoc signed without Apple notarization. Install manually once when upgrading from 3.22."
-release_notes_title: "What's new in 3.23"
-release_notes: |
-  3.23 improves conversation readability, file reuse, and reliability, and adds local model access and in-app updates. The **3.23.0 stable release** is available for Windows x64 and macOS Apple Silicon.
-
-  ### Features and improvements
-
-  - **Clearer update status**: see both the installed version and the latest version on the website. No available update or an unpublished update manifest now produces a normal status message. If a newer build is available only on the website, a manual download option is shown.
-  - **Download and install updates in the app**: view download progress and restore verified downloads. Installation requires your confirmation to restart, waits until tasks are idle, and does not run on an ordinary quit.
-  - **Local model access**: connect to Chat Completions-compatible services on your computer or local network, with address presets for Ollama and LM Studio. Test the connection, retrieve available models, and select one; an API key is optional depending on the service.
-  - **Easier conversation reading**: thinking and tool calls collapse into expandable Working sections with elapsed time. Text, tables, and code have improved widths, spacing, and font sizes, with more readable supporting text across Light, Dark, and Sand themes.
-  - **Reuse uploaded files**: browse, preview, and select files already uploaded to a task. Removing a file from the next message does not delete it. Attachments, map selections, and Canvas context have clearer pending, uploading, and failed states.
-  - **Inspect results and citations**: result cards show filenames and an open action. Canvas shows the selected view's title and version, and citations expand to reveal excerpts, dates, and source details.
-  - **Find the cause of problems**: open the runtime log folder from Settings. Model failures show a reason, retry status, and diagnostic identifier, with an option to put the original question back in the composer for editing and resubmission.
-
-  ### Bug fixes
-
-  - Fixed unsent text and attachments getting lost or appearing in another conversation. Drafts are saved per conversation and survive refreshes; you can return to an upload after switching conversations.
-  - Fixed Enter submitting a message while confirming Chinese input. Uploads still in progress or failed-only attachments no longer trigger an invalid submission.
-  - Fixed blank or outdated map screenshots caused by capturing before rendering finished. Rendering failures now show an error instead of saving an invalid screenshot.
-  - Fixed the end of a streamed reply remaining out of view, tool expansion choices being lost after switching conversations, and inaccurate timing across Working sections.
-  - Fixed context association and history restoration for messages combining files, map selections, and Canvas context, and kept internal attachment hints out of the user message.
-  - Improved oversized-upload errors with readable limits and file details; fixed concurrent upload indexing and temporary-file cleanup after failed uploads.
-  - Fixed stale responses overwriting the current conversation after reconnection or navigation. Improved message confirmation and cancellation handling to reduce inconsistent state and repeated operations.
-  - Strengthened configuration and attachment-index writes, backups, and crash recovery. Improved shutdown and task-deletion cleanup, preserving records for retry when cleanup fails.
-
-  ### Installation and updates
-
-  - **Requirements**: macOS 12 or later on Apple Silicon (arm64). [Download Mac 3.23.0](https://download.transkgllm.com/releases/v3.23.0/TransportX-Agent-3.23.0-mac-arm64.dmg).
-  - **Upgrading from 3.22 or an older build**: install this version manually once. Later compatible builds can be downloaded in the app and installed by confirming restart-to-update.
-  - **First launch**: the Mac build is ad-hoc signed and has not been notarized by Apple. If macOS blocks it, follow the system prompts in Finder or Privacy & Security to allow it to open.
-  - **Windows users**: requires Windows 10 22H2 or Windows 11 (x64). [Download Windows 3.23.0](https://download.transkgllm.com/releases/v3.23.0/TransportX-Agent-3.23.0-win-x64-setup.exe) and verify it with the accompanying SHA-256 file. The installer has no Authenticode signature.
 product_facts:
   - label: "Platforms"
     value: "macOS arm64 / Windows x64"
