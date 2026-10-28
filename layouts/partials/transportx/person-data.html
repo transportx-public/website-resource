@@ -1,0 +1,8 @@
+{{ $key := .Params.slug | default (.Title | urlize) }}
+{{ with .Params.authors }}{{ $key = index . 0 | urlize }}{{ end }}
+{{ $record := index site.Data.faculty $key | default dict }}
+{{ $verified := index $record .Lang | default dict }}
+{{ $person := merge .Params $verified }}
+{{ with $record.source }}{{ $person = merge $person (dict "verified_source" .) }}{{ end }}
+{{ with $record.scholar }}{{ $person = merge $person (dict "scholar_url" .) }}{{ end }}
+{{ return $person }}

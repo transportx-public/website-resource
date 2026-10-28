@@ -11,7 +11,10 @@ en:
     description: Intelligent transportation research group at Tongji University.
   menus:
     main:
-      - name: Tour
+      - name: Home
+        url: /
+        weight: 1
+      - name: Research
         url: tour
         weight: 10
       - name: People
@@ -42,7 +45,10 @@ zh:
     description: 同济大学智能交通研究团队。
   menus:
     main:
-      - name: 课题组
+      - name: 首页
+        url: /
+        weight: 1
+      - name: 研究方向
         url: tour
         weight: 10
       - name: 成员

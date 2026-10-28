@@ -1,0 +1,32 @@
+# Verified editorial supplement. Kept outside generated author files so Excel sync cannot erase it.
+# Source checked 2026-10-28; official page dated 2026-07-06.
+jian-li:
+  source: https://umi.tongji.edu.cn/info/1061/1130.htm
+  corroborating_sources:
+    - https://tjjt.tongji.edu.cn/info/2901/9454.htm
+    - https://faculty.tongji.edu.cn/lijian/zh_CN/index/142977/list/index.htm
+  scholar: https://scholar.google.com/citations?user=SRcNF0AAAAAJ
+  zh:
+    role: 副教授 · 博士生导师
+    academic_degree: 副教授
+    affiliation: 同济大学交通学院 · 交通运输规划与管理系
+    bio: 李健，同济大学交通学院副教授、博士生导师。本科与硕士就读于同济大学，博士毕业于美国罗格斯大学。曾在香港理工大学从事研究工作，随后任教于同济大学。
+    approach: 研究聚焦非常态交通管理、应急指挥及城市交通规划与政策。面向实际治理问题，结合大数据与人工智能，贯通交通状态监测、出行行为分析和方案优化，为城市交通决策提供支持。
+    interests:
+      - 非常态交通管理与应急指挥
+      - 城市交通规划与政策
+    education_summary: 同济大学（本科、硕士） / 美国罗格斯大学（博士）
+    service_summary: 中国城市规划学会城市交通规划专业委员会副秘书长；《城市交通》编委。
+    teaching_summary: 本科生《运筹学》、研究生《运筹学 II》。
+  en:
+    role: Associate Professor · PhD Supervisor
+    academic_degree: Associate Professor
+    affiliation: Department of Transportation Planning and Management, Tongji University
+    bio: Jian Li is an Associate Professor and PhD supervisor at Tongji University. He received his bachelor’s and master’s degrees from Tongji University and his PhD from Rutgers University. He previously worked as a Research Associate at The Hong Kong Polytechnic University before joining Tongji.
+    approach: His research addresses transportation management during disruptions and emergencies, urban transportation planning, and policy. He combines data analysis and AI to connect monitoring, travel behavior analysis, and intervention design for practical transportation decisions.
+    interests:
+      - Disruption and emergency transportation management
+      - Urban transportation planning and policy
+    education_summary: Tongji University (bachelor’s and master’s) / Rutgers University (PhD)
+    service_summary: Deputy Secretary-General, Urban Transportation Planning Committee of the Urban Planning Society of China; editorial board member, Urban Transport of China.
+    teaching_summary: Operations Research (undergraduate) and Operations Research II (graduate).

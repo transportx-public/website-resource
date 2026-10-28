@@ -7,7 +7,7 @@
 {{ end }}
 
 {{ if .File }}
-{{ $person := .Params }}
+{{ $person := partial "transportx/person-data.html" . }}
 {{ $avatar := (.Resources.ByType "image").GetMatch "*avatar*" }}
 {{ $avatar_shape := site.Params.features.avatar.shape | default "circle" }}
 {{ $profile_items := slice }}
@@ -110,6 +110,11 @@
           {{ with $person.other_information }}
           <p class="transportx-author-note">{{ . | markdownify | emojify }}</p>
           {{ end }}
+          {{ with $person.approach }}<p>{{ . }}</p>{{ end }}
+          {{ with $person.education_summary }}<h3>{{ if eq $.Lang "zh" }}教育背景{{ else }}Education{{ end }}</h3><p>{{ . }}</p>{{ end }}
+          {{ with $person.service_summary }}<h3>{{ if eq $.Lang "zh" }}学术服务{{ else }}Academic Service{{ end }}</h3><p>{{ . }}</p>{{ end }}
+          {{ with $person.teaching_summary }}<h3>{{ if eq $.Lang "zh" }}开设课程{{ else }}Teaching{{ end }}</h3><p>{{ . }}</p>{{ end }}
+          {{ with $person.verified_source }}<p><a href="{{ . }}" target="_blank" rel="noopener">{{ if eq $.Lang "zh" }}学校官方介绍{{ else }}University profile{{ end }} ↗</a></p>{{ end }}
         </div>
         {{ end }}
       </div>

@@ -1,42 +1,21 @@
 {{ define "main" }}
-{{ $zh := eq .Lang "zh" }}
-<div class="tx-academic tx-home container">
-  <p class="tx-welcome">{{ .Params.welcome }}</p>
-  <section class="tx-home-intro" aria-labelledby="tx-home-title">
-    <div class="tx-research-visual">
-      {{ partial "transportx/city-visual.html" . }}
-      <p>{{ if $zh }}交通科学 · 数据智能 · 城市出行{{ else }}Transportation · Data Intelligence · Urban Mobility{{ end }}</p>
-    </div>
-    <div class="tx-home-about">
-      <p class="tx-eyebrow">{{ if $zh }}同济大学{{ else }}Tongji University{{ end }}</p>
-      <h1 id="tx-home-title">Transport<span>X</span></h1>
-      <p class="tx-home-description">{{ .Params.introduction }}</p>
-      <ul class="tx-research-lines">{{ range .Params.research_labels }}<li>{{ . }}</li>{{ end }}</ul>
-      <a class="tx-text-link" href="{{ "people/" | relLangURL }}">{{ if $zh }}认识我们的团队{{ else }}Meet our team{{ end }} →</a>
-    </div>
-  </section>
-  <section class="tx-home-section" aria-labelledby="tx-news-title">
-    <div class="tx-section-title"><h2 id="tx-news-title">{{ if $zh }}最新动态{{ else }}News{{ end }}</h2><a href="{{ "post/" | relLangURL }}">{{ if $zh }}全部动态{{ else }}All news{{ end }} →</a></div>
-    <ol class="tx-news-list">{{ range first 8 (sort (where site.RegularPages "Section" "post") "Date" "desc") }}<li><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006/01/02" }}</time><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}</ol>
-  </section>
-  <section class="tx-home-section" aria-labelledby="tx-papers-title">
-    <div class="tx-section-title"><h2 id="tx-papers-title">{{ if $zh }}最新论文{{ else }}Recent Publications{{ end }}</h2><a href="{{ "publication/" | relLangURL }}">{{ if $zh }}全部论文{{ else }}All publications{{ end }} →</a></div>
-    <div class="tx-home-papers">{{ range first 3 (sort (where site.RegularPages "Section" "publication") "Date" "desc") }}
-      {{ $paper := . }}<article class="tx-home-paper">
-        {{ with (.Resources.ByType "image").GetMatch "*featured*" }}{{ $image := .Resize "720x webp" }}<a href="{{ $paper.RelPermalink }}" class="tx-paper-image"><img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $paper.Title }}" loading="lazy"></a>{{ end }}
-        <div><p class="tx-paper-venue">{{ .Params.publication_short | default .Params.publication | markdownify }} · {{ .Date.Format "2006" }}</p><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>{{ with .Params.authors }}<p class="tx-paper-authors">{{ delimit . ", " }}</p>{{ end }}</div>
-      </article>
-    {{ end }}</div>
-  </section>
-  {{ with site.GetPage "/application/transportx-agent" }}
-  <section class="tx-home-section tx-agent" aria-labelledby="tx-agent-title">
-    {{ with (.Resources.ByType "image").GetMatch "product-home*" }}{{ $image := .Resize "900x webp" }}<img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="TransportX Agent" loading="lazy">{{ end }}
-    <div><p class="tx-eyebrow">{{ if $zh }}应用产品{{ else }}Applications{{ end }}</p><h2 id="tx-agent-title">TransportX Agent</h2><p>{{ if $zh }}了解我们的交通分析应用，探索科研与实际场景的连接。{{ else }}Explore our transportation analysis application, connecting research with practical scenarios.{{ end }}</p><a class="tx-text-link" href="{{ .RelPermalink }}">{{ if $zh }}了解产品{{ else }}Explore the application{{ end }} →</a></div>
-  </section>
-  {{ end }}
-  <section class="tx-home-section" aria-labelledby="tx-meetings-title">
-    <div class="tx-section-title"><h2 id="tx-meetings-title">{{ if $zh }}最近组会{{ else }}Group Meetings{{ end }}</h2><a href="{{ "event/" | relLangURL }}">{{ if $zh }}全部活动{{ else }}All events{{ end }} →</a></div>
-    <ol class="tx-news-list">{{ range first 3 (sort (where site.RegularPages "Section" "event") "Date" "desc") }}<li><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006/01/02" }}</time><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}</ol>
-  </section>
-</div>
-{{ end }}
+{{ $copy := index site.Data.academic .Lang }}
+{{ $publications := sort (where site.RegularPages "Section" "publication") "Date" "desc" }}
+{{ $students := where (where site.Pages "Section" "authors") "Params.academic_status" "in" (slice "Student" "在读") }}
+{{ $alumni := where (where site.Pages "Section" "authors") "Params.academic_status" "in" (slice "Graduate" "已毕业") }}
+<div class="tx-academic tx-home tx-v2 container">
+<section class="tx-v2-hero" aria-labelledby="tx-home-title">
+<div class="tx-v2-hero-copy"><p class="tx-v2-kicker">TONGJI UNIVERSITY · TRANSPORTX</p><p class="tx-v2-tagline">{{ $copy.tagline }}</p><h1 id="tx-home-title">{{ $copy.headline }}</h1><p class="tx-v2-lead">{{ $copy.lead }}</p><div class="tx-v2-actions"><a class="tx-button" href="#research">{{ $copy.more }} ↗</a><a class="tx-button tx-button-light" href="{{ "people/" | relLangURL }}">{{ $copy.people }} →</a></div></div>
+<figure class="tx-v2-hero-figure"><div class="tx-v2-figure-label"><span>TRANSPORTX</span><span>RESEARCH IN ACTION</span></div>{{ with site.GetPage "/application/transportx-agent" }}{{ with .Resources.GetMatch "product-event-traffic.png" }}{{ $image := .Resize "1400x webp q90" }}<img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $copy.hero_caption }}" fetchpriority="high">{{ end }}{{ end }}<figcaption><span class="tx-live-dot" aria-hidden="true"></span>{{ $copy.hero_caption }}</figcaption></figure>
+</section>
+<div class="tx-v2-facts"><div class="tx-v2-facts-wordmark">Transport<span>X</span><small>{{ $copy.tagline }}</small></div><div><strong>{{ len $publications }}</strong><span>{{ $copy.papers_count }}</span></div><div><strong>{{ len $students }}</strong><span>{{ $copy.students_count }}</span></div><div><strong>{{ len $alumni }}</strong><span>{{ $copy.alumni_count }}</span></div></div>
+{{ partial "transportx/research-areas.html" . }}
+<section class="tx-v2-section" aria-labelledby="tx-papers-title">
+<header class="tx-v2-section-head"><div><span class="tx-v2-kicker">SELECTED WORK</span><h2 id="tx-papers-title">{{ $copy.selected }}</h2></div><a class="tx-text-link" href="{{ "publication/" | relLangURL }}">{{ $copy.all_papers }} ↗</a></header>
+<div class="tx-v2-paper-grid">{{ range first 3 $publications }}{{ $paper := . }}<article class="tx-v2-paper">{{ with .Resources.GetMatch "*featured*" }}{{ $image := .Resize "1000x webp q88" }}<a class="tx-v2-paper-image" href="{{ $paper.RelPermalink }}"><img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $paper.Title }}" loading="lazy"></a>{{ end }}<div class="tx-v2-paper-body"><p class="tx-v2-paper-meta"><span>{{ .Params.publication_short | default .Params.publication | markdownify }}</span><time>{{ .Date.Format "2006" }}</time></p><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>{{ with .Params.summary }}<p>{{ . }}</p>{{ end }}<a class="tx-text-link" href="{{ .RelPermalink }}">{{ $copy.more }} ↗</a></div></article>{{ end }}</div>
+</section>
+<section class="tx-v2-updates tx-v2-section"><div><header class="tx-v2-section-head"><div><span class="tx-v2-kicker">LAB UPDATES</span><h2>{{ $copy.news }}</h2></div><a href="{{ "post/" | relLangURL }}">{{ $copy.all_news }} ↗</a></header>{{ range first 4 (sort (where site.RegularPages "Section" "post") "Date" "desc") }}<article class="tx-v2-news"><time datetime="{{ .Date.Format "2006-01-02" }}"><strong>{{ .Date.Format "02" }}</strong><span>{{ .Date.Format "2006.01" }}</span></time><div><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>{{ with .Params.summary }}<p>{{ . | plainify | truncate 110 }}</p>{{ end }}</div><a class="tx-news-arrow" href="{{ .RelPermalink }}" aria-label="{{ .Title }}">↗</a></article>{{ end }}</div>
+<aside class="tx-v2-meetings"><p class="tx-v2-kicker">DISCUSS & CONNECT</p><h2>{{ $copy.meetings }}</h2>{{ range first 3 (sort (where site.RegularPages "Section" "event") "Date" "desc") }}<article><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006 / 01 / 02" }}</time><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3></article>{{ end }}<a class="tx-text-link" href="{{ "event/" | relLangURL }}">{{ $copy.all_events }} →</a></aside></section>
+{{ with site.GetPage "/application/transportx-agent" }}<section class="tx-v2-product tx-v2-section"><div><span class="tx-v2-kicker">{{ $copy.application }}</span><h2>{{ $copy.application_title }}</h2><p>{{ $copy.application_text }}</p><a class="tx-button" href="{{ .RelPermalink }}">{{ $copy.application_link }} ↗</a></div><a href="{{ .RelPermalink }}" aria-label="TransportX Agent">{{ with .Resources.GetMatch "product-home.png" }}{{ $image := .Resize "1200x webp q88" }}<img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="TransportX Agent" loading="lazy">{{ end }}</a></section>{{ end }}
+<section class="tx-v2-team-banner"><div><span class="tx-v2-kicker">{{ $copy.team_label }}</span><h2>{{ $copy.team_title }}</h2><p>{{ $copy.team_text }}</p><a class="tx-text-link" href="{{ "people/" | relLangURL }}">{{ $copy.people }} →</a></div><div class="tx-team-portraits">{{ range first 6 $students }}{{ partial "transportx/person-photo.html" . }}{{ end }}</div></section>
+</div>{{ end }}
