@@ -14,7 +14,7 @@ en:
       - name: Home
         url: /
         weight: 1
-      - name: Research
+      - name: Tour
         url: tour
         weight: 10
       - name: People
@@ -48,7 +48,7 @@ zh:
       - name: 首页
         url: /
         weight: 1
-      - name: 研究方向
+      - name: 课题组
         url: tour
         weight: 10
       - name: 成员

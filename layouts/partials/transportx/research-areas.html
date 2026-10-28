@@ -1,7 +1,0 @@
-{{ $copy := index site.Data.academic .Lang }}
-<section class="tx-v2-section" id="research">
-  <header class="tx-v2-section-head"><div><span class="tx-v2-kicker">RESEARCH</span><h2>{{ $copy.research }}</h2></div><p>{{ $copy.research_note }}</p></header>
-  <div class="tx-direction-grid">{{ range $copy.research_areas }}
-    <article class="tx-direction"><span class="tx-direction-number">{{ .number }}</span><p class="tx-direction-en">{{ .en }}</p><h3>{{ .title }}</h3><p>{{ .description }}</p><div class="tx-direction-tags">{{ .tags }}</div>{{ with site.GetPage .page }}<a href="{{ .RelPermalink }}" class="tx-direction-link">{{ $copy.more }} <span aria-hidden="true">↗</span></a>{{ end }}</article>
-  {{ end }}</div>
-</section>

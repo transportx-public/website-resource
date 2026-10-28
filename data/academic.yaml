@@ -2,35 +2,14 @@ zh:
   tagline: 交通科学 × 数据智能
   headline: 理解城市出行，支持交通决策。
   lead: 面向真实交通问题，连接出行行为、城市数据与人工智能，探索从研究方法到实际应用的路径。
-  research: 研究方向
-  research_note: 从人的出行需求，到城市交通系统的运行与治理。
-  research_areas:
-    - number: '01'
-      title: 出行行为与城市移动性
-      en: Human Mobility
-      description: 研究出行需求与行为规律，结合个性化偏好、时空约束和多种交通方式，探索可靠的出行规划。
-      tags: 出行行为 / 个性化规划 / 城市计算
-      page: /publication/cityweave
-    - number: '02'
-      title: 交通知识与大模型智能体
-      en: Knowledge & Agents
-      description: 连接领域知识、数据和大语言模型，让复杂交通任务中的推理、分析与工具调用更加可核查。
-      tags: 知识图谱 / 大语言模型 / 智能体
-      page: /publication/hsgraphagent
-    - number: '03'
-      title: 应急交通与系统韧性
-      en: Resilient Transportation
-      description: 面向突发事件与不确定风险，研究应急物流、资源配置与交通管理，为治理方案提供决策支持。
-      tags: 应急物流 / 风险管理 / 决策优化
-      page: /publication/humanitarian-logistics-flood-risk
-  selected: 研究成果
+  selected: 最新论文
   selected_note: 从最新工作中，了解我们正在研究的问题。
   news: 课题组动态
   meetings: 学术交流与组会
   all_news: 全部动态
   all_papers: 全部论文
   all_events: 全部活动
-  more: 了解研究
+  more: 查看论文
   people: 认识团队
   contact: 联系与合作
   papers_count: 论文条目
@@ -62,41 +41,20 @@ zh:
   students_note: 在读成员按入学年份排序；点击姓名或照片可查看完整资料。
   alumni_note: 延续在 TransportX 的研究经历，走向新的学习与工作阶段。
   empty_interests: 研究方向见个人主页
-  overview: 研究与实践
-  overview_lead: 以交通问题为起点，连接方法、数据与应用。
+  overview: 课题组
+  overview_lead: TransportX 聚焦智能交通领域的科研、教学与实践，推动数据驱动的出行与城市交通创新。
 en:
   tagline: Transportation × Data Intelligence
   headline: Understanding mobility. Informing decisions.
   lead: Connecting travel behavior, urban data, and AI to address real transportation problems—from research methods to practical applications.
-  research: Research Areas
-  research_note: From individual travel needs to the operation and governance of urban transportation.
-  research_areas:
-    - number: '01'
-      title: Human Mobility & Travel Behavior
-      en: Human Mobility
-      description: Understanding travel demand and behavior, and developing reliable mobility planning under personal preferences, temporal constraints, and multimodal networks.
-      tags: Travel behavior / Personalized planning / Urban computing
-      page: /publication/cityweave
-    - number: '02'
-      title: Transportation Knowledge & AI Agents
-      en: Knowledge & Agents
-      description: Connecting domain knowledge, data, and language models to support verifiable reasoning, analysis, and tool use in complex transportation tasks.
-      tags: Knowledge graphs / Language models / Agents
-      page: /publication/hsgraphagent
-    - number: '03'
-      title: Emergency Management & Resilience
-      en: Resilient Transportation
-      description: Studying emergency logistics, resource allocation, and transportation management under disruptions and uncertainty to support practical decisions.
-      tags: Emergency logistics / Risk / Optimization
-      page: /publication/humanitarian-logistics-flood-risk
-  selected: Research Highlights
+  selected: Recent Publications
   selected_note: A closer look at the questions behind our recent work.
   news: Lab News
   meetings: Seminars & Group Meetings
   all_news: All news
   all_papers: All publications
   all_events: All events
-  more: Explore research
+  more: View publications
   people: Meet the team
   contact: Contact & collaborate
   papers_count: Publication records
@@ -128,5 +86,5 @@ en:
   students_note: Current members are ordered by entry year. Select a name or portrait to view their full profile.
   alumni_note: Continuing their research journeys beyond TransportX.
   empty_interests: Explore interests in the profile
-  overview: Research & Practice
-  overview_lead: Starting with transportation problems. Connecting methods, data, and applications.
+  overview: About TransportX
+  overview_lead: TransportX focuses on intelligent transportation research, teaching, and practice, advancing data-driven mobility and urban traffic innovation.
