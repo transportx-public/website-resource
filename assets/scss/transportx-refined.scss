@@ -193,3 +193,5 @@
   .tx-v2 .tx-alumni-list { grid-template-columns: minmax(0, 1fr); }
 }
 @media (prefers-reduced-motion: reduce) { .tx-v2 a, .tx-v2 .tx-person { transition: none; } }
+
+.tx-v2 .tx-product-panel { margin-top: 0; }
