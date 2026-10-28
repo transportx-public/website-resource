@@ -1,0 +1,168 @@
+{{- define "main" -}}
+{{- $hero := .Resources.GetMatch .Params.hero_image -}}
+{{- $demoVideo := .Resources.GetMatch .Params.demo_video -}}
+{{- $demoPoster := .Resources.GetMatch .Params.demo_poster -}}
+
+<main class="universal-wrapper transportx-application-page">
+  <header class="transportx-application-hero">
+    <div class="transportx-application-hero-copy">
+      <p class="transportx-application-stage">{{ .Title }}</p>
+      <h1>{{ .Params.hero_headline | default .Title }}</h1>
+      <p class="transportx-application-summary">{{ .Params.hero_summary | default .Params.summary }}</p>
+      <div class="transportx-application-hero-actions">
+        {{ range .Params.downloads }}
+          <a class="transportx-application-primary-action" href="{{ .url }}">
+            <i class="fab fa-{{ if eq .platform "Windows" }}windows{{ else }}apple{{ end }}" aria-hidden="true"></i>
+            <span>{{ i18n "application_download_for" }} {{ .platform }}{{ with .version }} · {{ . }}{{ end }}</span>
+          </a>
+        {{ end }}
+        {{ with .Params.guide_url }}
+          <a class="transportx-application-secondary-action" href="{{ . }}">{{ i18n "application_quick_start" }}</a>
+        {{ end }}
+      </div>
+      {{ with .Params.release_notice }}<p class="transportx-application-release-note">{{ . }}</p>{{ end }}
+      {{ with .Params.release_notes_title }}<a class="transportx-application-secondary-action" href="#release-notes">{{ . }} →</a>{{ end }}
+    </div>
+    {{ with $hero }}
+      {{- $display := . -}}
+      {{- if ne .MediaType.SubType "gif" -}}
+        {{- $display = .Resize "1800x webp q86" -}}
+      {{- end -}}
+      <figure class="transportx-application-hero-figure">
+        <img
+          src="{{ $display.RelPermalink }}"
+          width="{{ $display.Width }}"
+          height="{{ $display.Height }}"
+          alt="{{ i18n "application_hero_alt" (dict "Title" $.Title) }}"
+          fetchpriority="high"
+        >
+      </figure>
+    {{ end }}
+  </header>
+
+  {{ with .Params.product_facts }}
+    <section class="transportx-application-facts" aria-label="{{ i18n "application_product_facts" }}">
+      <dl>
+        {{ range . }}
+          <div>
+            <dt>{{ .label }}</dt>
+            <dd>{{ .value }}</dd>
+          </div>
+        {{ end }}
+      </dl>
+    </section>
+  {{ end }}
+
+  {{- $story := .Params.story -}}
+  <section class="transportx-workspace" aria-labelledby="workspace-title">
+    <div class="transportx-application-section-heading">
+      <h2 id="workspace-title">{{ $story.workspace_title }}</h2>
+      <p>{{ $story.workspace_intro }}</p>
+    </div>
+    <div class="transportx-scene-tabs" role="tablist" aria-label="{{ $story.workspace_title }}">
+      {{ range $index, $scene := $story.scenes }}
+        <button type="button" role="tab" id="scene-tab-{{ $index }}" aria-controls="scene-{{ $index }}" aria-selected="{{ if eq $index 0 }}true{{ else }}false{{ end }}" data-scene="{{ $index }}">{{ .name }}</button>
+      {{ end }}
+    </div>
+    {{ range $index, $scene := $story.scenes }}
+      <div class="transportx-scene" id="scene-{{ $index }}" role="tabpanel" aria-labelledby="scene-tab-{{ $index }}">
+        {{ with $.Resources.GetMatch .image }}
+          {{ $display := .Resize "1800x webp q86" }}
+          <button type="button" class="transportx-preview transportx-scene-visual" data-preview="{{ .RelPermalink }}" data-caption="{{ $scene.alt }}" aria-label="{{ $story.zoom_label }}: {{ $scene.name }}">
+            <img src="{{ $display.RelPermalink }}" width="{{ $display.Width }}" height="{{ $display.Height }}" alt="{{ $scene.alt }}" loading="lazy">
+            <span class="transportx-zoom"><i class="fas fa-expand" aria-hidden="true"></i></span>
+          </button>
+        {{ end }}
+        <p class="transportx-screenshot-note">{{ $story.screenshot_label }}</p>
+        <div class="transportx-scene-context">
+          <div><p class="transportx-story-label">{{ $story.example_label }}</p><h3>{{ .question }}</h3></div>
+          <div><p class="transportx-story-label">{{ $story.result_label }}</p><p>{{ .result }}</p></div>
+        </div>
+      </div>
+    {{ end }}
+  </section>
+
+  <section aria-labelledby="features-title">
+    <div class="transportx-application-section-heading">
+      <h2 id="features-title">{{ $story.features_title }}</h2>
+      <p>{{ $story.features_intro }}</p>
+    </div>
+    <div class="transportx-feature-grid">
+      {{ range $story.features }}
+        {{ $feature := . }}
+        <article class="transportx-feature transportx-feature-{{ .kind }}">
+          <p class="transportx-story-label">{{ .label }}</p>
+          <h3>{{ .title }}</h3>
+          {{ with $.Resources.GetMatch .image }}
+            {{ $display := .Resize "1600x webp q86" }}
+            <button type="button" class="transportx-preview transportx-feature-visual" data-preview="{{ .RelPermalink }}" data-caption="{{ $feature.alt }}" aria-label="{{ $story.zoom_label }}: {{ $feature.label }}">
+              <img src="{{ $display.RelPermalink }}" width="{{ $display.Width }}" height="{{ $display.Height }}" alt="{{ $feature.alt }}" loading="lazy">
+              <span class="transportx-zoom"><i class="fas fa-expand" aria-hidden="true"></i></span>
+            </button>
+          {{ end }}
+          <p class="transportx-feature-intro">{{ .intro }}</p>
+          <details class="transportx-feature-details">
+            <summary>{{ $story.expand_label }}<span aria-hidden="true">+</span></summary>
+            <p>{{ .details }}</p>
+          </details>
+        </article>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="transportx-module" aria-labelledby="module-title">
+    <div class="transportx-application-section-heading">
+      <h2 id="module-title">{{ $story.module_title }}</h2>
+      <p>{{ $story.module_intro }}</p>
+    </div>
+    <div class="transportx-module-layout">
+      {{ with .Resources.GetMatch $story.module_image }}
+        {{ $display := .Resize "1400x webp q86" }}
+        <button type="button" class="transportx-preview transportx-module-visual" data-preview="{{ .RelPermalink }}" data-caption="{{ $story.module_alt }}" aria-label="{{ $story.zoom_label }}: Module">
+          <img src="{{ $display.RelPermalink }}" width="{{ $display.Width }}" height="{{ $display.Height }}" alt="{{ $story.module_alt }}" loading="lazy">
+          <span class="transportx-zoom"><i class="fas fa-expand" aria-hidden="true"></i></span>
+        </button>
+      {{ end }}
+      <div class="transportx-module-copy">
+        <dl>{{ range $story.module_items }}<div><dt>{{ .title }}</dt><dd>{{ .description }}</dd></div>{{ end }}</dl>
+        <a href="{{ replaceRE "#.*$" "" .Params.guide_url }}#modules">{{ $story.module_link }}</a>
+      </div>
+    </div>
+  </section>
+
+  {{ with $demoVideo }}
+    <section class="transportx-application-demo" aria-labelledby="application-demo-title">
+      <div class="transportx-application-section-heading">
+        <h2 id="application-demo-title">{{ $story.video_title }}</h2>
+        {{ with $.Params.demo_intro }}<p>{{ . }}</p>{{ end }}
+      </div>
+      <figure>
+        <video controls preload="none"{{ with $demoPoster }} poster="{{ .RelPermalink }}"{{ end }}>
+          <source src="{{ .RelPermalink }}" type="video/mp4">
+          {{ i18n "application_video_fallback" }}
+        </video>
+        {{ with $.Params.demo_caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+      </figure>
+    </section>
+  {{ end }}
+  {{ with .Params.release_notes }}
+    <section id="release-notes" aria-labelledby="release-notes-title">
+      <div class="transportx-application-section-heading">
+        <h2 id="release-notes-title">{{ $.Params.release_notes_title }}</h2>
+      </div>
+      <div class="article-style">{{ . | markdownify }}</div>
+    </section>
+  {{ end }}
+  <section class="transportx-product-about">
+    <details><summary>{{ $story.about_title }}</summary><div class="article-style transportx-application-body">{{ .Content }}</div></details>
+    <a href="{{ .Params.source_url }}" target="_blank" rel="noopener">{{ $story.source_label }}</a>
+  </section>
+  <dialog class="transportx-image-dialog" aria-label="{{ $story.zoom_label }}">
+    <button type="button" class="transportx-dialog-close" aria-label="{{ $story.close_label }}">×</button>
+    <img alt="">
+    <p></p>
+  </dialog>
+</main>
+{{- $script := resources.Get "js/transportx-product.js" | minify | fingerprint -}}
+<script src="{{ $script.RelPermalink }}" defer></script>
+{{- end -}}

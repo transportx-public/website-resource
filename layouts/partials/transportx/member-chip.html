@@ -1,0 +1,33 @@
+{{- $member := .member -}}
+{{- $compact := .compact -}}
+{{- $show_avatar := true -}}
+{{- if isset . "show_avatar" -}}
+  {{- $show_avatar = .show_avatar -}}
+{{- end -}}
+{{- $profile_page := site.GetPage (printf "/authors/%s" ($member.profile | urlize)) -}}
+{{- with $profile_page -}}
+  {{- $display_name := .Title | default $member.name -}}
+  {{- $avatar := (.Resources.ByType "image").GetMatch "*avatar*" -}}
+  <a
+    class="transportx-member-chip{{ if $compact }} transportx-member-chip-compact{{ end }}"
+    href="{{ .RelPermalink }}"
+    aria-label="{{ i18n "member_profile_aria" (dict "Name" $display_name) }}"
+  >
+    {{- if and $show_avatar $avatar -}}
+      {{- $avatar_image := $avatar.Fill "64x64 Center" -}}
+      <img
+        class="transportx-member-avatar"
+        src="{{ $avatar_image.RelPermalink }}"
+        width="{{ $avatar_image.Width }}"
+        height="{{ $avatar_image.Height }}"
+        alt=""
+        loading="lazy"
+      >
+    {{- end -}}
+    <span>@{{ $display_name }}</span>
+  </a>
+{{- else -}}
+  <span class="transportx-member-chip{{ if $compact }} transportx-member-chip-compact{{ end }}">
+    @{{ $member.name }}
+  </span>
+{{- end -}}

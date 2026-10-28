@@ -1,0 +1,46 @@
+{{- define "main" -}}
+
+<header class="universal-wrapper transportx-contact-heading">
+  <h1>{{ .Title }}</h1>
+</header>
+
+<main class="universal-wrapper transportx-contact-page">
+  <header class="transportx-contact-intro">
+    <p class="transportx-contact-lead">
+      {{ i18n "contact_lead" }}
+    </p>
+  </header>
+
+  <div class="transportx-contact-grid">
+    <section class="transportx-contact-section" aria-labelledby="transportx-primary-contact">
+      <h2 id="transportx-primary-contact">{{ i18n "contact_primary" }}</h2>
+      <p class="transportx-contact-name">
+        <strong>Jian Li</strong>
+        <span lang="zh-CN">李健</span>
+      </p>
+      <dl class="transportx-contact-details">
+        <div>
+          <dt>{{ i18n "profile_email" }}</dt>
+          <dd><a href="mailto:jianli@tongji.edu.cn">jianli@tongji.edu.cn</a></dd>
+        </div>
+      </dl>
+      <div class="transportx-contact-actions">
+        <a href="mailto:jianli@tongji.edu.cn">{{ i18n "contact_write_email" }}</a>
+        <a href="https://umi.tongji.edu.cn/info/1061/1130.htm" target="_blank" rel="noopener">{{ i18n "contact_official_profile" }}</a>
+      </div>
+    </section>
+
+    <section class="transportx-contact-section" aria-labelledby="transportx-location">
+      <h2 id="transportx-location">{{ i18n "contact_location" }}</h2>
+      <address class="transportx-contact-address">
+        {{ i18n "contact_address" | safeHTML }}
+      </address>
+      <p class="transportx-contact-visit-note">{{ i18n "contact_visit_note" }}</p>
+      <div class="transportx-contact-actions">
+        <a href="https://tjjt.tongji.edu.cn/English_Home/INTERNATIONAL/Contact_Us.htm" target="_blank" rel="noopener">{{ i18n "contact_college_info" }}</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+{{- end -}}

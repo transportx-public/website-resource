@@ -1,0 +1,26 @@
+{{- define "main" -}}
+
+{{ partial "page_header.html" . }}
+
+<div class="universal-wrapper transportx-meeting-archive">
+  {{ with .Content }}
+    <div class="article-style">{{ . }}</div>
+  {{ end }}
+
+  {{ range .Data.Pages.GroupByDate "2006" }}
+    <section class="transportx-meeting-year" aria-labelledby="meeting-year-{{ .Key }}">
+      <h2 id="meeting-year-{{ .Key }}" class="transportx-meeting-year-title">{{ .Key }}</h2>
+      <div class="transportx-meeting-year-list">
+        {{ range $index, $item := .Pages }}
+          {{ if $item.Params.readings }}
+            {{ partial "transportx/event-list-item.html" $item }}
+          {{ else }}
+            {{ partial "functions/render_view" (dict "page" $ "item" $item "view" ($.Params.view | default "compact") "index" $index) }}
+          {{ end }}
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+</div>
+
+{{- end -}}
