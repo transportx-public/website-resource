@@ -15,10 +15,10 @@ zh:
   papers_count: 论文条目
   students_count: 在读研究生
   alumni_count: 毕业成员
-  application: 从研究到应用
-  application_title: 让数据分析走进真实交通场景。
-  application_text: TransportX Agent 将自然语言、共享地图和分析工具连接起来，从交通问题出发，形成地图、图表与带引用的报告。
-  application_link: 探索 TransportX Agent
+  application: 应用产品
+  application_title: TransportX Agent
+  application_text: TransportX Agent 是一款开源交通分析工作台。用自然语言分析道路、公交、轨道与出行需求，在共享地图中查看结果，并生成图表和带引用的分析报告。
+  application_link: 查看产品详情
   hero_caption: TransportX Agent · 活动交通分析界面
   team_label: 我们的团队
   team_title: 不同研究视角，共同理解交通。
@@ -60,10 +60,10 @@ en:
   papers_count: Publication records
   students_count: Graduate students
   alumni_count: Alumni
-  application: Research into Practice
-  application_title: Bring data analysis into real transportation scenarios.
-  application_text: TransportX Agent connects natural language, a shared map, and analytical tools to turn transportation questions into maps, charts, and reports with references.
-  application_link: Explore TransportX Agent
+  application: Our Product
+  application_title: TransportX Agent
+  application_text: TransportX Agent is an open-source transportation analysis workbench. Use natural language to analyze roads, transit, rail, and travel demand, explore results on a shared map, and generate charts and analytical reports with references.
+  application_link: View product details
   hero_caption: TransportX Agent · Event traffic analysis interface
   team_label: Our Team
   team_title: Different perspectives. A shared interest in mobility.
