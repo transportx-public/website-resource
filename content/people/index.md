@@ -1,30 +1,6 @@
 ---
-title: People
+title: Members
 date: 2022-10-24
-
 type: landing
-
-sections:
-  - block: people
-    content:
-      title: Meet the Team
-      # Choose which groups/teams of users to display.
-      #   Edit `user_groups` in each user's profile to add them to one or more of these groups.
-      user_groups:
-          - 'Faculty'
-          - '2026'
-          - '2025'
-          - '2024'
-          - '2023'
-          - '2022'
-          - '2021'
-          - '2020'
-          - '2019'
-          - '2018'
-      sort_by: Params.enrollment_year
-      sort_ascending: false
-    design:
-      show_interests: true
-      show_role: true
-      show_social: false
+layout: people
 ---

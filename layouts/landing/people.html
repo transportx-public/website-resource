@@ -1,0 +1,76 @@
+{{ define "main" }}
+{{ $zh := eq .Lang "zh" }}
+{{ $groups := dict "faculty" slice "phd" slice "masters" slice "alumni" slice "other" slice }}
+{{ range where site.Pages "Section" "authors" }}
+  {{ if .File }}
+    {{ $degree := lower (.Params.academic_degree | default "") }}
+    {{ $status := lower (.Params.academic_status | default "") }}
+    {{ $key := "other" }}
+    {{ if or (in (slice "professor" "faculty" "advisor" "教授" "教师") $degree) (in (.Params.user_groups | default slice) "Faculty") (in (.Params.user_groups | default slice) "教师") }}
+      {{ $key = "faculty" }}
+    {{ else if in (slice "graduate" "已毕业") $status }}
+      {{ $key = "alumni" }}
+    {{ else if in (slice "ph.d" "ph.d." "phd" "博士") $degree }}
+      {{ $key = "phd" }}
+    {{ else if in (slice "master" "master's" "硕士") $degree }}
+      {{ $key = "masters" }}
+    {{ end }}
+    {{ $groups = merge $groups (dict $key ((index $groups $key) | append .)) }}
+  {{ end }}
+{{ end }}
+<div class="tx-academic tx-people container">
+  <header class="tx-page-title"><p>TransportX · {{ if $zh }}同济大学{{ else }}Tongji University{{ end }}</p><h1>{{ if $zh }}团队成员{{ else }}Members{{ end }}</h1></header>
+  <nav class="tx-group-nav" aria-label="{{ if $zh }}成员分组{{ else }}Member groups{{ end }}">
+    {{ range slice (dict "key" "faculty" "en" "Faculty" "zh" "教师") (dict "key" "phd" "en" "PhD Students" "zh" "博士研究生") (dict "key" "masters" "en" "Master’s Students" "zh" "硕士研究生") (dict "key" "alumni" "en" "Alumni" "zh" "毕业成员") (dict "key" "other" "en" "Other Members" "zh" "其他成员") }}
+      {{ if index $groups .key }}<a href="#{{ .key }}">{{ if $zh }}{{ .zh }}{{ else }}{{ .en }}{{ end }}</a>{{ end }}
+    {{ end }}
+  </nav>
+  {{ range slice (dict "key" "faculty" "en" "Faculty" "zh" "教师") (dict "key" "phd" "en" "PhD Students" "zh" "博士研究生") (dict "key" "masters" "en" "Master’s Students" "zh" "硕士研究生") (dict "key" "alumni" "en" "Alumni" "zh" "毕业成员") (dict "key" "other" "en" "Other Members" "zh" "其他成员") }}
+    {{ $key := .key }}
+    {{ $members := index $groups $key }}
+    {{ if $members }}
+    <section class="tx-member-section" id="{{ $key }}">
+      <h2>{{ if $zh }}{{ .zh }}{{ else }}{{ .en }}{{ end }}</h2>
+      {{ if eq $key "faculty" }}
+        {{ range sort $members "Title" }}
+        <article class="tx-faculty">
+          <div class="tx-faculty-identity">
+            {{ partial "transportx/person-photo.html" . }}
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            {{ if not $zh }}{{ with .Params.name_chinese }}<p class="tx-person-cn">{{ . }}</p>{{ end }}{{ end }}
+            {{ with .Params.role }}<p>{{ . }}</p>{{ end }}
+            {{ with .Params.email }}<a class="tx-person-contact" href="mailto:{{ . }}">{{ . }}</a>{{ end }}
+          </div>
+          <div class="tx-faculty-bio">
+            <p class="tx-faculty-affiliation">{{ if $zh }}同济大学 · TransportX{{ else }}Tongji University · TransportX{{ end }}</p>
+            {{ if .Content }}{{ .Content }}{{ else }}{{ with .Params.bio }}<p>{{ . | markdownify }}</p>{{ end }}{{ end }}
+            {{ with .Params.interests }}<h4>{{ if $zh }}研究兴趣{{ else }}Research Interests{{ end }}</h4><p>{{ delimit . " · " }}</p>{{ end }}
+            {{ with .Params.other_information }}<p>{{ . | markdownify }}</p>{{ end }}
+            <a class="tx-text-link" href="{{ .RelPermalink }}">{{ if $zh }}查看个人主页{{ else }}View profile{{ end }} →</a>
+          </div>
+        </article>
+        {{ end }}
+      {{ else if eq $key "alumni" }}
+        <ul class="tx-alumni-list">
+        {{ range sort $members "Params.enrollment_year" "desc" }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a><span>{{ .Params.academic_degree }}{{ with .Params.enrollment_year }} · {{ . }}{{ if $zh }}级{{ else }} entry{{ end }}{{ end }}</span>{{ with .Params.other_information }}<p>{{ . | markdownify }}</p>{{ end }}</li>
+        {{ end }}
+        </ul>
+      {{ else }}
+        <div class="tx-member-grid">
+        {{ range sort $members "Params.enrollment_year" "desc" }}
+          <article class="tx-person">
+            {{ partial "transportx/person-photo.html" . }}
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            {{ if not $zh }}{{ with .Params.name_chinese }}<p class="tx-person-cn">{{ . }}</p>{{ end }}{{ end }}
+            {{ with .Params.enrollment_year }}<p class="tx-person-year">{{ . }}{{ if $zh }}级{{ else }} entry{{ end }}</p>{{ end }}
+            {{ with .Params.interests }}<p class="tx-person-interests">{{ delimit . " · " }}</p>{{ end }}
+          </article>
+        {{ end }}
+        </div>
+      {{ end }}
+    </section>
+    {{ end }}
+  {{ end }}
+</div>
+{{ end }}
