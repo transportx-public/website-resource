@@ -26,3 +26,8 @@ h1 span { color: #96c8d9; }
 .cover-footer p { margin: 0; }
 @media (max-width: 600px) { .cover-top { padding: 23px 0; } .cover-university { gap: 10px; font-size: 9px; letter-spacing: .1em; } .cover-university small { font-size: 10px; } .cover-emblem { font-size: 23px; } .cover-top nav { gap: 13px; } .cover-main { margin-left: 7vw; margin-right: 7vw; padding: 80px 0; } h1 { font-size: clamp(58px, 15vw, 88px); } .cover-eyebrow { font-size: 9px; letter-spacing: .15em; } .cover-description { font-size: 15px; letter-spacing: .03em; } .cover-enter { margin-top: 40px; min-width: 200px; } .cover-footer { flex-direction: column; align-items: start; gap: 8px; font-size: 10px; } }
 @media (prefers-reduced-motion: reduce) { .cover-arrow { transition: none; } }
+
+.cover-brand { display: inline-flex; background: #fff; padding: 8px 12px; border-radius: 2px; }
+.cover-logo { display: block; width: 225px; max-width: 55vw; height: auto; }
+.cover-footer { justify-content: flex-end; }
+@media (max-width: 600px) { .cover-logo { width: 170px; } .cover-brand { padding: 7px 9px; } .cover-footer { align-items: flex-end; } }
