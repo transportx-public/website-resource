@@ -20,7 +20,7 @@
   {{ end }}
 {{ end }}
 <div class="tx-academic tx-people tx-v2 container">
-  <header class="tx-v2-page-hero tx-people-hero"><div><span class="tx-v2-kicker">THE PEOPLE BEHIND TRANSPORTX</span><h1>{{ if $zh }}团队成员{{ else }}Our People{{ end }}</h1><p>{{ $copy.people_intro }}</p></div><div class="tx-people-counts"><div><strong>{{ add (len (index $groups "phd")) (len (index $groups "masters")) }}</strong><span>{{ $copy.students_count }}</span></div><div><strong>{{ len (index $groups "alumni") }}</strong><span>{{ $copy.alumni_count }}</span></div></div></header>
+  <header class="tx-v2-page-hero tx-people-hero"><div><span class="tx-v2-kicker">THE PEOPLE BEHIND TRANSPORTX</span><h1>{{ if $zh }}团队成员{{ else }}Our People{{ end }}</h1></div><div class="tx-people-counts"><div><strong>{{ add (len (index $groups "phd")) (len (index $groups "masters")) }}</strong><span>{{ $copy.students_count }}</span></div><div><strong>{{ len (index $groups "alumni") }}</strong><span>{{ $copy.alumni_count }}</span></div></div></header>
   <nav class="tx-group-nav" aria-label="{{ if $zh }}成员分组{{ else }}Member groups{{ end }}">
     {{ range slice (dict "key" "faculty" "en" "Faculty" "zh" "教师") (dict "key" "phd" "en" "PhD Students" "zh" "博士研究生") (dict "key" "masters" "en" "Master’s Students" "zh" "硕士研究生") (dict "key" "alumni" "en" "Alumni" "zh" "毕业成员") (dict "key" "other" "en" "Other Members" "zh" "其他成员") }}
       {{ if index $groups .key }}<a href="#{{ .key }}">{{ if $zh }}{{ .zh }}{{ else }}{{ .en }}{{ end }}</a>{{ end }}
