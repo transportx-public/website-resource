@@ -12,11 +12,8 @@ en:
   menus:
     main:
       - name: Home
-        url: /
+        url: home/
         weight: 1
-      - name: Tour
-        url: tour
-        weight: 10
       - name: People
         url: people
         weight: 30
@@ -46,11 +43,8 @@ zh:
   menus:
     main:
       - name: 首页
-        url: /
+        url: home/
         weight: 1
-      - name: 课题组
-        url: tour
-        weight: 10
       - name: 成员
         url: people
         weight: 30
