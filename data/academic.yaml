@@ -38,8 +38,6 @@ zh:
   profile: 个人主页
   email: 邮箱
   faculty_work: 相关研究
-  students_note: 在读成员按入学年份排序；点击姓名或照片可查看完整资料。
-  alumni_note: 延续在 TransportX 的研究经历，走向新的学习与工作阶段。
   empty_interests: 研究方向见个人主页
   overview: 课题组
   overview_lead: TransportX 聚焦智能交通领域的科研、教学与实践，推动数据驱动的出行与城市交通创新。
@@ -83,8 +81,6 @@ en:
   profile: Profile
   email: Email
   faculty_work: Related Research
-  students_note: Current members are ordered by entry year. Select a name or portrait to view their full profile.
-  alumni_note: Continuing their research journeys beyond TransportX.
   empty_interests: Explore interests in the profile
   overview: About TransportX
   overview_lead: TransportX focuses on intelligent transportation research, teaching, and practice, advancing data-driven mobility and urban traffic innovation.

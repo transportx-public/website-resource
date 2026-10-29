@@ -55,14 +55,12 @@
         </article>
         {{ end }}
       {{ else if eq $key "alumni" }}
-        <p class="tx-members-note">{{ $copy.alumni_note }}</p>
         <ul class="tx-alumni-list">
         {{ range sort $members "Params.enrollment_year" "desc" }}
           <li>{{ partial "transportx/person-photo.html" . }}<div><a href="{{ .RelPermalink }}">{{ .Title }}</a><span>{{ .Params.academic_degree }}{{ with .Params.enrollment_year }} · {{ . }}{{ if $zh }}级{{ else }} entry{{ end }}{{ end }}</span>{{ with .Params.other_information }}<p>{{ . | markdownify }}</p>{{ end }}</div></li>
         {{ end }}
         </ul>
       {{ else }}
-        <p class="tx-members-note">{{ $copy.students_note }}</p>
         <div class="tx-member-grid">
         {{ range sort $members "Params.enrollment_year" "desc" }}
           <article class="tx-person">
