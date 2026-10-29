@@ -1,6 +1,6 @@
-.tx-gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; max-width: 660px; margin: 0 auto; }
+.tx-gallery-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; max-width: 900px; margin: 0 auto; }
 .tx-gallery-grid figure { min-width: 0; margin: 0; border: 1px solid var(--tx-line); border-radius: 6px; overflow: hidden; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
-.tx-gallery-grid figure:last-child:nth-child(3n + 1) { grid-column: 2; }
+
 .tx-gallery-grid figure:hover, .tx-gallery-grid figure:focus-within { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(25,64,90,.12); border-color: #a8c6d6; }
 .tx-gallery-grid a { display: block; position: relative; overflow: hidden; }
 .tx-gallery-grid a::after { content: "↗"; position: absolute; right: 10px; bottom: 10px; width: 28px; height: 28px; display: grid; place-items: center; background: rgba(255,255,255,.95); color: #315f76; border-radius: 50%; font-size: 16px; opacity: 0; transform: translateY(5px); transition: opacity .25s ease, transform .25s ease; }
@@ -16,7 +16,7 @@
 .tx-gallery-close { top: 0; right: 5px; }
 .tx-gallery-prev { top: 45%; left: 0; }
 .tx-gallery-next { top: 45%; right: 0; }
-@media (max-width: 479px) { .tx-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; max-width: 460px; } .tx-gallery-grid figure:last-child:nth-child(3n + 1) { grid-column: auto; } .tx-gallery-dialog { padding: 35px 25px 15px; } .tx-group-photo .tx-gallery-grid figcaption { font-size: 11px; padding: 10px; } }
+@media (max-width: 479px) { .tx-gallery-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; max-width: 900px; } .tx-gallery-grid figure:last-child:nth-child(3n + 1) { grid-column: auto; } .tx-gallery-dialog { padding: 35px 25px 15px; } .tx-group-photo .tx-gallery-grid figcaption { font-size: 11px; padding: 10px; } }
 
 
 @media (prefers-reduced-motion: reduce) { .tx-gallery-grid figure, .tx-group-photo .tx-gallery-grid img, .tx-gallery-grid a::after { transition: none; } .tx-gallery-grid figure:hover, .tx-gallery-grid figure:focus-within, .tx-gallery-grid figure:hover img, .tx-gallery-grid figure:focus-within img { transform: none; } }
