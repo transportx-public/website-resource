@@ -1,0 +1,8 @@
+<a class="tx-person-photo" href="{{ .RelPermalink }}" aria-label="{{ .Title }}">
+  {{ with (.Resources.ByType "image").GetMatch "*avatar*" }}
+    {{ $photo := .Fill "360x360 Center webp q85" }}
+    <img src="{{ $photo.RelPermalink }}" width="180" height="180" alt="{{ $.Title }}" loading="lazy" decoding="async">
+  {{ else }}
+    <span class="tx-person-placeholder" aria-hidden="true">{{ substr .Title 0 1 }}</span>
+  {{ end }}
+</a>

@@ -1,0 +1,5 @@
+{{/* Reuse the colored X from the supplied logo for browser and app icons. */}}
+{{ $logo := resources.Get "media/transportx-logo.png" }}
+{{ $mark := $logo.Crop "154x154 TopRight" }}
+{{ $icon := $mark.Resize (printf "%dx%d" (int .) (int .)) }}
+{{ return $icon }}

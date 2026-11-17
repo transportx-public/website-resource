@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="{{ if eq .Lang "zh" }}zh-CN{{ else }}en{{ end }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ site.Params.description }}">
+  <title>TransportX · {{ if eq .Lang "zh" }}同济大学{{ else }}Tongji University{{ end }}</title>
+  <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="icon" type="image/png" href="{{ (partial "blox-core/functions/get_icon" 32).RelPermalink }}">
+  <link rel="apple-touch-icon" href="{{ (partial "blox-core/functions/get_icon" 180).RelPermalink }}">
+  {{ range .AllTranslations }}<link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">{{ end }}
+  {{ $style := resources.Get "css/transportx-cover.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+</head>
+<body>
+  {{ with site.GetPage "/application/transportx-agent" }}{{ with .Resources.GetMatch "product-event-traffic.png" }}{{ $image := .Resize "2000x webp q88" }}<img class="cover-background" src="{{ $image.RelPermalink }}" alt="" aria-hidden="true" fetchpriority="high">{{ end }}{{ end }}
+  <div class="cover-shade" aria-hidden="true"></div>
+  <header class="cover-top"><a class="cover-brand" href="{{ "home/" | relLangURL }}" aria-label="TransportX">{{ with resources.Get "media/transportx-logo.png" }}<img class="cover-logo" src="{{ .RelPermalink }}" width="798" height="175" alt="TransportX">{{ end }}</a><nav aria-label="{{ if eq .Lang "zh" }}语言{{ else }}Language{{ end }}">{{ range .AllTranslations }}<a href="{{ .RelPermalink }}" lang="{{ .Lang }}"{{ if eq .Lang $.Lang }} aria-current="page"{{ end }}>{{ if eq .Lang "zh" }}中文{{ else }}EN{{ end }}</a>{{ end }}</nav></header>
+  <main class="cover-main"><p class="cover-eyebrow">INTELLIGENT TRANSPORTATION</p><h1>Transport<span>X</span></h1><p class="cover-description">{{ if eq .Lang "zh" }}智能交通科研 · 教学 · 实践{{ else }}Research · Teaching · Practice{{ end }}</p><a class="cover-enter" href="{{ "home/" | relLangURL }}"><span>{{ if eq .Lang "zh" }}进入首页{{ else }}Enter the website{{ end }}</span><span class="cover-arrow" aria-hidden="true">↗</span></a></main>
+  <footer class="cover-footer"><span>© {{ now.Year }} TransportX</span></footer>
+</body>
+</html>

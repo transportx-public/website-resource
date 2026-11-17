@@ -1,0 +1,84 @@
+zh:
+  tagline: 交通科学 × 数据智能
+  headline: 理解城市出行，支撑交通决策。
+  lead: 面向真实交通问题，连接出行行为、城市数据与人工智能，探索从研究方法到实际应用的路径。
+  selected: 最新论文
+  selected_note: 从最新工作中，了解我们正在研究的问题。
+  news: 课题组动态
+  meetings: 学术交流与组会
+  all_news: 全部动态
+  all_papers: 全部论文
+  all_events: 全部活动
+  more: 查看论文
+  people: 认识团队
+  contact: 联系与合作
+  papers_count: 论文条目
+  students_count: 在读研究生
+  alumni_count: 毕业成员
+  application: 应用产品
+  application_title: TransportX Agent
+  application_text: TransportX Agent 是一款开源交通分析工作台。用自然语言分析道路、公交、轨道与出行需求，在共享地图中查看结果，并生成图表和带引用的分析报告。
+  application_link: 查看产品详情
+  hero_caption: TransportX Agent · 活动交通分析界面
+  team_label: 我们的团队
+  team_title: 不同研究视角，共同理解交通。
+  team_text: 围绕交通科学、数据分析与人工智能开展研究，在持续的讨论、协作与实践中推进工作。
+  faculty: 导师介绍
+  phd: 博士研究生
+  masters: 硕士研究生
+  alumni: 毕业成员
+  other: 其他成员
+  research_interests: 研究兴趣
+  education: 教育背景
+  service: 学术服务
+  teaching: 开设课程
+  faculty_source: 学校官方介绍
+  scholar: Google Scholar
+  profile: 个人主页
+  email: 邮箱
+  faculty_work: 相关研究
+  empty_interests: 研究方向见个人主页
+  overview: 课题组
+  overview_lead: TransportX 聚焦智能交通领域的科研、教学与实践，推动数据驱动的出行与城市交通创新。
+en:
+  tagline: Transportation × Data Intelligence
+  headline: Understanding mobility. Informing decisions.
+  lead: Connecting travel behavior, urban data, and AI to address real transportation problems—from research methods to practical applications.
+  selected: Recent Publications
+  selected_note: A closer look at the questions behind our recent work.
+  news: Lab News
+  meetings: Seminars & Group Meetings
+  all_news: All news
+  all_papers: All publications
+  all_events: All events
+  more: View publications
+  people: Meet the team
+  contact: Contact & collaborate
+  papers_count: Publication records
+  students_count: Graduate students
+  alumni_count: Alumni
+  application: Products
+  application_title: TransportX Agent
+  application_text: TransportX Agent is an open-source transportation analysis workbench. Use natural language to analyze roads, transit, rail, and travel demand, explore results on a shared map, and generate charts and analytical reports with references.
+  application_link: View product details
+  hero_caption: TransportX Agent · Event traffic analysis interface
+  team_label: Our Team
+  team_title: Different perspectives. A shared interest in mobility.
+  team_text: Working across transportation science, data analysis, and AI through ongoing discussion, collaboration, and practice.
+  faculty: Faculty
+  phd: PhD Students
+  masters: Master’s Students
+  alumni: Alumni
+  other: Other Members
+  research_interests: Research Interests
+  education: Education
+  service: Academic Service
+  teaching: Teaching
+  faculty_source: University profile
+  scholar: Google Scholar
+  profile: Profile
+  email: Email
+  faculty_work: Related Research
+  empty_interests: Explore interests in the profile
+  overview: About TransportX
+  overview_lead: TransportX focuses on intelligent transportation research, teaching, and practice, advancing data-driven mobility and urban traffic innovation.

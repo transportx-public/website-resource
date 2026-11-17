@@ -1,0 +1,31 @@
+# Biography: Chinese supplied verbatim by the user on 2026-11-17; English translated from it.
+# Other profile metadata is retained from the verified official sources.
+jian-li:
+  source: https://umi.tongji.edu.cn/info/1061/1130.htm
+  corroborating_sources:
+  - https://tjjt.tongji.edu.cn/info/2901/9454.htm
+  - https://faculty.tongji.edu.cn/lijian/zh_CN/index/142977/list/index.htm
+  scholar: https://scholar.google.com/citations?user=SRcNF0AAAAAJ
+  zh:
+    role: 副教授 · 博士生导师
+    academic_degree: 副教授
+    affiliation: 同济大学交通学院 · 交通运输规划与管理系
+    bio: 李健，同济大学交通学院副教授、博士生导师。主要从事非常态交通管理与应急决策支持，城市交通规划与政策的研究与实践工作，近年来主要关注大模型和智能体技术在城市交通治理领域的落地应用。主持国家重点研发计划课题、国家自然科学基金、中德国际合作项目等课题，以第一或通讯作者发表学术论文50余篇，出版学术专著1部，授权发明专利11项、软著5项，编制团体标准1部；研究成果获得华夏建设科学技术一等奖、中国城市规划学会科技进步一等奖、自然资源科学技术二等奖、中国公路学会科技进步二等奖等奖项；指导学生获数字中国创新大赛大数据赛道一等奖、“城垣杯”规划决策支持模型设计大赛一等奖。
+    interests:
+    - 非常态交通管理与应急指挥
+    - 城市交通规划与政策
+    education_summary: 同济大学（本科、硕士） / 美国罗格斯大学（博士）
+    service_summary: 中国城市规划学会城市交通规划专业委员会副秘书长；《城市交通》编委。
+    teaching_summary: 本科生《运筹学》、研究生《运筹学 II》。
+  en:
+    role: Associate Professor · PhD Supervisor
+    academic_degree: Associate Professor
+    affiliation: Department of Transportation Planning and Management, Tongji University
+    bio: Jian Li is an Associate Professor and PhD supervisor at the School of Transportation, Tongji University. His research and practice focus on transportation management under non-routine conditions, emergency decision support, and urban transportation planning and policy. In recent years, he has focused on applying large language models and AI agents to urban transportation governance. He has led projects funded by the National Key R&D Program of China, the National Natural Science Foundation of China, and Sino-German international cooperation programs. As first or corresponding author, he has published over 50 academic papers. His outputs include one academic monograph, 11 granted invention patents, five software copyrights, and one group standard. His research has received first prizes in the Huaxia Construction Science and Technology Awards and the Urban Planning Society of China Science and Technology Progress Awards, and second prizes in the Natural Resources Science and Technology
+      Awards and the China Highway & Transportation Society Science and Technology Progress Awards. He has supervised students who won first prizes in the big data track of the Digital China Innovation Contest and the Chengyuan Cup Planning Decision Support Model Design Competition.
+    interests:
+    - Disruption and emergency transportation management
+    - Urban transportation planning and policy
+    education_summary: Tongji University (bachelor’s and master’s) / Rutgers University (PhD)
+    service_summary: Deputy Secretary-General, Urban Transportation Planning Committee of the Urban Planning Society of China; editorial board member, Urban Transport of China.
+    teaching_summary: Operations Research (undergraduate) and Operations Research II (graduate).

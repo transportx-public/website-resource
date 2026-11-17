@@ -1,0 +1,6 @@
+{{ $copy := index site.Data.academic .Lang }}
+{{ $publications := sort (where site.RegularPages "Section" "publication") "Date" "desc" }}
+<section id="publications" class="tx-v2-section" aria-labelledby="tx-papers-title">
+<header class="tx-v2-section-head"><div><span class="tx-v2-kicker">SELECTED WORK</span><h2 id="tx-papers-title">{{ $copy.selected }}</h2></div><a class="tx-text-link" href="{{ "publication/" | relLangURL }}">{{ $copy.all_papers }} ↗</a></header>
+<div class="tx-v2-paper-grid">{{ range first 5 $publications }}{{ $paper := . }}<article class="tx-v2-paper">{{ with .Resources.GetMatch "*featured*" }}{{ $image := .Resize "1000x webp q88" }}<a class="tx-v2-paper-image" href="{{ $paper.RelPermalink }}"><img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $paper.Title }}" loading="lazy"></a>{{ end }}<div class="tx-v2-paper-body"><p class="tx-v2-paper-meta"><span>{{ .Params.publication_short | default .Params.publication | markdownify }}</span><time>{{ .Date.Format "2006" }}</time></p><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>{{ with .Params.summary }}<p>{{ . }}</p>{{ end }}<a class="tx-text-link" href="{{ .RelPermalink }}">{{ $copy.more }} ↗</a></div></article>{{ end }}</div>
+</section>

@@ -1,0 +1,81 @@
+{{ define "main" }}
+{{ $zh := eq .Lang "zh" }}
+{{ $copy := index site.Data.academic .Lang }}
+{{ $groups := dict "faculty" slice "phd" slice "masters" slice "alumni" slice "other" slice }}
+{{ range where site.Pages "Section" "authors" }}
+  {{ if .File }}
+    {{ $degree := lower (.Params.academic_degree | default "") }}
+    {{ $status := lower (.Params.academic_status | default "") }}
+    {{ $key := "other" }}
+    {{ if or (in (slice "professor" "faculty" "advisor" "教授" "教师") $degree) (in (.Params.user_groups | default slice) "Faculty") (in (.Params.user_groups | default slice) "教师") }}
+      {{ $key = "faculty" }}
+    {{ else if in (slice "graduate" "已毕业") $status }}
+      {{ $key = "alumni" }}
+    {{ else if in (slice "ph.d" "ph.d." "phd" "博士") $degree }}
+      {{ $key = "phd" }}
+    {{ else if in (slice "master" "master's" "硕士") $degree }}
+      {{ $key = "masters" }}
+    {{ end }}
+    {{ $groups = merge $groups (dict $key ((index $groups $key) | append .)) }}
+  {{ end }}
+{{ end }}
+<div class="tx-academic tx-people tx-v2 container">
+  <header class="tx-v2-page-hero tx-people-hero"><div><span class="tx-v2-kicker">THE PEOPLE BEHIND TRANSPORTX</span><h1>{{ if $zh }}团队成员{{ else }}Our People{{ end }}</h1></div><div class="tx-people-counts"><div><strong>{{ add (len (index $groups "phd")) (len (index $groups "masters")) }}</strong><span>{{ $copy.students_count }}</span></div><div><strong>{{ len (index $groups "alumni") }}</strong><span>{{ $copy.alumni_count }}</span></div></div></header>
+  <nav class="tx-group-nav" aria-label="{{ if $zh }}成员分组{{ else }}Member groups{{ end }}">
+    {{ range slice (dict "key" "faculty" "en" "Faculty" "zh" "教师") (dict "key" "phd" "en" "PhD Students" "zh" "博士研究生") (dict "key" "masters" "en" "Master’s Students" "zh" "硕士研究生") (dict "key" "alumni" "en" "Alumni" "zh" "毕业成员") (dict "key" "other" "en" "Other Members" "zh" "其他成员") }}
+      {{ if index $groups .key }}<a href="#{{ .key }}">{{ if $zh }}{{ .zh }}{{ else }}{{ .en }}{{ end }}</a>{{ end }}
+    {{ end }}
+  </nav>
+  {{ range slice (dict "key" "faculty" "en" "Faculty" "zh" "教师") (dict "key" "phd" "en" "PhD Students" "zh" "博士研究生") (dict "key" "masters" "en" "Master’s Students" "zh" "硕士研究生") (dict "key" "alumni" "en" "Alumni" "zh" "毕业成员") (dict "key" "other" "en" "Other Members" "zh" "其他成员") }}
+    {{ $key := .key }}
+    {{ $members := index $groups $key }}
+    {{ if $members }}
+    <section class="tx-member-section" id="{{ $key }}">
+      <h2><span>{{ if $zh }}{{ if eq $key "faculty" }}{{ $copy.faculty }}{{ else }}{{ .zh }}{{ end }}{{ else }}{{ .en }}{{ end }}</span><span class="tx-group-count">{{ len $members }}</span></h2>
+      {{ if eq $key "faculty" }}
+        {{ range sort $members "Title" }}
+        {{ $person := partial "transportx/person-data.html" . }}
+        <article class="tx-faculty">
+          <div class="tx-faculty-identity">
+            {{ partial "transportx/person-photo.html" . }}
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            {{ if not $zh }}{{ with .Params.name_chinese }}<p class="tx-person-cn">{{ . }}</p>{{ end }}{{ end }}
+            {{ with $person.role }}<p>{{ . }}</p>{{ end }}
+            {{ with .Params.email }}<a class="tx-person-contact" href="mailto:{{ . }}">{{ . }}</a>{{ end }}
+            <div class="tx-faculty-links">{{ with $person.scholar_url }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $copy.scholar }} ↗</a>{{ end }}{{ with $person.verified_source }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $copy.faculty_source }} ↗</a>{{ end }}</div>
+          </div>
+          <div class="tx-faculty-bio">
+            <p class="tx-v2-kicker">FACULTY PROFILE</p><p class="tx-faculty-affiliation">{{ $person.affiliation | default "Tongji University · TransportX" }}</p>
+            {{ if $person.verified_source }}<p>{{ $person.bio }}</p>{{ else }}{{ if .Content }}{{ .Content }}{{ else }}{{ with $person.bio }}<p>{{ . | markdownify }}</p>{{ end }}{{ end }}{{ end }}
+            {{ with $person.approach }}<p>{{ . }}</p>{{ end }}
+            {{ with $person.interests }}<div class="tx-faculty-interests">{{ range . }}<span>{{ . }}</span>{{ end }}</div>{{ end }}
+            <dl class="tx-faculty-facts">{{ with $person.education_summary }}<div><dt>{{ $copy.education }}</dt><dd>{{ . }}</dd></div>{{ end }}{{ with $person.service_summary }}<div><dt>{{ $copy.service }}</dt><dd>{{ . }}</dd></div>{{ end }}{{ with $person.teaching_summary }}<div><dt>{{ $copy.teaching }}</dt><dd>{{ . }}</dd></div>{{ end }}</dl>
+            <a class="tx-text-link" href="{{ .RelPermalink }}">{{ $copy.profile }} →</a>
+          </div>
+        </article>
+        {{ end }}
+      {{ else if eq $key "alumni" }}
+        <ul class="tx-alumni-list">
+        {{ range sort $members "Params.enrollment_year" "desc" }}
+          <li>{{ partial "transportx/person-photo.html" . }}<div><a href="{{ .RelPermalink }}">{{ .Title }}</a><span>{{ .Params.academic_degree }}{{ with .Params.enrollment_year }} · {{ . }}{{ if $zh }}级{{ else }} entry{{ end }}{{ end }}</span>{{ with .Params.other_information }}<p>{{ . | markdownify }}</p>{{ end }}</div></li>
+        {{ end }}
+        </ul>
+      {{ else }}
+        <div class="tx-member-grid">
+        {{ range sort $members "Params.enrollment_year" "desc" }}
+          <article class="tx-person">
+            {{ partial "transportx/person-photo.html" . }}
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            {{ if not $zh }}{{ with .Params.name_chinese }}<p class="tx-person-cn">{{ . }}</p>{{ end }}{{ end }}
+            {{ with .Params.enrollment_year }}<p class="tx-person-year">{{ . }}{{ if $zh }}级{{ else }} entry{{ end }}</p>{{ end }}
+            <div class="tx-person-research"><span>{{ $copy.research_interests }}</span>{{ with .Params.interests }}<p class="tx-person-interests">{{ delimit . " · " }}</p>{{ else }}<p class="tx-person-interests">{{ $copy.empty_interests }}</p>{{ end }}</div>
+            <div class="tx-person-actions"><a href="{{ .RelPermalink }}">{{ $copy.profile }} ↗</a>{{ with .Params.email }}<a href="mailto:{{ . }}">{{ $copy.email }}</a>{{ end }}</div>
+          </article>
+        {{ end }}
+        </div>
+      {{ end }}
+    </section>
+    {{ end }}
+  {{ end }}
+</div>
+{{ end }}
