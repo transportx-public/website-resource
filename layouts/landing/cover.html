@@ -6,6 +6,8 @@
   <meta name="description" content="{{ site.Params.description }}">
   <title>TransportX · {{ if eq .Lang "zh" }}同济大学{{ else }}Tongji University{{ end }}</title>
   <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="icon" type="image/png" href="{{ (partial "blox-core/functions/get_icon" 32).RelPermalink }}">
+  <link rel="apple-touch-icon" href="{{ (partial "blox-core/functions/get_icon" 180).RelPermalink }}">
   {{ range .AllTranslations }}<link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">{{ end }}
   {{ $style := resources.Get "css/transportx-cover.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
